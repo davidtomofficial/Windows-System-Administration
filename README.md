@@ -1,52 +1,36 @@
-# Windows System-Administration
-This repository contains an assortment of lists and powershell commands to build a computer/IT related workstation on a
-Windows 10 device.
+# Windows System Administration
 
-These projects are intended to assist in learning and development of a functional IT based workstation on a Windows device and are intended to be legible for an individual with little to no knowledge of the intended requirements.
+A planned Windows workstation toolkit for preparing, assigning, maintaining, troubleshooting, and retiring devices. The foundation supports a workstation that can be deployed without Intune or Autopilot, with optional Active Directory, Microsoft Entra ID, Intune, and Autopilot integrations.
 
-Check the README.md files within each directory for more information.
+**Status: foundation draft — September 26, 2026.** This local staging copy contains documentation and a proposed structure. The launchpad, launchers, script catalog, and new scripts described here are planned, not implemented or validated. Existing GitHub scripts will be reviewed before migration.
 
-# Workstation
-  - Apps & Programs
-      - Company and group specific apps and programs
-  - System Hardening
-      - Company and group specific privacy and security settings
-  - Customizations
-      - Company, group, and individual specific themes and wallpaper
+## Start here
 
-## Getting Started
+| Audience | Start with | Purpose |
+| --- | --- | --- |
+| Field technician | [Task guides](Guides/README.md) | Find the procedure for an assigned job. |
+| Field technician | [Launchpad design](Launchpad/README.md) | Understand the proposed simple interface and task buttons. |
+| Deployment technician | [Current workstation baseline](Apps-Programs/workstation-environment.md) | Review the proposed Windows 11 25H2 environment. |
+| Assignment or asset-management staff | [Checklist outlines](Checklists/README.md) | See where existing assignment and return checklists will fit. |
+| Developer or maintainer | [Repository blueprint](Docs/Repository-Blueprint.md) | Review the complete proposed hierarchy and responsibilities. |
+| Developer or maintainer | [Script conventions](Scripts/README.md) | Keep scripts, wrappers, outputs, and validation consistent. |
+| Maintainer importing existing tools | [Migration map](Docs/Migration-Map.md) | Review the known repository content and screenshot inventory. |
 
-1. Install and update Windows onto the device.
-2. Set any appropriate permissions and build groups for employee access.
-3. Install and customize any security software for company and group use case.
-4. Modify firewall settings based on company and group policies.
-5. Download, verify, and install any company and group specific apps and programs.
-6. Backups and cloud storage solutions for groups and individuals.
-7. Scheduled workstation specific security maintenance.
+## Two ways into the same tools
 
-### Example installation
-1. Download the appropriate dependencies and software
-2. Install as needed
-3. Import any libraries/dependencies for your project (most projects will state this in the first few lines)
-4. Clone the files from the repository
-5. Upload the code to your device (laptop, Desktop, etc.).
-6. Contribute to further developments.
-7. Repeat as needed
+```text
+Field technician: assigned job → guide/checklist → launchpad button or BAT launcher → result
+Developer:       task definition → PowerShell implementation → verification → release
+```
 
-## Contributing
+The Python launchpad will provide a simple interface. BAT files will provide direct access to the same tasks. PowerShell will hold the actual device-management logic.
 
-Please read [CONTRIBUTING.md](https://github.com/davidTom1194/davidTom1194/blob/main/CONTRIBUTING.md) for details on our
-code of conduct, and the process for submitting pull requests to us.
+The workstation baseline defines the desired environment; validation reports whether a device meets the selected requirements. A baseline or successful tool run does not guarantee that a device is completely secure.
 
-## Authors
+## Staging and implementation
 
-* **David Tom** - *Initial Work* - [davidTom1194](https://github.com/davidTom1194)
-See also the list of [contributors](https://github.com/davidTom1194/davidTom1194/blob/main/contributors)
+Local GitHub staging root: `C:\Users\DavidTom\OneDrive - David Tom Solutions\Me\GitHub`.
 
-## License
+This folder is the design staging area for `Windows-System-Administration`. It is not yet a full checkout or release of the existing GitHub repository. New script names in the blueprint are proposed names; they must not be presented as working commands until implemented and tested.
 
-This project is licensed under the GNU General Public License Version 3 - see the [LICENSE](https://github.com/davidTom1194/davidTom1194/blob/main/LICENSE) file for details
-
-## Acknowledgements
-
-* A big thanks to any and all contributors, no matter how big or small the contribution it all helps.
+See [CHANGELOG.md](CHANGELOG.md) for documentation changes and [the blueprint](Docs/Repository-Blueprint.md) for implementation phases.
