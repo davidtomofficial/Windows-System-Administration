@@ -1,4 +1,3 @@
-[README.md](https://github.com/user-attachments/files/32687278/README.md)
 # Device Checklists — Reserved Outlines
 
 **Status:** Structure only. Existing organizational checklists will be supplied and incorporated later. These outlines do not replace the current approved procedures.

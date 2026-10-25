@@ -1,22 +1,22 @@
 # Existing Material: Review and Migration Map
 
-**Status:** Inventory draft, September 26, 2026. Locations below are proposals. No existing scripts have been moved, refactored, executed, or validated by this planning pass.
+**Status:** Inventory draft from September 26, 2026, reconciled with Git history on October 24, 2026. Destinations below are proposals. Historical scripts have not been restored, refactored, executed, or validated by this review.
 
-The inventory uses the [current repository tree](https://github.com/davidtomofficial/Windows-System-Administration) and the user's screenshot. Screenshot filenames suggest review categories but do not establish what the scripts actually do. Review source content before choosing a final name or destination.
+The original inventory used the earlier repository tree and the user's screenshot. The `OTS` and `Intune Scripts` folders were subsequently deleted from `main` on September 26. See [source status and provenance](Source-Status.md) for the checked revision, removal commits, and immutable links to those historical sources. Screenshot filenames suggest review categories but do not establish what the scripts actually do or where their maintained versions now reside.
 
-## Current GitHub material
+## Repository material and current availability
 
-| Current location | Proposed destination or handling | Review needed |
+| Material | Current availability and proposed handling | Review needed |
 | --- | --- | --- |
-| Root `README.md` | Rewrite around the lifecycle and technician/developer entry points. | Update Windows 10 references and old account links. Check license and contribution links against actual repository files before replacing them. |
-| `Apps-Programs/workstation-environment` | Adopt the existing local Markdown rewrite; later move the full baseline to `Baselines/Workstation/Windows11-25H2.md`. | Replace the extensionless source deliberately and update links. Keep one authoritative baseline. |
-| `Intune Scripts/AutoPilot Enrollment/` | Split collection and registration behavior into `Scripts/Management/Autopilot/`; put usage in `Guides/`. | Determine whether current code exports locally, uploads to a tenant, or performs other changes. Separate outcome reporting. |
-| `Intune Scripts/Sync Work or School Account/` | Reviewed implementation under `Scripts/Management/Intune/` or the appropriate identity integration. | Identify the actual sync mechanism and enrollment prerequisites; do not assume that every work/school account is Intune-managed. |
-| `OTS/Post Checks/postChecks.ps1` | Source for `Scripts/Validation/` and `Scripts/Maintenance/` after content review. | Split read-only checks from updates, repairs, and other changes according to actual behavior. Preserve useful functionality. |
-| `OTS/Post Checks/postChecks.xlsx` | Evaluate as source material for `Checklists/` or a maintained reference attachment. | Inspect formulas, data, external connections, and suitability for public storage; wait for the user's current checklists before standardizing. |
-| `OTS/Post Checks/Demo Images/` | Keep useful, sanitized screenshots with the related guide. | Confirm screenshots match the final tool and contain no private device/user information. |
-| `OTS/QOS/bulkLogin.ps1` | Provisional `Scripts/Remote-Actions/`. | Compare with the similarly named screenshot file; check actual purpose, credential handling, scope, and dependencies. |
-| `System-Hardening/inbound-firewall-settings.txt` and `outbound-firewall-settings.txt` | Retain under `System-Hardening/` pending classification. | Decide whether each is policy documentation, a reference export, or consumable configuration. Do not treat it as an approved policy solely because it exists. |
+| Root [README.md](../README.md) | Present; lifecycle and maintainer entry points are documented. | Keep implementation status aligned with the actual source tree. |
+| [Apps-Programs/workstation-environment.md](../Apps-Programs/workstation-environment.md) | Present; the extensionless source was replaced. A later move to `Baselines/Workstation/Windows11-25H2.md` remains proposed. | Keep one authoritative draft and update links if it moves. |
+| `Intune Scripts/AutoPilot Enrollment/` | Historical only. Proposed destination: `Scripts/Management/Autopilot/`, with usage in `Guides/`. | Locate the maintained implementation; distinguish local export, tenant upload, registration, and other changes. |
+| `Intune Scripts/Sync Work or School Account/` | Historical only. Proposed destination: `Scripts/Management/Intune/` or the appropriate identity integration. | Identify the actual sync mechanism and enrollment prerequisites; do not assume every work/school account is Intune-managed. |
+| `OTS/Post Checks/postChecks.ps1` | Historical only. Candidate source for `Scripts/Validation/` and `Scripts/Maintenance/` after reconciliation. | Compare with the maintained source before selecting a version. Split read-only checks from updates, repairs, and other changes while preserving useful functionality. |
+| `OTS/Post Checks/postChecks.xlsx` | Historical only. Potential source for `Checklists/` or a maintained reference attachment. | Inspect formulas, data, external connections, and suitability for public storage; wait for the user's current checklists before standardizing. |
+| `OTS/Post Checks/Demo Images/` | Historical only. Retain useful, sanitized screenshots with the related guide if imported. | Confirm screenshots match the selected tool and contain no private device/user information. |
+| `OTS/QOS/bulkLogin.ps1` | Historical only. Provisional destination: `Scripts/Remote-Actions/`. | Compare with the similarly named screenshot file; check purpose, credential handling, scope, and dependencies. |
+| `System-Hardening/inbound-firewall-settings.txt` and `outbound-firewall-settings.txt` | Present; tab-separated reference exports, retained under `System-Hardening/`. | Establish provenance and applicability before using settings as policy input. These are not approved deployable configurations. |
 
 ## Screenshot inventory
 

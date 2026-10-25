@@ -152,10 +152,10 @@ Windows-System-Administration/
 │   ├── Config/                     # Planned sanitized deployment settings
 │   └── Acquisition/                # Planned vendor acquisition scripts
 ├── System-Hardening/               # Detailed security configuration
-└── Intune Scripts/                 # Management and deployment automation
+└── Scripts/Management/             # Planned management and deployment automation
 ```
 
-The proposed catalog and folders are a roadmap, not a claim that automation already exists. For each application, eventually record its identifier, owner, assignment, architecture, license requirement, approved source, update channel, detection method, and last validation date. For downloaded packages, also record the version, publisher signature, and SHA-256 hash.
+The proposed catalog and folders are a roadmap, not a claim that automation already exists. The former `Intune Scripts/` directory is available only in history; see [source status and provenance](../Docs/Source-Status.md). For each application, eventually record its identifier, owner, assignment, architecture, license requirement, approved source, update channel, detection method, and last validation date. For downloaded packages, also record the version, publisher signature, and SHA-256 hash.
 
 Prefer official vendor sources or approved internal package storage. Keep credentials, license keys, private certificates, tenant-sensitive configuration, and employee or departmental data out of the public repository. Include installers only when redistribution rights and repository suitability have been confirmed.
 

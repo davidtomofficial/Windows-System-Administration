@@ -1,4 +1,3 @@
-[README.md](https://github.com/user-attachments/files/32687188/README.md)
 # Technician Guides — Outline
 
 These are planned procedures, not completed operating instructions. Each guide will identify the job, prerequisites, approved tool/button, expected result, restart implications, and when to escalate. The same task should be usable through the GUI or its documented BAT launcher.

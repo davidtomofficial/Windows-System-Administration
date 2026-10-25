@@ -1,4 +1,3 @@
-[README.md](https://github.com/user-attachments/files/32687179/README.md)
 # Technician Launchpad — Design Outline
 
 **Status:** Planned. No GUI, BAT launchers, or task catalog has been implemented by this foundation draft.
