@@ -2,7 +2,7 @@
 
 A planned Windows workstation toolkit for preparing, assigning, maintaining, troubleshooting, and retiring devices. The foundation supports a workstation that can be deployed without Intune or Autopilot, with optional Active Directory, Microsoft Entra ID, Intune, and Autopilot integrations.
 
-**Status: foundation draft — September 26, 2026.** This local staging copy contains documentation and a proposed structure. The launchpad, launchers, script catalog, and new scripts described here are planned, not implemented or validated. Existing GitHub scripts will be reviewed before migration.
+**Status: foundation draft — source inventory reviewed October 24, 2026.** This repository contains documentation, a proposed structure, and firewall reference exports. The launchpad, launchers, application catalog, and PowerShell tools described here are planned, not implemented or validated on the current branch. The previous `OTS` and `Intune Scripts` folders are available in Git history; see the [source status and provenance](Docs/Source-Status.md) before importing them.
 
 ## Start here
 
@@ -15,6 +15,7 @@ A planned Windows workstation toolkit for preparing, assigning, maintaining, tro
 | Developer or maintainer | [Repository blueprint](Docs/Repository-Blueprint.md) | Review the complete proposed hierarchy and responsibilities. |
 | Developer or maintainer | [Script conventions](Scripts/README.md) | Keep scripts, wrappers, outputs, and validation consistent. |
 | Maintainer importing existing tools | [Migration map](Docs/Migration-Map.md) | Review the known repository content and screenshot inventory. |
+| Maintainer locating existing code | [Source status and provenance](Docs/Source-Status.md) | Distinguish current files, historical scripts, and source still to be reconciled. |
 
 ## Two ways into the same tools
 
@@ -27,10 +28,10 @@ The Python launchpad will provide a simple interface. BAT files will provide dir
 
 The workstation baseline defines the desired environment; validation reports whether a device meets the selected requirements. A baseline or successful tool run does not guarantee that a device is completely secure.
 
-## Staging and implementation
+## Source and implementation status
 
-Local GitHub staging root: `C:\Users\DavidTom\OneDrive - David Tom Solutions\Me\GitHub`.
+The foundation documents were originally prepared in a local staging area and are now committed here. The repository does not currently include an executable DeviceCare implementation. Historical scripts must be compared with the maintained source before choosing a canonical version or restoring files.
 
-This folder is the design staging area for `Windows-System-Administration`. It is not yet a full checkout or release of the existing GitHub repository. New script names in the blueprint are proposed names; they must not be presented as working commands until implemented and tested.
+New script names in the blueprint are proposed names; they must not be presented as working commands until implemented and tested. Private configuration, runtime reports, and package payloads are covered by [.gitignore](.gitignore); sanitized examples and documentation remain trackable. Ignore rules do not remove files already committed.
 
 See [CHANGELOG.md](CHANGELOG.md) for documentation changes and [the blueprint](Docs/Repository-Blueprint.md) for implementation phases.

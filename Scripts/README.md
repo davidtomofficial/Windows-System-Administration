@@ -1,6 +1,6 @@
 # Scripts — Developer Foundation
 
-**Status:** Conventions and planned categories. This staging draft does not contain new executable scripts.
+**Status:** Conventions and planned categories. This directory does not currently contain executable scripts. Previous implementations are identified in the [source status and provenance](../Docs/Source-Status.md); their presence in history does not establish that they are the maintained versions.
 
 ## Organization
 

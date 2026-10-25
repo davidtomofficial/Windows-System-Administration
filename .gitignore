@@ -1,0 +1,17 @@
+# Private environment values; sanitized *.example.json files remain trackable.
+/Config/environment.json
+/Config/naming.json
+/Config/printers.json
+/Config/computer-groups.json
+*.local.json
+/Private/
+
+# Local runtime evidence may contain device, user, or tenant information.
+/Logs/
+/Reports/
+/Exports/
+/Intune/
+
+# Keep the package policy, but do not commit local installer payloads.
+/Apps-Programs/Packages/*
+!/Apps-Programs/Packages/README.md

@@ -3,7 +3,7 @@
 **Status:** Proposed architecture, version 0.1  
 **Date:** September 26, 2026  
 **Repository:** `davidtomofficial/Windows-System-Administration`  
-**Local staging:** `C:\Users\DavidTom\OneDrive - David Tom Solutions\Me\GitHub\Windows-System-Administration`
+**Original design staging path:** `C:\Users\DavidTom\OneDrive - David Tom Solutions\Me\GitHub\Windows-System-Administration`
 
 ## 1. Organizing principle
 
@@ -17,7 +17,7 @@ One implementation should serve the GUI, a directly launched BAT file, and an ad
 
 ## 2. Proposed destination tree
 
-This is the **target hierarchy**, not an inventory of implemented files. The current staging pass creates documentation only. Executable names, JSON catalogs, numbered guides, and test files below are planned. Empty folders do not need to be added until their first maintained file exists.
+This is the **target hierarchy**, not an inventory of implemented files. The foundation contains documentation and source-control exclusions; executable names, JSON catalogs, numbered guides, and test files below are planned. See [source status and provenance](Source-Status.md) for the checked repository state. Empty folders do not need to be added until their first maintained file exists.
 
 ```text
 Windows-System-Administration/
