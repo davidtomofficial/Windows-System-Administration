@@ -29,8 +29,6 @@ The workstation baseline defines the desired environment; validation reports whe
 
 ## Staging and implementation
 
-Local GitHub staging root: `C:\Users\DavidTom\OneDrive - David Tom Solutions\Me\GitHub`.
-
-This folder is the design staging area for `Windows-System-Administration`. It is not yet a full checkout or release of the existing GitHub repository. New script names in the blueprint are proposed names; they must not be presented as working commands until implemented and tested.
+This repository is an early design and documentation staging area, not a completed or validated software release. New script names in the blueprint are proposed names; they must not be presented as working commands until implemented and tested.
 
 See [CHANGELOG.md](CHANGELOG.md) for documentation changes and [the blueprint](Docs/Repository-Blueprint.md) for implementation phases.
