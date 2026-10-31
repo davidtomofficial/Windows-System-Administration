@@ -28,7 +28,8 @@ function Get-WsaComputerInventory {
     .SYNOPSIS
     Collects a local, read-only Windows hardware and operating-system snapshot.
     .DESCRIPTION
-    Queries three local CIM classes. Does not contact a remote target, install
+    Queries OS and computer-system CIM classes locally. BIOS is queried only
+    with -IncludeIdentifiers. Does not contact a remote target, install
     software, change policy, collect recovery keys, or write a report file.
     Throws without returning a partial inventory if a required query fails.
     This is inventory, not a security, patch, licensing, or readiness verdict.
@@ -63,14 +64,20 @@ function Get-WsaComputerInventory {
     }
     $osRows = @(Get-CimInstance -ClassName Win32_OperatingSystem @query)
     $systemRows = @(Get-CimInstance -ClassName Win32_ComputerSystem @query)
-    $biosRows = @(Get-CimInstance -ClassName Win32_BIOS @query)
-    if ($osRows.Count -ne 1 -or $systemRows.Count -ne 1 -or $biosRows.Count -ne 1) {
-        throw 'Expected exactly one instance from each local inventory class; no inventory was returned.'
+    if ($osRows.Count -ne 1 -or $systemRows.Count -ne 1) {
+        throw 'Expected exactly one instance from each required local inventory class; no inventory was returned.'
     }
 
     $os = $osRows[0]
     $system = $systemRows[0]
-    $bios = $biosRows[0]
+    $bios = $null
+    if ($IncludeIdentifiers) {
+        $biosRows = @(Get-CimInstance -ClassName Win32_BIOS @query)
+        if ($biosRows.Count -ne 1) {
+            throw 'Expected exactly one Win32_BIOS instance for -IncludeIdentifiers; no inventory was returned.'
+        }
+        $bios = $biosRows[0]
+    }
     foreach ($field in @('Caption', 'Version', 'BuildNumber')) {
         if ([string]::IsNullOrWhiteSpace([string](Get-WsaPropertyValue -InputObject $os -Name $field))) {
             throw "Required operating-system field '$field' is missing; no inventory was returned."
@@ -157,7 +164,7 @@ function Resolve-WsaComputerGroup {
         [string[]]$ComputerName,
 
         [Parameter(Mandatory, ParameterSetName = 'Range')]
-        [ValidatePattern('^[A-Za-z][A-Za-z0-9-]{0,13}$')]
+        [ValidatePattern('^[A-Za-z][A-Za-z0-9-]{0,13}\z')]
         [string]$Prefix,
 
         [Parameter(Mandatory, ParameterSetName = 'Range')]
@@ -196,7 +203,7 @@ function Resolve-WsaComputerGroup {
     foreach ($candidate in $candidates) {
         if ([string]::IsNullOrWhiteSpace($candidate) -or
             $candidate.Length -gt 15 -or
-            $candidate -cnotmatch '^[A-Za-z0-9](?:[A-Za-z0-9-]*[A-Za-z0-9])?$' -or
+            $candidate -cnotmatch '^[A-Za-z0-9](?:[A-Za-z0-9-]*[A-Za-z0-9])?\z' -or
             $candidate -cnotmatch '[A-Za-z]') {
             throw 'Invalid computer name. Use 1-15 ASCII letters/digits and internal hyphens, including at least one letter.'
         }

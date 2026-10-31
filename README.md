@@ -8,7 +8,7 @@ A generic Windows administration portfolio, starting with **read-only local inve
 
 | Component | Implemented behavior | Boundary |
 | --- | --- | --- |
-| [WindowsSysAdmin module](Modules/WindowsSysAdmin/WindowsSysAdmin.psd1) | Get-WsaComputerInventory collects local OS, hardware, boot, and domain-membership information. | Windows-only CIM queries; no updates, enrollment, repairs, or automatic report files. Direct identifiers are omitted unless requested. |
+| [WindowsSysAdmin module](Modules/WindowsSysAdmin/WindowsSysAdmin.psd1) | Get-WsaComputerInventory collects local OS, hardware, boot, and domain-membership information. | Windows-only CIM queries; no updates, enrollment, repairs, or automatic report files. Direct identifiers are omitted by default; the BIOS query runs only if identifiers are requested. |
 | Same module | Resolve-WsaComputerGroup validates explicit short names or expands a bounded range. | Offline name selection only; no DNS/AD discovery, remote sessions, RDP, restarts, or fleet changes. |
 | [Pester tests](Tests/PowerShell/WindowsSysAdmin.Tests.ps1) | Synthetic-data tests for privacy defaults, error handling, target limits, and invalid inputs. | Mocked CIM calls do not establish real-device compatibility. |
 | [PowerShell CI](.github/workflows/powershell-ci.yml) | Syntax checks, PSScriptAnalyzer, Pester, and opt-in local CIM smoke tests on Windows runner jobs for powershell and pwsh. | Hosted Windows Server runner evidence is not Windows 11 hardware or enterprise lab validation. |

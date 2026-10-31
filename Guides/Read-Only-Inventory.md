@@ -6,7 +6,7 @@
 
 Use an authorized local Windows machine and a reviewed checkout. Intended runtimes are Windows PowerShell 5.1 and PowerShell 7.4+ on Windows. The module requires the built-in Get-CimInstance cmdlet for inventory; it never installs missing prerequisites or changes execution policy. Local WMI/CIM permissions are required. Start without elevation; an access failure should be investigated with the system owner rather than automatically elevating.
 
-Inventory requests exactly Win32_OperatingSystem, Win32_ComputerSystem, and Win32_BIOS in root/cimv2, locally. It does not request a remote session or computer name. It does not enumerate installed MSI products, retrieve recovery keys, contact a tenant, update software, change firewall rules, write files, or restart anything. Microsoft's [Get-CimInstance documentation](https://learn.microsoft.com/en-us/powershell/module/cimcmdlets/get-ciminstance) describes its local behavior when no remote target/session is supplied.
+By default, inventory requests only Win32_OperatingSystem and Win32_ComputerSystem in root/cimv2, locally. Supplying -IncludeIdentifiers adds a Win32_BIOS query to retrieve the serial number. It does not request a remote session or computer name. It does not enumerate installed MSI products, retrieve recovery keys, contact a tenant, update software, change firewall rules, write files, or restart anything. Microsoft's [Get-CimInstance documentation](https://learn.microsoft.com/en-us/powershell/module/cimcmdlets/get-ciminstance) describes its local behavior when no remote target/session is supplied.
 
 ## Collect and inspect
 
