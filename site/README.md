@@ -39,7 +39,7 @@ The new PR-only workflow runs checks without deploying. It does not modify Power
 - Inspect browser console/network: no external network requests, PowerShell, remote device access, telemetry or cookies.
 - Run automated accessibility tools and a screen-reader smoke test; record versions, results, exceptions. **WCAG 2.2 AA conformance is not certified by these static checks.**
 - Review links, claims, historical exports, privacy and source provenance under issues #4, #5, #7 and #10.
-- GitHub Pages remains disabled: no deployment workflow, CNAME, DNS edits or release. Document deployment/rollback separately after approval.
+- This PR does not activate or deploy GitHub Pages: no deployment workflow, CNAME, DNS edits or release. Document deployment/rollback separately after approval.
 
 ## Updating content
 
