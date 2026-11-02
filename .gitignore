@@ -15,3 +15,7 @@
 # Keep the package policy, but do not commit local installer payloads.
 /Apps-Programs/Packages/*
 !/Apps-Programs/Packages/README.md
+
+# Generated development reports and local build dependencies.
+/TestResults/
+/.build/

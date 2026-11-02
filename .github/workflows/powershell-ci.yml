@@ -1,0 +1,61 @@
+name: PowerShell CI
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+      - 'feat/sysadmin-portfolio-foundation'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: powershell-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  tests:
+    name: PowerShell tests (${{ matrix.shell }})
+    runs-on: windows-2022
+    timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      matrix:
+        shell: [powershell, pwsh]
+    defaults:
+      run:
+        shell: ${{ matrix.shell }}
+    steps:
+      - name: Check out source
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          persist-credentials: false
+      - name: Install pinned quality tools on the disposable runner
+        run: |
+          $ErrorActionPreference = 'Stop'
+          [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+          if ($PSVersionTable.PSVersion.Major -eq 5) {
+            Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Scope CurrentUser -Force | Out-Null
+          }
+          Set-PSRepository -Name PSGallery -InstallationPolicy Trusted
+          $versions = Import-PowerShellDataFile ./Tools/TestDependencies.psd1
+          foreach ($name in $versions.Keys) {
+            Install-Module -Name $name -RequiredVersion $versions[$name] -Repository PSGallery -Scope CurrentUser -Force -AllowClobber
+          }
+          $PSVersionTable | Format-Table
+      - name: Parse, analyze, unit-test and smoke-test local CIM
+        run: ./Tools/Test-Repository.ps1 -IncludeRunnerSmoke
+
+  quality:
+    name: PowerShell quality
+    if: ${{ always() }}
+    needs: tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - name: Require both Windows runtimes to pass
+        env:
+          TEST_RESULT: ${{ needs.tests.result }}
+        run: test "$TEST_RESULT" = "success"
