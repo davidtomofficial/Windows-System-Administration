@@ -50,7 +50,7 @@ The validation command does not download software or change execution policy. It
 | Maintainer reviewing legacy material | [Migration map](Docs/Migration-Map.md), [historical source inventory](Docs/Source-Status.md), and [provenance boundary](Docs/Provenance.md) |
 | Reviewer assessing evidence | [Lab-validation requirements](Docs/Lab-Validation.md) and the PR's actual test logs |
 
-The historical source inventory describes the pre-implementation snapshot. The removed OTS and Intune Scripts collections have not been restored or copied into this module. **DTS/DTP software, packages, integrations, and private deployment configuration are excluded.** This module is independent portfolio work, not a replacement for or import of those products.
+The historical source inventory describes the pre-implementation snapshot. The removed OTS and Intune Scripts collections have not been restored or copied into this module. **Proprietary business software, packages, integrations, and private deployment configuration are excluded.** This module is independent portfolio work, not a replacement for or import of those products.
 
 The two existing firewall exports remain historical, environment-specific references, not approved policies. They may contain identifying data; see [network reference cautions](System-Hardening/Policies/Network/README.md). Do not infer that the repository's entire Git history has been sanitized or that secret scanning is enabled.
 

@@ -8,7 +8,7 @@
 - Added synthetic Pester tests, optional local Windows runner smoke tests, syntax/static analysis, pinned development dependencies, and a two-runtime CI workflow.
 - Added an operator guide, contribution/security policies, provenance boundary, explicit lab-validation requirements, and a prioritized implementation plan.
 - Documented the existing firewall references' privacy and data-quality limitations without modifying their rule contents.
-- Kept historical source, license decisions, main-branch governance, releases, and production actions separate. No DTS/DTP software was imported.
+- Kept historical source, license decisions, main-branch governance, releases, and production actions separate. No proprietary business software was imported.
 
 Implementation and authored tests are not a claim that CI or representative lab testing has passed. Consult the actual commit's workflow and validation evidence.
 

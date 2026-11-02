@@ -23,7 +23,7 @@ This is implementation evidence for PowerShell object handling, parameter valida
 | P2 | Small DSC/Ansible lab | Pin the chosen tool generation; synthetic inventory; external secrets; plan/check mode and lab evidence |
 | P3 | Technician GUI / catalog | Only after task implementations, wrappers, guides, and failure handling are mature |
 
-No DTS/DTP software, packages, integrations, or private configuration are included in any current milestone. No remote actions, enrollment, updates, hardening changes, removal, or production deployment are authorized by this plan.
+No proprietary business software, packages, integrations, or private configuration are included in any current milestone. No remote actions, enrollment, updates, hardening changes, removal, or production deployment are authorized by this plan.
 
 ## Resume evidence
 

@@ -4,7 +4,7 @@
 
 The initial Modules/WindowsSysAdmin/ implementation, its tests, validation script, workflow, and operator guide are newly authored, generic portfolio work following the Windows System Administrator GitHub Audit and Upgrade Plan. They do not restore or copy the deleted OTS or Intune Scripts implementations. Their behavior is limited to local CIM inventory and offline target-name validation. Fixtures use invented LAB-*, example.test, and synthetic hardware data.
 
-DTS/DTP software, source, packages, integrations, and private deployment configuration are excluded. This module is not presented as one of those products or as a refactor of their maintained source.
+Proprietary business software, source, packages, integrations, and private deployment configuration are excluded. This module is not presented as one of those products or as a refactor of their maintained source.
 
 ## Historical material
 
