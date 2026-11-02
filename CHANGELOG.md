@@ -3,6 +3,8 @@
 ## Unreleased - read-only PowerShell portfolio preview
 
 - Added the independent WindowsSysAdmin 0.1.0-preview1 module: local CIM inventory with opt-in direct identifiers, and bounded offline computer-name selection.
+- Refined the preview to skip BIOS collection unless identifiers are requested, retaining terminating errors for required/opt-in queries.
+- Tightened computer-name and prefix regex anchoring to reject trailing line feeds; added regression tests for both changes.
 - Added synthetic Pester tests, optional local Windows runner smoke tests, syntax/static analysis, pinned development dependencies, and a two-runtime CI workflow.
 - Added an operator guide, contribution/security policies, provenance boundary, explicit lab-validation requirements, and a prioritized implementation plan.
 - Documented the existing firewall references' privacy and data-quality limitations without modifying their rule contents.

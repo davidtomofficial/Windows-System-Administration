@@ -76,6 +76,10 @@ Describe 'Resolve-WsaComputerGroup' -Tag Unit {
         { Resolve-WsaComputerGroup -Prefix 'LAB.*' -Start 1 -End 2 } | Should -Throw
         { Resolve-WsaComputerGroup -Prefix '-LAB' -Start 1 -End 2 } | Should -Throw
     }
+    It 'rejects a trailing newline in an explicit name or range prefix' {
+        { Resolve-WsaComputerGroup -ComputerName @("LAB-01`n") } | Should -Throw
+        { Resolve-WsaComputerGroup -Prefix "LAB-`n" -Start 1 -End 2 } | Should -Throw
+    }
     It 'rejects out-of-range numeric arguments' {
         { Resolve-WsaComputerGroup -Prefix 'LAB-' -Start -1 -End 1 } | Should -Throw
         { Resolve-WsaComputerGroup -Prefix 'LAB-' -Start 1 -End 10000 } | Should -Throw
@@ -160,16 +164,39 @@ Describe 'Get-WsaComputerInventory with synthetic CIM data' -Tag Unit {
         $inventory.SerialNumber | Should -Be 'SYNTHETIC-SERIAL'
         $inventory.Domain | Should -Be 'example.test'
     }
-    It 'uses exactly three local read-only queries with terminating errors and the requested timeout' {
+    It 'avoids the BIOS provider when identifiers are omitted' {
+        Mock Get-CimInstance -ModuleName WindowsSysAdmin { throw 'Synthetic BIOS access denied' } -ParameterFilter {
+            $ClassName -eq 'Win32_BIOS'
+        }
+        $inventory = Get-WsaComputerInventory
+        $inventory.SerialNumber | Should -BeNullOrEmpty
+        Should -Invoke Get-CimInstance -ModuleName WindowsSysAdmin -Times 0 -Exactly -ParameterFilter {
+            $ClassName -eq 'Win32_BIOS'
+        }
+    }
+    It 'uses exactly two local read-only queries by default with the requested timeout' {
         $null = Get-WsaComputerInventory -OperationTimeoutSec 45
+        Should -Invoke Get-CimInstance -ModuleName WindowsSysAdmin -Times 2 -Exactly -ParameterFilter {
+            $Namespace -eq 'root/cimv2' -and $OperationTimeoutSec -eq 45 -and
+            $ErrorAction -eq 'Stop' -and -not $ComputerName -and -not $CimSession
+        }
+        foreach ($class in @('Win32_OperatingSystem', 'Win32_ComputerSystem')) {
+            Should -Invoke Get-CimInstance -ModuleName WindowsSysAdmin -Times 1 -Exactly -ParameterFilter {
+                $ClassName -eq $class
+            }
+        }
+        Should -Invoke Get-CimInstance -ModuleName WindowsSysAdmin -Times 0 -Exactly -ParameterFilter {
+            $ClassName -eq 'Win32_BIOS'
+        }
+    }
+    It 'queries BIOS with the same local, terminating contract only when opted in' {
+        $null = Get-WsaComputerInventory -IncludeIdentifiers -OperationTimeoutSec 45
         Should -Invoke Get-CimInstance -ModuleName WindowsSysAdmin -Times 3 -Exactly -ParameterFilter {
             $Namespace -eq 'root/cimv2' -and $OperationTimeoutSec -eq 45 -and
             $ErrorAction -eq 'Stop' -and -not $ComputerName -and -not $CimSession
         }
-        foreach ($class in @('Win32_OperatingSystem', 'Win32_ComputerSystem', 'Win32_BIOS')) {
-            Should -Invoke Get-CimInstance -ModuleName WindowsSysAdmin -Times 1 -Exactly -ParameterFilter {
-                $ClassName -eq $class
-            }
+        Should -Invoke Get-CimInstance -ModuleName WindowsSysAdmin -Times 1 -Exactly -ParameterFilter {
+            $ClassName -eq 'Win32_BIOS'
         }
     }
     It 'rejects unsupported hosts before querying CIM' {
@@ -189,19 +216,31 @@ Describe 'Get-WsaComputerInventory with synthetic CIM data' -Tag Unit {
             $ClassName -eq 'Win32_BIOS'
         }
         $captured = [System.Collections.Generic.List[object]]::new()
-        { Get-WsaComputerInventory | ForEach-Object { $captured.Add($_) } } |
+        { Get-WsaComputerInventory -IncludeIdentifiers | ForEach-Object { $captured.Add($_) } } |
             Should -Throw '*Synthetic access denied*'
         $captured.Count | Should -Be 0
     }
     It 'rejects zero rows from a required class' {
-        Mock Get-CimInstance -ModuleName WindowsSysAdmin { } -ParameterFilter { $ClassName -eq 'Win32_BIOS' }
+        Mock Get-CimInstance -ModuleName WindowsSysAdmin { } -ParameterFilter {
+            $ClassName -eq 'Win32_OperatingSystem'
+        }
         { Get-WsaComputerInventory } | Should -Throw '*exactly one*'
     }
     It 'rejects multiple rows from a required class' {
         Mock Get-CimInstance -ModuleName WindowsSysAdmin {
+            [pscustomobject]@{ Name = 'LAB-01' }; [pscustomobject]@{ Name = 'LAB-02' }
+        } -ParameterFilter { $ClassName -eq 'Win32_ComputerSystem' }
+        { Get-WsaComputerInventory } | Should -Throw '*exactly one*'
+    }
+    It 'rejects zero BIOS rows only when identifiers were requested' {
+        Mock Get-CimInstance -ModuleName WindowsSysAdmin { } -ParameterFilter { $ClassName -eq 'Win32_BIOS' }
+        { Get-WsaComputerInventory -IncludeIdentifiers } | Should -Throw '*exactly one*'
+    }
+    It 'rejects multiple BIOS rows only when identifiers were requested' {
+        Mock Get-CimInstance -ModuleName WindowsSysAdmin {
             [pscustomobject]@{ SerialNumber = 'A' }; [pscustomobject]@{ SerialNumber = 'B' }
         } -ParameterFilter { $ClassName -eq 'Win32_BIOS' }
-        { Get-WsaComputerInventory } | Should -Throw '*exactly one*'
+        { Get-WsaComputerInventory -IncludeIdentifiers } | Should -Throw '*exactly one*'
     }
     It 'rejects missing required OS fields rather than returning a misleading result' {
         Mock Get-CimInstance -ModuleName WindowsSysAdmin {

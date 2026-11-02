@@ -30,7 +30,7 @@ Use authorized Windows 11 Pro/Enterprise x64 lab devices. Record edition/build, 
 | --- | --- | --- |
 | Import on Windows PowerShell 5.1 and PowerShell 7.4+ | Exactly two public commands; no prompts/downloads/policy changes | Lab pending |
 | Standard-user local inventory | Data returned if permitted; otherwise a clear terminating error without automatic elevation | Lab pending |
-| Inventory without identifiers | Name, serial, and domain null; no file, upload, restart, or setting changes | Lab pending |
+| Inventory without identifiers | Name, serial, and domain null; no BIOS query, file, upload, restart, or setting changes | Lab pending; synthetic tests exist |
 | Explicit identifier request | Selected identifiers returned; operator handles output privately | Lab pending |
 | Query denied/unavailable | No partial-success inventory; original failure remains visible | Lab pending; synthetic negative tests exist |
 | Missing optional data | Null fields, not invented false/zero values | Lab pending; synthetic tests exist |
