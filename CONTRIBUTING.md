@@ -4,7 +4,7 @@ Use a feature branch and a draft pull request. Keep a change small enough to rev
 
 ## Scope and provenance
 
-Keep examples generic and fixtures synthetic. No DTS/DTP software, installers, integrations, employer-specific source, real device/user records, tenant configuration, recovery keys, credentials, or signing keys. Review [Provenance.md](Docs/Provenance.md) before importing any historical code. Licensing is unresolved; do not assume that a public repository grants redistribution rights.
+Keep examples generic and fixtures synthetic. No proprietary business software, installers, integrations, employer-specific source, real device/user records, tenant configuration, recovery keys, credentials, or signing keys. Review [Provenance.md](Docs/Provenance.md) before importing any historical code. Licensing is unresolved; do not assume that a public repository grants redistribution rights.
 
 Read-only operations must not repair, enroll, update, or restart as a side effect. Future change operations need explicit targets, prerequisite checks, SupportsShouldProcess where appropriate, documented failure/partial outcomes, and lab acceptance. Never use arbitrary command execution as configuration or solve signing/dependency failures by a blanket execution-policy bypass.
 

@@ -9,7 +9,7 @@ Describe the operation, target selection, privileges, data read/written, network
 - [ ] Mocked tests are distinguished from real-system validation.
 - [ ] Documentation and implementation status match the actual change.
 - [ ] Fixtures contain only synthetic data; no credentials or real device/user records are added.
-- [ ] No DTS/DTP software, packages, or private deployment configuration are added.
+- [ ] No proprietary business software, packages, or private deployment configuration are added.
 
 ## Lab validation and review
 
