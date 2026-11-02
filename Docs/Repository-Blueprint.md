@@ -3,7 +3,6 @@
 **Status:** Proposed architecture, version 0.1  
 **Date:** September 26, 2026  
 **Repository:** `davidtomofficial/Windows-System-Administration`  
-**Local staging:** `C:\Users\DavidTom\OneDrive - David Tom Solutions\Me\GitHub\Windows-System-Administration`
 
 ## 1. Organizing principle
 
