@@ -57,7 +57,7 @@ The issue descriptions hold detailed acceptance criteria. **Issue creation is no
 - [ ] **A02** Establish ownership/license decisions for current, historical and third-party content. Preserve original legal notices.
 - [ ] **A03** Review stacked [#1](https://github.com/davidtomofficial/Windows-System-Administration/pull/1) → [#2](https://github.com/davidtomofficial/Windows-System-Administration/pull/2) → [#3](https://github.com/davidtomofficial/Windows-System-Administration/pull/3) in order; do not claim merged code from `main` while drafts remain open.
 - [ ] **A04** Create a **claim/evidence register** per showcased feature: feature, source commit, test type, CI run, real lab state, privacy review, last verification.
-- [ ] **A05** Position the site as an *independent portfolio demonstration* of Windows endpoint administration, scripting and engineering — not as an employer system or a David Tom Solutions product.
+- [ ] **A05** Position the site as an *independent portfolio demonstration* of Windows endpoint administration, scripting and engineering — not as an employer system or a commercial product.
 - [ ] **A06** Define recruiter journey (<60 seconds to understand skills), technical journey (source and tests within two clicks) and operator journey (prerequisites/limitations within two clicks).
 - [ ] **A07** Select design tokens and assets consistent with the approved branding on davidtomofficial.com; confirm actual brand treatment before copying it.
 - [ ] **A08** Draft safe case-study narratives and synthetic example outputs; avoid unsupported fleet scale, time-savings, uptime or security claims.
@@ -116,7 +116,7 @@ The issue descriptions hold detailed acceptance criteria. **Issue creation is no
 - [ ] **E04** Add an evidence-led skill matrix (PowerShell, Windows, endpoint management, automation, security fundamentals, CI), with citations to work or credentials where appropriate.
 - [ ] **E05** Add search/filtering for projects **only after** multiple substantive case studies exist; avoid empty category pages.
 - [ ] **E06** Consider theme switch, short walkthrough clips, downloadable sanitized PDF case study and versioned release notes, if they measurably improve reviewer use.
-- [ ] **E07** Link related approved personal projects and portfolio content without copying David Tom Solutions / Publishing source into this repository.
+- [ ] **E07** Link related approved personal projects and portfolio content without copying proprietary business source into this repository.
 
 **Gate E:** Expansion pages have the same evidence, privacy and accessibility standards as the MVP.
 
