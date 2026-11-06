@@ -4,13 +4,17 @@
 
 Continue the user-authorized DTO-GH-001 repository review and reversible migration. Make current Windows work easy to inspect, apply the repository A+ evidence standard, preserve existing licenses and add the requested required periodic check-in capability only through a disclosed, tested implementation. Do real work in the current run; do not claim background completion.
 
-## Verified milestone before resuming
+## Current entry point
+
+Start from the latest `main` revision and work in an isolated task branch. DeviceCare and Imaging & Provisioning are integrated there. `integration/dto-repository-review-20261105` is the retained integration history, not a separate current source authority. As of the November 6 navigation refresh, pre-correction main checkpoint `e0ceff7ed5e3b79d1b864ec91f94c2d58d2730cd` passed [integration run 42151225226](https://github.com/davidtomofficial/Windows-System-Administration/actions/runs/42151225226). Read current Actions results for later commits instead of inheriting that pass.
+
+## Earlier verified milestone
 
 Main source `bc80d476327bcb072e57c38a4cb97c18220865b9` passed Windows Server integration CI run `42149193243`. Its 144,730-byte source/prework archive was independently read back from restricted SharePoint and matched the GitHub Actions artifact. Fifteen SharePoint tracker/guide readbacks matched intended bytes. This does **not** establish an installed product, actual usage tracking, a final A+ rating or an independent device restore. Refresh these facts and branch HEADs before any additional changes.
 
 ## Start from current authoritative sources
 
-Repository: davidtomofficial/Windows-System-Administration. Integration branch: integration/dto-repository-review-20261105. Refresh all branch heads and latest CI before editing; this branch may have progressed. Read README.md, LICENSE.md, Docs/REVIEWER-GUIDE.md, Docs/DTO-WINDOWS-ADMIN-TODO.md, Docs/REPOSITORY-REVIEW-TODO.md, Docs/REPOSITORY-A-PLUS.md, Docs/REPOSITORY-MIGRATION.md and Docs/USAGE-CHECK-IN.md. Then read component TODOs and current implementation, not just the historical snapshots.
+Repository: davidtomofficial/Windows-System-Administration. Current source branch: main. Refresh main, any relevant task branch and the latest CI before editing. Read README.md, Scripts/README.md, LICENSE.md, Docs/REVIEWER-GUIDE.md, Docs/DTO-WINDOWS-ADMIN-TODO.md, Docs/REPOSITORY-REVIEW-TODO.md, Docs/REPOSITORY-A-PLUS.md, Docs/REPOSITORY-MIGRATION.md and Docs/USAGE-CHECK-IN.md. Then read component TODOs and current implementation, not just the historical snapshots.
 
 Preserved input sources: DeviceCare/Launchpad at 3ce2a915c20a2d6bb504280b2171cf7a3d5ce9b9; Imaging at 173cda83ef639f16a7a5acf641f350bca79c7cca; main before review at ffa5e134dedee3ee3e56f7d9aab202cff3b5cfe0. Original branches stay intact. Existing draft PRs #1/#2/#3/#12/#16 remain separate and must not be mass-merged.
 

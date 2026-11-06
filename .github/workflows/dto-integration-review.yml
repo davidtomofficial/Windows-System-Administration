@@ -1,9 +1,11 @@
 name: DTO repository integration review
 on:
   push:
-    branches: [integration/dto-repository-review-20261105]
+    branches: [main, integration/dto-repository-review-20261105]
   pull_request:
+    branches: [main]
     paths:
+      - 'Scripts/README.md'
       - 'Scripts/DeviceCare/**'
       - 'Scripts/Imaging-Provisioning/**'
       - 'Launchpad/**'
@@ -12,8 +14,10 @@ on:
       - 'Tests/**'
       - 'LICENSE.md'
       - 'README.md'
+      - 'CONTRIBUTING.md'
       - 'Config/check-in.policy.example.json'
       - '.github/workflows/dto-integration-review.yml'
+      - '.github/workflows/dto-devicecare.yml'
   workflow_dispatch:
 permissions:
   contents: read

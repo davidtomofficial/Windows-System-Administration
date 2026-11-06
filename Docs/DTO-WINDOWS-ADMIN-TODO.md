@@ -1,6 +1,6 @@
 # DTO Windows System Administration — active master TODO
 
-Updated November 5, 2026. Current main source `bc80d476327bcb072e57c38a4cb97c18220865b9` passed [integration CI](https://github.com/davidtomofficial/Windows-System-Administration/actions/runs/42149193243); exact source/prework ZIP was uploaded to restricted SharePoint and read back. This index keeps existing task IDs and points reviewers to one current authority for each scope. New documentation-only follow-ups may have a newer HEAD; live runtime check-ins and A+ acceptance remain open.
+Navigation refreshed November 6, 2026. Use the integrated `main` tree and the component authorities below. The pre-correction main checkpoint `e0ceff7ed5e3b79d1b864ec91f94c2d58d2730cd` passed [integration CI run 42151225226](https://github.com/davidtomofficial/Windows-System-Administration/actions/runs/42151225226) on the retained integration branch. The [earlier source-preservation receipt](REPOSITORY-REVIEW-STATUS.md) describes its own immutable checkpoint, not every later change. This index preserves existing task IDs. Each follow-up needs its own source/run and backup evidence; live runtime check-ins and A+ acceptance remain open.
 
 | Scope | Authoritative tasks | Current interpretation |
 |---|---|---|

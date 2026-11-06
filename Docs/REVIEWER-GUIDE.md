@@ -5,8 +5,12 @@
 1. Read the root scope and [permission notice](../LICENSE.md).
 2. Select [DeviceCare](../Scripts/DeviceCare/README.md), [Imaging](../Scripts/Imaging-Provisioning/README.md), or [Launchpad](../Launchpad/README.md).
 3. Compare the selected implementation with its TODO and test source; do not treat a named future capability as implemented.
-4. Check the source/run identity below and the new integration run. Read failures and limitations, not just a badge.
+4. Check the source/run identity below and the current Actions results. Read failures and limitations, not just a badge.
 5. Use [repository review tasks](REPOSITORY-REVIEW-TODO.md) and the [handoff](WORK-AGENT-HANDOFF.md) for remaining work.
+
+## Current source and validation
+
+The active source is the integrated `main` tree. [Scripts](../Scripts/README.md) links to both executable previews and their current task authorities. Before the November 6 navigation correction, exact main checkpoint `e0ceff7ed5e3b79d1b864ec91f94c2d58d2730cd` passed [integration run 42151225226](https://github.com/davidtomofficial/Windows-System-Administration/actions/runs/42151225226) on the retained integration branch. Check the [current integration runs](https://github.com/davidtomofficial/Windows-System-Administration/actions/workflows/dto-integration-review.yml) for later revisions and their actual event, source SHA and conclusion.
 
 ## Preserved component evidence
 
@@ -15,7 +19,7 @@
 | DeviceCare + Launchpad | tested `deadfd6add0fb391dd3113e6fd9cfd501e8a7603`; documentation follow-up `3ce2a915c20a2d6bb504280b2171cf7a3d5ce9b9` | [Run 42145612233](https://github.com/davidtomofficial/Windows-System-Administration/actions/runs/42145612233): 65 Windows PowerShell 5.1 checks; 60 PowerShell 7; 12 DeviceCare Python; 12 Launchpad Python; 26 planned entries listed |
 | Imaging | source `7ae130b4b33827574da4a9c591885d16ed7d8d68`; receipt follow-up `173cda83ef639f16a7a5acf641f350bca79c7cca` | [Run 42138003752](https://github.com/davidtomofficial/Windows-System-Administration/actions/runs/42138003752): successful source check; earlier exact scope recorded 87 Windows PowerShell 5.1, 77 PowerShell 7 and eight Python tests |
 
-These tests ran on Windows Server 2022. Native WIM testing used a synthetic text-file image, not an operating-system deployment. Do not combine counts across revisions or claim Windows 11 hardware validation. **Current integration:** [run 42149193243](https://github.com/davidtomofficial/Windows-System-Administration/actions/runs/42149193243) passed on commit `bc80d476327bcb072e57c38a4cb97c18220865b9`, including all component suites, 13 repository-contract tests and three CI archives. The 53-member source archive and prework bundle were uploaded to restricted SharePoint and the raw file was read back with matching bytes. This remains a source-review result, not a Windows 11 client or production release.
+These tests ran on Windows Server 2022. Native WIM testing used a synthetic text-file image, not an operating-system deployment. Do not combine counts across revisions or claim Windows 11 hardware validation. **Earlier integration checkpoint:** [run 42149193243](https://github.com/davidtomofficial/Windows-System-Administration/actions/runs/42149193243) passed on commit `bc80d476327bcb072e57c38a4cb97c18220865b9`, including all component suites, 13 repository-contract tests and three CI archives. The 53-member source archive and prework bundle were uploaded to restricted SharePoint and the raw file was read back with matching bytes. This remains a source-review result, not a Windows 11 client or production release.
 
 ## Questions a reviewer should be able to answer
 
