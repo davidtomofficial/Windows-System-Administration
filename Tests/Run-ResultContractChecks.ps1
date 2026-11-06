@@ -11,11 +11,8 @@ function Confirm([bool]$Condition, [string]$Name) {
     $script:checks++
 }
 
-# PowerShell ships Json.NET for ConvertFrom-Json. Disable its date coercion
-# explicitly when loading known repository fixtures, including on older PS7.
-$null = ConvertFrom-Json -InputObject '{}'
-$settings = New-Object Newtonsoft.Json.JsonSerializerSettings
-$settings.DateParseHandling = [Newtonsoft.Json.DateParseHandling]::None
+# This helper is used only for trusted fixtures on older PowerShell 7, whose
+# bundled Json.NET parser needs date coercion disabled explicitly.
 function ConvertFrom-TrustedFixtureToken($Token) {
     switch ($Token.Type.ToString()) {
         'Object' {
@@ -36,8 +33,19 @@ function ConvertFrom-TrustedFixtureToken($Token) {
 }
 $fixturePath = Join-Path $root 'Contracts/fixtures/task-result-cases.json'
 $raw = [IO.File]::ReadAllText($fixturePath, [Text.Encoding]::UTF8)
-$token = [Newtonsoft.Json.JsonConvert]::DeserializeObject($raw, $settings)
-$fixtures = ConvertFrom-TrustedFixtureToken $token
+if ($PSVersionTable.PSVersion.Major -lt 6) {
+    # Windows PowerShell 5.1 preserves ISO timestamp strings natively and does
+    # not need an external Json.NET installation.
+    $fixtures = ConvertFrom-Json -InputObject $raw -ErrorAction Stop
+} elseif ((Get-Command ConvertFrom-Json).Parameters.ContainsKey('DateKind')) {
+    $fixtures = ConvertFrom-Json -InputObject $raw -DateKind String -ErrorAction Stop
+} else {
+    $null = ConvertFrom-Json -InputObject '{}'
+    $settings = New-Object Newtonsoft.Json.JsonSerializerSettings
+    $settings.DateParseHandling = [Newtonsoft.Json.DateParseHandling]::None
+    $token = [Newtonsoft.Json.JsonConvert]::DeserializeObject($raw, $settings)
+    $fixtures = ConvertFrom-TrustedFixtureToken $token
+}
 Confirm ($fixtures.fixtureSchemaVersion -eq 1) 'fixture version'
 $emitted = New-Object 'Collections.Generic.List[string]'
 foreach ($case in $fixtures.cases) {

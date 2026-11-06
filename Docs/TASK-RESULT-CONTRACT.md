@@ -109,10 +109,12 @@ The constructor does not freeze its object; serialization validates it again.
 Neither API collects data, dereferences an evidence reference, starts a process,
 contacts a service or writes a report automatically.
 
-The PowerShell test harness uses its bundled Json.NET solely to load trusted
-synthetic fixtures without date coercion. That fixture helper is not a runtime
-parser. The test harness also writes temporary synthetic output and invokes Python
-to compare actual serialized bytes with the original fixture values.
+The PowerShell test harness loads trusted synthetic fixtures without date coercion:
+native conversion on Windows PowerShell 5.1, `DateKind String` where available on
+PowerShell 7, or its bundled Json.NET on older PowerShell 7. The fixture helper is
+not a runtime parser and adds no dependency to Windows PowerShell 5.1. The harness
+also writes temporary synthetic output and invokes Python to compare actual
+serialized bytes with the original fixture values.
 
 ## Reproduce the contract checks
 
