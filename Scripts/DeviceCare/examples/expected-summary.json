@@ -1,0 +1,17 @@
+{
+  "Proof": "DTO-DeviceCare-synthetic-v1",
+  "FictionalData": true,
+  "DeviceReady": null,
+  "MaintenanceAuthorized": false,
+  "Cases": [
+    { "Id": "observed", "DiskMinimumGiB": "15", "MemoryMaximumPercent": "85", "Memory": { "State": "Observed", "DisplayValue": "40", "Units": "percent" }, "SystemDisk": { "State": "Observed", "DisplayValue": "40", "Units": "GiB" } },
+    { "Id": "review", "DiskMinimumGiB": "15", "MemoryMaximumPercent": "85", "Memory": { "State": "Review", "DisplayValue": "90", "Units": "percent" }, "SystemDisk": { "State": "Review", "DisplayValue": "6", "Units": "GiB" } },
+    { "Id": "unknown", "DiskMinimumGiB": "15", "MemoryMaximumPercent": "85", "Memory": { "State": "Unknown", "DisplayValue": null, "Units": "percent" }, "SystemDisk": { "State": "Unknown", "DisplayValue": null, "Units": "GiB" } },
+    { "Id": "threshold-equality", "DiskMinimumGiB": "15", "MemoryMaximumPercent": "85", "Memory": { "State": "Review", "DisplayValue": "85", "Units": "percent" }, "SystemDisk": { "State": "Observed", "DisplayValue": "15", "Units": "GiB" } },
+    { "Id": "rounding-edge", "DiskMinimumGiB": "15", "MemoryMaximumPercent": "85", "Memory": { "State": "Observed", "DisplayValue": "85", "Units": "percent" }, "SystemDisk": { "State": "Review", "DisplayValue": "15", "Units": "GiB" } },
+    { "Id": "configured-thresholds", "DiskMinimumGiB": "50", "MemoryMaximumPercent": "40", "Memory": { "State": "Review", "DisplayValue": "40", "Units": "percent" }, "SystemDisk": { "State": "Review", "DisplayValue": "40", "Units": "GiB" } }
+  ],
+  "VerifiedRefusals": ["wrong-product", "numeric-changes-flag", "invalid-threshold", "duplicate-finding", "unsupported-state"],
+  "VerifiedReportChecks": ["original-time", "offline-policy", "html-encoding", "unknown-value-suppressed", "extra-properties-omitted"],
+  "InputsUnchanged": true
+}

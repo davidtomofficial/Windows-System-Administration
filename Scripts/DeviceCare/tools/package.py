@@ -4,7 +4,9 @@ from pathlib import Path
 FILES = ('README.md','TODO.md','.gitignore','LICENSE.md','brand/product.json','docs/MIGRATION.md',
          'docs/VALIDATION.md','src/DeviceCare.psm1','src/Invoke-DTODeviceCare.ps1',
          'tests/Run-Checks.ps1','tests/test_package.py','tools/package.py',
-         'src/Presentation.ps1','brand/report.html','brand/dto-header-monogram.svg','brand/ASSET-PROVENANCE.md')
+         'src/Presentation.ps1','brand/report.html','brand/dto-header-monogram.svg','brand/ASSET-PROVENANCE.md',
+         'docs/PROOF-PACKAGE.md','examples/Invoke-SyntheticProof.ps1',
+         'examples/synthetic-snapshots.json','examples/expected-summary.json')
 STAMP=(2026,11,5,0,0,0)
 
 def digest(data):return hashlib.sha256(data).hexdigest()

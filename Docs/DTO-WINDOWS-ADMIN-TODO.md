@@ -1,5 +1,9 @@
 # DTO Windows System Administration — active master TODO
 
+## DTO-GH-ORG-006 continuation: flagship proof packages
+
+Two [developer proof packages](PROOF-PACKAGES.md) make the selected Imaging comparison and DeviceCare finding workflows reproducible from fictional inputs. The commands, expected JSON, report export, design decisions, language evidence and contribution boundaries are reviewable. New execution evidence is pending. This advances the existing portfolio evidence task without closing component implementation or attended acceptance tasks.
+
 Navigation refreshed November 6, 2026. Use the integrated `main` tree and the component authorities below. The pre-correction main checkpoint `e0ceff7ed5e3b79d1b864ec91f94c2d58d2730cd` passed [integration CI run 42151225226](https://github.com/davidtomofficial/Windows-System-Administration/actions/runs/42151225226) on the retained integration branch. The [earlier source-preservation receipt](REPOSITORY-REVIEW-STATUS.md) describes its own immutable checkpoint, not every later change. This index preserves existing task IDs. Each follow-up needs its own source/run and backup evidence; live runtime check-ins and A+ acceptance remain open.
 
 | Scope | Authoritative tasks | Current interpretation |

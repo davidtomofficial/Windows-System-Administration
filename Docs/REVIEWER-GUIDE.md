@@ -4,7 +4,7 @@
 
 1. Read the root scope and [permission notice](../LICENSE.md).
 2. Select [DeviceCare](../Scripts/DeviceCare/README.md), [Imaging](../Scripts/Imaging-Provisioning/README.md), or [Launchpad](../Launchpad/README.md).
-3. Compare the selected implementation with its TODO and test source; do not treat a named future capability as implemented.
+3. Run or inspect the [fictional workflow proof packages](PROOF-PACKAGES.md), then compare the selected implementation with its TODO and test source. A named future capability is not evidence of implementation.
 4. Check the source/run identity below and the current Actions results. Read failures and limitations, not just a badge.
 5. Use [repository review tasks](REPOSITORY-REVIEW-TODO.md) and the [handoff](WORK-AGENT-HANDOFF.md) for remaining work.
 

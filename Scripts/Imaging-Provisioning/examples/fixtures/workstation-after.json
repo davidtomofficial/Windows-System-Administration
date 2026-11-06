@@ -1,0 +1,74 @@
+{
+  "SchemaVersion": 2,
+  "Product": "DTO Imaging & Provisioning",
+  "Version": "0.2.0",
+  "AssessmentType": "ReadOnlyLocalSnapshot",
+  "CollectedAtUtc": "2026-11-06T18:00:00.0000000Z",
+  "ComputerNameIncluded": false,
+  "CollectionComplete": false,
+  "DeploymentAccepted": false,
+  "Sections": [
+    {
+      "Source": "Win32_OperatingSystem",
+      "Status": "Complete",
+      "Reason": null,
+      "Records": [
+        {
+          "Caption": "Fictional <script>fixture</script> OS",
+          "Version": "Fixture version B",
+          "OSArchitecture": "64-bit"
+        }
+      ],
+      "EnumeratedCount": 1,
+      "InspectedCount": 1,
+      "RecordLimit": 1,
+      "RecordByteLimit": 131072,
+      "EnumerationComplete": true,
+      "CollectionComplete": true
+    },
+    {
+      "Source": "Win32_ComputerSystem",
+      "Status": "Complete",
+      "Reason": null,
+      "Records": [
+        {
+          "Manufacturer": "Fictional maker",
+          "Model": "Fixture model"
+        }
+      ],
+      "EnumeratedCount": 1,
+      "InspectedCount": 1,
+      "RecordLimit": 1,
+      "RecordByteLimit": 131072,
+      "EnumerationComplete": true,
+      "CollectionComplete": true
+    },
+    {
+      "Source": "Win32_BIOS",
+      "Status": "Unavailable",
+      "Reason": "QueryFailed",
+      "Records": [],
+      "EnumeratedCount": 0,
+      "InspectedCount": 0,
+      "RecordLimit": 1,
+      "RecordByteLimit": 131072,
+      "EnumerationComplete": false,
+      "CollectionComplete": false
+    },
+    {
+      "Source": "Win32_Processor",
+      "Status": "Complete",
+      "Reason": null,
+      "Records": [
+        { "Name": "Fixture CPU A" },
+        { "Name": "Fixture CPU B" }
+      ],
+      "EnumeratedCount": 2,
+      "InspectedCount": 2,
+      "RecordLimit": 16,
+      "RecordByteLimit": 131072,
+      "EnumerationComplete": true,
+      "CollectionComplete": true
+    }
+  ]
+}

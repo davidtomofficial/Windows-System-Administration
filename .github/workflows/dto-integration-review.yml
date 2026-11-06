@@ -61,6 +61,17 @@ jobs:
       - name: Shared result contract on PowerShell 7
         shell: pwsh
         run: '& ./Tests/Run-ResultContractChecks.ps1'
+      - name: Synthetic portfolio proofs on Windows PowerShell 5.1
+        shell: powershell
+        run: '& ./Tests/Run-PortfolioProofs.ps1 -OutputRoot ./dist/proofs/WinPS51 -SourceCommit $env:GITHUB_SHA'
+      - name: Synthetic portfolio proofs on PowerShell 7
+        shell: pwsh
+        run: '& ./Tests/Run-PortfolioProofs.ps1 -OutputRoot ./dist/proofs/PS7 -SourceCommit $env:GITHUB_SHA'
+      - name: Compare synthetic proof outputs across runtimes
+        shell: pwsh
+        run: |
+          python ./Tests/check_portfolio_proof_parity.py ./dist/proofs
+          if ($LASTEXITCODE -ne 0) { throw 'Portfolio proof parity failed' }
       - name: Package and launchpad checks
         shell: pwsh
         run: |
@@ -92,5 +103,12 @@ jobs:
         with:
           name: dto-repository-review-${{ github.sha }}
           path: dist/*.zip
+          if-no-files-found: error
+          retention-days: 30
+      - name: Preserve fictional proof outputs and source identity
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: dto-portfolio-proofs-${{ github.sha }}
+          path: dist/proofs/**
           if-no-files-found: error
           retention-days: 30

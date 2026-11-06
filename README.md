@@ -11,6 +11,7 @@ A reviewable collection of Windows technician tools, development previews and op
 | You want to… | Start here |
 |---|---|
 | Understand what works today | [Current capabilities and evidence](Docs/REVIEWER-GUIDE.md) |
+| Reproduce a basic workflow | [Imaging and DeviceCare proof packages](Docs/PROOF-PACKAGES.md) |
 | Review DeviceCare | [DeviceCare source and usage](Scripts/DeviceCare/README.md) · [TODO](Scripts/DeviceCare/TODO.md) |
 | Review Imaging & Provisioning | [Imaging source and usage](Scripts/Imaging-Provisioning/README.md) · [TODO](Scripts/Imaging-Provisioning/TODO.md) |
 | See the technician launchpad plan | [Launchpad](Launchpad/README.md) · [26 planning entries](Launchpad/catalog.plan.json) |

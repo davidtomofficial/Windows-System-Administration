@@ -2,7 +2,7 @@
 
 **David Tom Official · 0.2.0 development preview · Read-only**
 
-[Permission and license notice](LICENSE.md) · [Component TODO](TODO.md) · [Validation evidence](docs/VALIDATION.md)
+[Permission and license notice](LICENSE.md) · [Component TODO](TODO.md) · [Validation evidence](docs/VALIDATION.md) · [Developer proof package](docs/PROOF-PACKAGE.md)
 
 Obtain explicit written permission before use unless an applicable existing license or law already permits it. The source is a personal portfolio preview, not an unrestricted software-use grant or a production maintenance product.
 
@@ -28,6 +28,13 @@ The HTML string is not saved, opened, emailed or uploaded automatically. No mach
 
 ## Checks and packaging
 
+The [developer proof package](docs/PROOF-PACKAGE.md) provides six fictional
+snapshots, independently specified expected results and a no-collection example.
+From this component directory, run `.\examples\Invoke-SyntheticProof.ps1` to
+check the findings and report behavior and emit one JSON summary. No files are
+written unless a fresh `-OutputDirectory` is selected. Execution evidence for
+this new example is pending; see the proof package's verification table.
+
 ```powershell
 .\tests\Run-Checks.ps1
 # Disposable or expressly authorized Windows host only:
@@ -37,7 +44,7 @@ python .\tools\package.py --output DTO-DeviceCare-0.2.0.zip
 python .\tools\package.py --verify DTO-DeviceCare-0.2.0.zip
 ```
 
-Sixteen allowlisted source files, including LICENSE.md, plus MANIFEST.json are packaged. The source package is not an installer; hashes are not publisher signatures. Python is needed for packaging checks, not for the observation script.
+Twenty allowlisted source files, including LICENSE.md and the developer proof package, plus MANIFEST.json are packaged. The source package is not an installer; hashes are not publisher signatures. Python is needed for packaging checks, not for the observation script.
 
 ## Migration, branding and check-ins
 

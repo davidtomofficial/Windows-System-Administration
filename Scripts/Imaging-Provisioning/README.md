@@ -4,6 +4,8 @@
 
 [Permission and license notice](LICENSE.md) · [Component TODO](TODO.md) · [Validation](docs/VALIDATION.md)
 
+[Synthetic developer proof package](docs/PROOF-PACKAGE.md): run a fictional before/after comparison, check independently authored expected JSON, and optionally create an offline report. The default proof writes no files and does not collect device data.
+
 Covered original software requires explicit written permission unless an applicable existing license or law already permits use. This source preview is not an installer, a bootable Windows image, or a production release.
 
 ## Implemented scope
