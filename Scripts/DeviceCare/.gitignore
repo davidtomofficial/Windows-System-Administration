@@ -1,0 +1,8 @@
+*.zip
+*.log
+local-reports/
+*.jsonl
+__pycache__/
+*.pyc
+*.pfx
+*.key

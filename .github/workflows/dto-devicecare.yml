@@ -1,0 +1,36 @@
+name: DTO DeviceCare portable validation
+on:
+  push:
+    branches: [feature/dto-devicecare]
+    paths:
+      - 'Scripts/DeviceCare/**'
+      - '.github/workflows/dto-devicecare.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  windows-review:
+    runs-on: windows-2022
+    timeout-minutes: 12
+    steps:
+      - name: Checkout exact commit
+        shell: pwsh
+        run: |
+          git init .
+          git config core.autocrlf false
+          git remote add origin "https://github.com/$env:GITHUB_REPOSITORY.git"
+          git fetch --depth=1 origin $env:GITHUB_SHA
+          if ($LASTEXITCODE -ne 0) { throw 'fetch failed' }
+          git checkout --detach FETCH_HEAD
+          if ($LASTEXITCODE -ne 0) { throw 'checkout failed' }
+      - name: Windows PowerShell 5.1 and native observation
+        shell: powershell
+        run: '& ./Scripts/DeviceCare/tests/Run-Checks.ps1 -Native'
+      - name: PowerShell 7 contracts
+        shell: pwsh
+        run: '& ./Scripts/DeviceCare/tests/Run-Checks.ps1'
+      - name: Python packaging and forbidden-file checks
+        shell: pwsh
+        run: |
+          python ./Scripts/DeviceCare/tests/test_package.py
+          if ($LASTEXITCODE -ne 0) { throw 'packaging tests failed' }
