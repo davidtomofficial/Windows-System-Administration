@@ -1,5 +1,11 @@
 # Repository migration map — November 5, 2026
 
+## Current publication and preservation check
+
+The source integration was published to `main` at `bc80d476327bcb072e57c38a4cb97c18220865b9` after successful Windows Server CI run [42149193243](https://github.com/davidtomofficial/Windows-System-Administration/actions/runs/42149193243). The 144,730-byte source/prework ZIP was uploaded to the restricted SharePoint Windows-System-Administration folder and downloaded with matching SHA-256 `f0432a7fbf44280911241b73a3b196470a4a94af583377e2534124d9f0b0ee1d`. Source archive has 53 reviewed members. Later documentation-only changes do not retroactively change the tested code's identity; inspect HEAD for newest documentation.
+
+The 2026-11-05 SharePoint DeviceCare, Imaging, Launchpad, Windows administration and joint-master TODO files were synchronized with current task IDs and latest status; 15 text-file readbacks matched exact intended bytes. Separate private GitHub source preservation should still be reviewed against the existing dual-backup policy; public main plus SharePoint source ZIP are the completed source copies here.
+
 ## Scope and preservation
 
 User-directed review under DTO-GH-001 and DTO-WSA-001/037/040. Integration begins from DeviceCare commit `3ce2a915c20a2d6bb504280b2171cf7a3d5ce9b9`; the main preimage is `ffa5e134dedee3ee3e56f7d9aab202cff3b5cfe0`, retained by `backup/repository-review-main-20261105`. Original feature and Imaging branches remain intact. No force push, repository rename, visibility change, transfer, deletion or history rewrite is part of this pass.
