@@ -65,16 +65,22 @@ Known field projection, conservative unknown states and CPU multiset comparison 
 
 Prepared against immutable repository baseline **`ae4117acbd5b013560fcf30ddedec2ce56381151`**. The comparison module, original renderer and existing tests are preserved. This baseline identifies the reviewed starting source; it is not an execution receipt for the new proof.
 
+[Windows proof run 42290078369](https://github.com/davidtomofficial/Windows-System-Administration/actions/runs/42290078369) passed on Windows Server 2022. The source/PR head was `4063b99e9a7c2d8945d646ff8bc4b263bcabffa7`; the job actually tested synthetic merge `64c596c3738d9c609a10faa40be7e490b4973120`. The Imaging proof and its exact expected output passed in Windows PowerShell 5.1.20348.5773 and PowerShell 7.6.9.
+
 | Verification | Status for this new proof package |
 |---|---|
-| Windows PowerShell 5.1 proof execution | Pending exact source/run evidence. |
-| PowerShell 7 proof execution | Pending exact source/run evidence. |
-| Cross-runtime normalized summary parity | Pending execution of both runtimes. |
-| Fresh output-directory and overwrite refusal checks | Implemented; execution evidence pending. |
-| Python component packaging checks | 8 existing tests passed locally on November 6, 2026; this is not a PowerShell execution result. |
+| Windows PowerShell 5.1 proof execution | Passed on 5.1.20348.5773: console output and fresh saved output matched the expected summary. |
+| PowerShell 7 proof execution | Passed on 7.6.9: console output and fresh saved output matched the expected summary. |
+| Cross-runtime normalized summary parity | Passed: both normalized JSON summaries matched. |
+| Fresh output-directory and overwrite refusal checks | Passed in both runtimes: export/readback, exact `DTO.ProofOutputExists` refusal, and unchanged saved-file hashes after the refused retry. |
+| Python component packaging checks | 8 tests passed in the same Windows run; 8 also passed locally on November 6, 2026. |
 | HTML visual / attended Windows 11 acceptance | Not performed by this package. |
 
-Existing component execution evidence remains in [VALIDATION.md](VALIDATION.md) and applies to its stated sources and scope. The presence of this script, its expected JSON or a generated-looking report is not by itself a successful execution result. Record the exact tested commit, run, runtime and outcome before marking the new proof executed.
+Artifact `13539006936` was downloaded with SHA-256 `26b055f153dd937eb29a197f3729c74dc69ebe9dbfaf0b5b95ab1217ef1d8abd`. Both saved Imaging JSON summaries were independently read back and matched the authored expected output. This records retrieved execution evidence in addition to the CI result.
+
+The [initial run 42289705342](https://github.com/davidtomofficial/Windows-System-Administration/actions/runs/42289705342) stopped in a new DeviceCare assertion's type lookup before the Imaging proof ran. That assertion failure was fixed before the successful rerun. No Imaging runtime fault was recorded in the initial attempt.
+
+Existing component execution evidence remains in [VALIDATION.md](VALIDATION.md) and applies to its stated sources and scope. The results above apply to the exact tested source and run. Later revisions require their own source/run evidence; the presence of a script, expected JSON or generated report alone does not establish successful execution. These synthetic checks do not establish visual, attended Windows 11, operational release or full workstation handoff acceptance.
 
 This is David Tom's personal DTO portfolio project. The proof package is an owner-directed, AI-assisted implementation. Its source, fictional fixtures and assertions provide inspectable evidence of the work. It supplies no employer/customer deployment claim or measured workplace outcome. The [rights notice](../LICENSE.md) and [repository contribution rules](https://github.com/davidtomofficial/Windows-System-Administration/blob/main/CONTRIBUTING.md) continue to apply.
 

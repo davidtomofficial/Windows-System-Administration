@@ -9,9 +9,10 @@ checks the exact result, and exercises the existing offline HTML renderer.
 
 The baseline runtime source is commit
 [`ae4117acbd5b013560fcf30ddedec2ce56381151`](https://github.com/davidtomofficial/Windows-System-Administration/tree/ae4117acbd5b013560fcf30ddedec2ce56381151/Scripts/DeviceCare).
-This proof package does not modify that runtime. **PowerShell execution of this
-new package is pending verification.** Existing component validation is recorded
-separately in [VALIDATION.md](VALIDATION.md).
+This proof package does not modify that runtime. **The synthetic proof passed on
+Windows PowerShell 5.1 and PowerShell 7 in the Windows Server 2022 checkpoint
+recorded below.** Existing component validation is recorded separately in
+[VALIDATION.md](VALIDATION.md).
 
 ## Reproduce from the repository root
 
@@ -153,15 +154,39 @@ attended Windows 11 acceptance, and repository A+ acceptance remain open.
 
 ## Verification status
 
-| Verification | Status for this new package |
+[Windows CI run 42290078369](https://github.com/davidtomofficial/Windows-System-Administration/actions/runs/42290078369)
+passed on November 6, 2026. The PR head/source was
+`4063b99e9a7c2d8945d646ff8bc4b263bcabffa7`; the PR synthetic merge actually checked
+out and executed was `64c596c3738d9c609a10faa40be7e490b4973120`. These are the
+implementation evidence revisions, before this evidence-only documentation
+update. The runner environment was **Windows Server 2022**, with **Windows
+PowerShell 5.1.20348.5773** and **PowerShell 7.6.9**.
+
+| Verification | Observed outcome at that checkpoint |
 |---|---|
 | Source review and independently specified expected outcomes | Prepared against the baseline revision above. |
-| JSON fixture and expected-output validity; Python component packaging | Passed local checks on November 6, 2026: both JSON files parsed, six fixture identities and the independently calculated rounding/equality inputs checked, and all 12 existing component packaging tests passed. PowerShell was not executed locally. |
-| Windows PowerShell 5.1 demonstration and output-path refusal | Pending Windows CI. |
-| PowerShell 7 demonstration and output-path refusal | Pending Windows CI. |
-| Cross-runtime normalized JSON parity | Pending both runtime results. |
+| JSON fixture and expected-output validity | Local checks passed: both JSON files parsed, six fixture identities and the independently calculated rounding/equality inputs checked. The actual demonstration results matched the authored expected JSON on both Windows runtimes. |
+| Python component packaging | All 12 existing DeviceCare packaging tests passed locally and in the recorded Windows CI run. |
+| Windows PowerShell 5.1 demonstration and output-path refusal | Passed on 5.1.20348.5773: console JSON, fresh export, saved-output readback, exact overwrite refusal and unchanged saved-file hashes. |
+| PowerShell 7 demonstration and output-path refusal | Passed on 7.6.9: console JSON, fresh export, saved-output readback, exact overwrite refusal and unchanged saved-file hashes. |
+| Cross-runtime normalized JSON parity | Passed: the DeviceCare summaries matched across the two runtimes. |
+| Independent artifact readback | Saved DeviceCare output from each runtime was downloaded and independently matched against the authored expected JSON. The 79-file source archive was independently restored and matched its recorded source. |
 | Rendered HTML, assistive technology and attended Windows 11 | Not performed by this proof package. |
 
-Record the exact source revision, run link, environment and actual outcome before
-changing a pending entry. A prepared fixture, expected file or green unrelated
-suite is not evidence that this new script executed.
+The same run passed both the DeviceCare and Imaging proof demonstrations on both
+runtimes. Downloaded artifact **13539006936** had SHA-256
+`26b055f153dd937eb29a197f3729c74dc69ebe9dbfaf0b5b95ab1217ef1d8abd`.
+The exported HTML was retained as evidence; generating and reading the file does
+not establish a rendered or attended accessibility review.
+
+The [initial run 42289705342](https://github.com/davidtomofficial/Windows-System-Administration/actions/runs/42289705342)
+failed when the proof assertion tried to resolve an unavailable exception type
+literal on Windows PowerShell 5.1. This was a proof-harness compatibility failure.
+The correction compares the exact observable error ID and exception type name as
+strings, retaining the specific-refusal requirement. It did not change the
+DeviceCare application runtime or existing tests. The successful rerun above
+supersedes that failed execution without removing its history.
+
+These results establish the fictional developer proof at the recorded revisions.
+Visual review, attended Windows 11 acceptance, the wider DTO-DC-015
+release/case-study gate and repository A+ acceptance remain open.

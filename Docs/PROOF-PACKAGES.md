@@ -46,7 +46,13 @@ The repository evidence runner requires the requested source SHA to match Git HE
 
 ### Verification checkpoint
 
-Initial source baseline: `ae4117acbd5b013560fcf30ddedec2ce56381151`. It includes the completed comparison, profile-inventory increment and shared result contract. New proof-package execution is pending until a dated source/run receipt is recorded here. Existing baseline CI results are not inherited as execution evidence for new files.
+**Executed and verified November 6, 2026:** [PR 24](https://github.com/davidtomofficial/Windows-System-Administration/pull/24), head `4063b99e9a7c2d8945d646ff8bc4b263bcabffa7`, passed [Windows run 42290078369](https://github.com/davidtomofficial/Windows-System-Administration/actions/runs/42290078369). That PR run checked out synthetic merge `64c596c3738d9c609a10faa40be7e490b4973120` on Windows Server 2022, with Windows PowerShell **5.1.20348.5773** and PowerShell **7.6.9**. These identities name the executed proof source, not any later documentation revision.
+
+Both components passed their independently authored expected results in both runtimes. The console command, fresh export, saved-result readback, exact existing-directory refusal and unchanged saved-file hashes all passed. The two runtimes' normalized JSON matched, and their environment records identified the same exact source. The existing integration suites also passed, including 12 DeviceCare and eight Imaging Python packaging tests and 13 repository checks. Suite counts overlap and are not a combined product-acceptance total.
+
+The ten-file fictional output artifact `13539006936` was downloaded and verified against SHA-256 `26b055f153dd937eb29a197f3729c74dc69ebe9dbfaf0b5b95ab1217ef1d8abd`. All four saved component summaries independently matched the authored expectations. The 79-file source archive was separately downloaded, manifest-verified and restored with exact equality to the reviewed source. HTML encoding/evidence checks passed; rendered or attended accessibility was not evaluated.
+
+The first run, `42289705342`, stopped because the new DeviceCare proof referenced an exception type that Windows PowerShell 5.1 could not resolve. The assertion now checks the exact error ID and reflected type name; the successful rerun retains the specific refusal requirement. No component application fix or weakened expectation was needed. The initial source baseline remains `ae4117acbd5b013560fcf30ddedec2ce56381151`, with its earlier comparison, profile-inventory and shared-result work preserved.
 
 ## Language, contribution and design decisions
 
@@ -58,4 +64,4 @@ The main design choices are explicit uncertainty, a small declared field scope, 
 
 ## Status and next work
 
-This is the two-flagship basic-workflow increment of [DTO-GH-ORG-006](REPOSITORY-REVIEW-TODO.md). Broader portfolio acceptance stays open. The [Imaging TODO](../Scripts/Imaging-Provisioning/TODO.md) and [DeviceCare TODO](../Scripts/DeviceCare/TODO.md) retain implementation authority. Full workstation handoff, native desktop migration, actual maintenance, installers/recovery, live check-ins and attended Windows 11/accessibility checks remain separately tracked. No A+ grade or operational release is awarded by these proofs.
+This completes the two-flagship basic-workflow proof increment of [DTO-GH-ORG-006](REPOSITORY-REVIEW-TODO.md). Broader portfolio acceptance stays open. The [Imaging TODO](../Scripts/Imaging-Provisioning/TODO.md) and [DeviceCare TODO](../Scripts/DeviceCare/TODO.md) retain implementation authority. Full workstation handoff, native desktop migration, actual maintenance, installers/recovery, live check-ins and attended Windows 11/accessibility checks remain separately tracked. No A+ grade or operational release is awarded by these proofs.
