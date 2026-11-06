@@ -149,3 +149,36 @@ runtime files and the 26 non-executable planning entries are preserved. The broa
 
 This is a source development increment, not an operational release or A+ acceptance.
 CI and preservation evidence must identify their actual tested revisions.
+
+## Validation on November 6, 2026
+
+Corrected implementation source: `2473a4434fc424486912b24956d6cc6d03725a93`.
+[PR 19](https://github.com/davidtomofficial/Windows-System-Administration/pull/19)
+[run 42284840657](https://github.com/davidtomofficial/Windows-System-Administration/actions/runs/42284840657)
+passed on the actual PR merge revision
+`c526aada64e752ca6b8ea6771b82ee241c38fa6e`, based on main
+`c265ae028f790678479ff4de035711a75625dba7`.
+
+- Windows Server 2022, Windows PowerShell 5.1.20348.5773: 85 contract checks passed.
+- The same runner, PowerShell 7.6.9: 85 contract checks passed.
+- Both runtimes exercised the same 50 synthetic cases: 15 accepted and 35 refused.
+  Each emitted 15 actual JSON results which Python accepted and compared with the
+  original values, including original timestamps and Unicode scalar text.
+- All 12 Python result-contract test methods passed, including raw JSON refusal
+  and exact 1 MiB input bounds. The separate existing planner, component packaging
+  and repository-preservation suites also passed.
+- Existing DeviceCare checks passed 98 Windows PowerShell 5.1/native and 93
+  PowerShell 7; Imaging passed 87 and 77 respectively. Their runtime files and
+  original planning catalog were unchanged by this contract increment.
+
+These suites overlap in purpose; their counts are not a total of unique product
+acceptance cases. No attended Windows 11, real task adapter, privilege, servicing,
+restart, recovery, GUI or check-in service was exercised by the result fixtures.
+The older PowerShell 7 fixture-loader fallback was reviewed but was not executed
+by this run, which used PowerShell 7.6.9.
+
+The first [run 42284706408](https://github.com/davidtomofficial/Windows-System-Administration/actions/runs/42284706408)
+failed because the test harness assumed a JSON library was available on Windows
+PowerShell 5.1. The fixture loader was corrected; no gate was disabled. That failed
+run remains in history. Later documentation-only closeout commits retain the tested
+implementation and fixtures; consult their own Actions runs for final-source evidence.
