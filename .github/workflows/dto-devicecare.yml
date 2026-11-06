@@ -4,6 +4,9 @@ on:
     branches: [feature/dto-devicecare]
     paths:
       - 'Scripts/DeviceCare/**'
+      - 'Launchpad/**'
+      - 'Docs/DTO-WINDOWS-ADMIN-TODO.md'
+      - 'Docs/Technician-Migration-and-Cleanup.md'
       - '.github/workflows/dto-devicecare.yml'
   workflow_dispatch:
 permissions:
@@ -34,3 +37,10 @@ jobs:
         run: |
           python ./Scripts/DeviceCare/tests/test_package.py
           if ($LASTEXITCODE -ne 0) { throw 'packaging tests failed' }
+      - name: Launchpad planning contract only
+        shell: pwsh
+        run: |
+          python ./Launchpad/test_plan.py
+          if ($LASTEXITCODE -ne 0) { throw 'planning tests failed' }
+          python ./Launchpad/plan.py
+          if ($LASTEXITCODE -ne 0) { throw 'planning catalog invalid' }
