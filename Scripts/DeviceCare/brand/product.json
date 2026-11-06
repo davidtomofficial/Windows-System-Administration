@@ -3,7 +3,7 @@
   "productId": "dto-devicecare",
   "productName": "DeviceCare",
   "publisher": "David Tom Official",
-  "version": "0.1.0-dto-preview",
+  "version": "0.2.0-dto-preview",
   "channel": "Personal development preview",
   "websiteUrl": "https://davidtomofficial.com/",
   "projectUrl": "https://davidtomofficial.com/devicecare/",
@@ -15,6 +15,8 @@
     "offWhite": "#F8F9FB",
     "goldDecorative": "#D4A574",
     "paleBlue": "#E6ECF2",
-    "visualAssetState": "No logo or font files bundled; approved DT asset integration pending"
+    "visualAssetState": "Approved original DT header SVG bundled unchanged for offline reports; native icon integration pending",
+    "headerAsset": "dto-header-monogram.svg",
+    "headerAssetSha256": "f8f6a4dcbf4972ed4d1302dcba0e2191bd966053a5ad0dabf313de242c1e61e3"
   }
 }

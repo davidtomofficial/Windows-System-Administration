@@ -77,6 +77,7 @@ function Get-DTODeviceCareFindings {
     if ((Get-DTOProperty $Snapshot 'SchemaVersion') -ne 1 -or
         (Get-DTOProperty $Snapshot 'Product') -cne 'DeviceCare' -or
         (Get-DTOProperty $Snapshot 'AssessmentType') -cne 'LocalReadOnly' -or
+        (Get-DTOProperty $Snapshot 'ChangesAllowed') -isnot [bool] -or
         (Get-DTOProperty $Snapshot 'ChangesAllowed') -ne $false) { throw 'DTO.InvalidSnapshot' }
     $findings = New-Object 'System.Collections.Generic.List[object]'
     $os = Get-DTOProperty $Snapshot 'OS'
@@ -90,9 +91,10 @@ function Get-DTODeviceCareFindings {
         if ($null -eq $total -or $null -eq $free -or $total -le 0 -or $free -gt $total) {
             $findings.Add([pscustomobject]@{Id='memory';State='Unknown';Explanation='Memory values incomplete or invalid';Observed=$null})
         } else {
-            $used=[math]::Round(100.0 * ($total-$free)/$total,1)
-            $state=if($used -ge $MaximumMemoryUsedPercent){'Review'}else{'Observed'}
-            $findings.Add([pscustomobject]@{Id='memory';State=$state;Explanation=if($state -eq 'Review'){'Memory usage exceeds selected review threshold'}else{'Memory usage below selected review threshold'};Observed=$used;Units='percent'})
+            $rawUsed=100.0 * ($total-$free)/$total
+            $used=[math]::Round($rawUsed,1)
+            $state=if($rawUsed -ge $MaximumMemoryUsedPercent){'Review'}else{'Observed'}
+            $findings.Add([pscustomobject]@{Id='memory';State=$state;Explanation=if($state -eq 'Review'){'Memory usage meets or exceeds selected review threshold'}else{'Memory usage below selected review threshold'};Observed=$used;Units='percent'})
         }
     }
     if ((Get-DTOProperty $disk 'Status') -cne 'Observed') {
@@ -104,34 +106,24 @@ function Get-DTODeviceCareFindings {
         if($null -eq $size -or $null -eq $free -or $size -le 0 -or $free -gt $size) {
             $findings.Add([pscustomobject]@{Id='system-disk';State='Unknown';Explanation='Disk values incomplete or invalid';Observed=$null})
         } else {
-            $gib=[math]::Round($free/1GB,2)
-            $state=if($gib -lt $MinimumDiskFreeGiB){'Review'}else{'Observed'}
-            $findings.Add([pscustomobject]@{Id='system-disk';State=$state;Explanation=if($state -eq 'Review'){'Available space below selected review threshold'}else{'Available space above selected review threshold'};Observed=$gib;Units='GiB'})
+            $rawGiB=$free/1GB
+            $gib=[math]::Round($rawGiB,2)
+            $state=if($rawGiB -lt $MinimumDiskFreeGiB){'Review'}else{'Observed'}
+            $findings.Add([pscustomobject]@{Id='system-disk';State=$state;Explanation=if($state -eq 'Review'){'Available space below selected review threshold'}else{'Available space at or above selected review threshold'};Observed=$gib;Units='GiB'})
         }
     }
     [pscustomobject]@{
         SchemaVersion=1
         Product='DeviceCare'
         AssessmentType='ReadOnlyRecommendations'
-        RulesVersion='dto-0.1'
+        RulesVersion='dto-0.2'
+        CollectedAtUtc=Get-DTOProperty $Snapshot 'CollectedAtUtc'
+        Thresholds=[pscustomobject]@{MinimumDiskFreeGiB=$MinimumDiskFreeGiB;MaximumMemoryUsedPercent=$MaximumMemoryUsedPercent}
         DeviceReady=$null
         MaintenanceAuthorized=$false
         Findings=@($findings.ToArray())
         Note='A selected threshold is not a device health certification. Unknown never means passing.'
     }
 }
-function ConvertTo-DTODeviceCareHtml {
-    [CmdletBinding()]
-    param([Parameter(Mandatory)]$Assessment)
-    if((Get-DTOProperty $Assessment 'AssessmentType') -cne 'ReadOnlyRecommendations' -or (Get-DTOProperty $Assessment 'MaintenanceAuthorized') -ne $false){throw 'DTO.InvalidAssessment'}
-    $encoded=[Net.WebUtility]::HtmlEncode(($Assessment | ConvertTo-Json -Depth 8))
-@"
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; base-uri 'none'; form-action 'none'"><title>DeviceCare | David Tom Official</title>
-<style>body{font:17px/1.55 'Segoe UI',Arial,sans-serif;max-width:72rem;margin:auto;padding:1.5rem;color:#0F2747;background:#F8F9FB}header{border-bottom:3px solid #D4A574;padding-bottom:1rem}.panel{background:#E6ECF2;padding:1.25rem;border-radius:.4rem}pre{overflow-wrap:anywhere;white-space:pre-wrap}a{color:#0F2747}a:focus-visible{outline:3px solid #0F2747;outline-offset:3px}@media(forced-colors:active){body,.panel{color:CanvasText;background:Canvas}a{color:LinkText}}</style></head><body>
-<header><p>DAVID TOM OFFICIAL / PERSONAL SOFTWARE</p><h1>DeviceCare</h1><p>Read-only development assessment</p></header>
-<p><strong>Not a deployment or repair recommendation.</strong> This report contains observations and unknowns, not proof of device health. Review before sharing.</p>
-<section class="panel" aria-label="Review evidence"><h2>Assessment details</h2><pre>$encoded</pre></section>
-<footer><p><a href="https://davidtomofficial.com/devicecare/">DeviceCare project</a> · <a href="https://davidtomofficial.com/#contact">Contact David Tom</a></p><p>No external scripts, telemetry, network calls or background changes.</p></footer></body></html>
-"@
-}
+. (Join-Path $PSScriptRoot 'Presentation.ps1')
 Export-ModuleMember -Function Get-DTODeviceCareSnapshot,Get-DTODeviceCareFindings,ConvertTo-DTODeviceCareHtml

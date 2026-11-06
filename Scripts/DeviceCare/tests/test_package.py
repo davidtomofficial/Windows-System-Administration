@@ -1,5 +1,5 @@
 from pathlib import Path
-import importlib.util, io, json, tempfile, unittest, zipfile
+import importlib.util, io, json, tempfile, unittest, zipfile, hashlib, xml.etree.ElementTree as ET
 ROOT=Path(__file__).resolve().parents[1]
 spec=importlib.util.spec_from_file_location('devicecare_pack',ROOT/'tools/package.py')
 pkg=importlib.util.module_from_spec(spec);spec.loader.exec_module(pkg)
@@ -44,7 +44,25 @@ class Tests(unittest.TestCase):
             for secret in ('davidtomsolutions','davidtompublishing','david tom holdings','cjis','private-github-backup'):
                 self.assertNotIn(secret,s,(n,secret))
     def test_no_mutation_calls(self):
-        script=(ROOT/'src/DeviceCare.psm1').read_text()
+        script=(ROOT/'src/DeviceCare.psm1').read_text()+(ROOT/'src/Presentation.ps1').read_text()
         for forbidden in ('Set-Service','Stop-Service','Start-Service','Remove-Item','Set-ItemProperty','Invoke-WebRequest','Start-Process'):
             self.assertNotIn(forbidden,script)
+    def test_asset_hash(self):
+        brand=json.loads((ROOT/'brand/product.json').read_text())
+        raw=(ROOT/'brand/dto-header-monogram.svg').read_bytes()
+        self.assertEqual(hashlib.sha256(raw).hexdigest(),brand['branding']['headerAssetSha256'])
+        self.assertEqual(hashlib.sha1(b'blob '+str(len(raw)).encode()+b'\0'+raw).hexdigest(),'dcec06a42443040f57ccffa486dd0a9965994b07')
+        svg=ET.fromstring(raw)
+        self.assertEqual(svg.attrib['viewBox'],'0 0 512 512')
+        self.assertFalse(any(x.tag.endswith('script') for x in svg.iter()))
+    def test_version_alignment(self):
+        self.assertEqual(json.loads((ROOT/'brand/product.json').read_text())['version'],'0.2.0-dto-preview')
+        self.assertIn('0.2.0 development preview',(ROOT/'brand/report.html').read_text())
+    def test_report_is_offline(self):
+        html=(ROOT/'brand/report.html').read_text()
+        self.assertIn("default-src 'none'",html)
+        self.assertIn('img-src data:',html)
+        self.assertNotIn('<script',html)
+        self.assertNotIn('src="http',html)
+        self.assertNotIn('@import',html)
 if __name__=='__main__':unittest.main(verbosity=2)

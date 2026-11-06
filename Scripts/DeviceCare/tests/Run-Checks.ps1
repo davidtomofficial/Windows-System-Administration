@@ -43,7 +43,7 @@ try{
  Check (-not $s.ChangesAllowed -and $null -eq $s.DeviceHealthy) 'withhold readiness'
  $json=$s|ConvertTo-Json -Depth 8
  Check (-not $json.Contains('PRIVATE-')) 'no extra identifiers'
- Check (-not $json.Contains($env:COMPUTERNAME)) 'no default host'
+ if(-not [string]::IsNullOrEmpty($env:COMPUTERNAME)){Check (-not $json.Contains($env:COMPUTERNAME)) 'no default host'}
  $f=Get-DTODeviceCareFindings -Snapshot $s
  Check ($f.Findings.Count -eq 2 -and $f.Findings[0].State -eq 'Observed') 'normal findings'
  Check (-not $f.MaintenanceAuthorized -and $null -eq $f.DeviceReady) 'no maintenance authorization'
@@ -77,7 +77,43 @@ try{
  Check $html.Contains("default-src 'none'") 'offline csp'
  foreach($c in @('#0F2747','#F8F9FB','#D4A574','#E6ECF2')){Check ($html.Contains($c)) ('palette '+$c)}
  Refuses {ConvertTo-DTODeviceCareHtml -Assessment ([pscustomobject]@{AssessmentType='ReadOnlyRecommendations';MaintenanceAuthorized=$true})} 'no authorized report'
- $env:OS='Linux';Refuses {Get-DTODeviceCareSnapshot} 'Windows only'
+ Scenario 'normal';$boundary=Get-DTODeviceCareSnapshot
+ $boundary.SystemDisk.Data.FreeSpace=14.999*1GB
+ $bf=Get-DTODeviceCareFindings -Snapshot $boundary
+ Check ($bf.Findings[1].State -eq 'Review') 'disk unrounded boundary'
+ $boundary.OS.Data.TotalVisibleMemorySize=100000
+ $boundary.OS.Data.FreePhysicalMemory=15040
+ $bf=Get-DTODeviceCareFindings -Snapshot $boundary
+ Check ($bf.Findings[0].State -eq 'Observed') 'memory unrounded boundary'
+ Check ($bf.Thresholds.MinimumDiskFreeGiB -eq 15) 'effective threshold recorded'
+ $boundary.ChangesAllowed=0
+ Refuses {Get-DTODeviceCareFindings -Snapshot $boundary} 'numeric false refused'
+ $sample|Add-Member -NotePropertyName PrivateIdentifier -NotePropertyValue 'DO-NOT-EXPORT'
+ $html=ConvertTo-DTODeviceCareHtml -Assessment $sample
+ Check (-not $html.Contains('DO-NOT-EXPORT')) 'extra properties not exported'
+ Check ($html.Contains('data:image/svg+xml;base64,')) 'embedded approved artwork'
+ Check ($html.Contains('<table>') -and $html.Contains('<details>')) 'readable findings and disclosure'
+ $sample.MaintenanceAuthorized=0
+ Refuses {ConvertTo-DTODeviceCareHtml -Assessment $sample} 'report numeric false refused'
+ $sample.MaintenanceAuthorized=$false
+ $sample.Findings[0].State='Healthy'
+ Refuses {ConvertTo-DTODeviceCareHtml -Assessment $sample} 'unsupported state refused'
+ $sample.Findings[0].State='Unknown';$sample.Findings[0].Observed=99
+ $html=ConvertTo-DTODeviceCareHtml -Assessment $sample
+ Check ($html.Contains('Not available')) 'unknown omits misleading number'
+
+ Scenario 'normal';$dated=Get-DTODeviceCareFindings -Snapshot (Get-DTODeviceCareSnapshot)
+ $dated.CollectedAtUtc='2026-11-05T12:34:56Z'
+ $dated.Findings[0].Explanation='Literal {{DETAIL}} remains literal'
+ $datedHtml=ConvertTo-DTODeviceCareHtml -Assessment $dated
+ Check ($datedHtml.Contains('2026-11-05T12:34:56Z')) 'original timestamp retained'
+ Check ($datedHtml.Contains('Literal {{DETAIL}} remains literal')) 'single-pass substitution'
+ Check ($datedHtml.Contains('Disk minimum: 15 GiB')) 'effective threshold displayed'
+ $dated.CollectedAtUtc='2026-11'
+ Check ((ConvertTo-DTODeviceCareHtml -Assessment $dated).Contains('Observed at: Unknown')) 'partial timestamp unknown'
+ $dated.Findings[1].Id='memory'
+ Refuses {ConvertTo-DTODeviceCareHtml -Assessment $dated} 'duplicate finding refused'
+ $env:OS='Linux';Refuses {Get-DTODeviceCareSnapshot} 'Windows only' 
  if($Native){
     $env:OS=$originalOS;$env:SystemDrive=$originalDrive
     Remove-Module DeviceCare -Force

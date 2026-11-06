@@ -3,7 +3,8 @@ import argparse, hashlib, io, json, zipfile
 from pathlib import Path
 FILES = ('README.md','TODO.md','.gitignore','brand/product.json','docs/MIGRATION.md',
          'docs/VALIDATION.md','src/DeviceCare.psm1','src/Invoke-DTODeviceCare.ps1',
-         'tests/Run-Checks.ps1','tests/test_package.py','tools/package.py')
+         'tests/Run-Checks.ps1','tests/test_package.py','tools/package.py',
+         'src/Presentation.ps1','brand/report.html','brand/dto-header-monogram.svg','brand/ASSET-PROVENANCE.md')
 STAMP=(2026,11,5,0,0,0)
 
 def digest(data):return hashlib.sha256(data).hexdigest()
@@ -15,7 +16,7 @@ def build(root):
         f=root/path
         if not f.is_file() or f.is_symlink() or not f.resolve().is_relative_to(root):raise ValueError('Missing or unsafe file: '+path)
         src[path]=f.read_bytes()
-    manifest={'schemaVersion':1,'product':'dto-devicecare','version':'0.1.0-dto-preview',
+    manifest={'schemaVersion':1,'product':'dto-devicecare','version':'0.2.0-dto-preview',
               'deploymentAccepted':False,
               'files':[{'path':n,'bytes':len(b),'sha256':digest(b)} for n,b in sorted(src.items())]}
     src['MANIFEST.json']=(json.dumps(manifest,indent=2)+'\n').encode()
@@ -33,9 +34,10 @@ def verify(raw):
     with zipfile.ZipFile(io.BytesIO(raw)) as z:
         names=z.namelist()
         if len(names)!=len(set(names)) or set(names)!=set(FILES)|{'MANIFEST.json'}:raise ValueError('Unexpected inventory')
-        if z.testzip() is not None or sum(x.file_size for x in z.infolist())>4*1024*1024:raise ValueError('Bad archive')
+        if sum(x.file_size for x in z.infolist())>4*1024*1024:raise ValueError('Bad archive')
+        if z.testzip() is not None:raise ValueError('Bad archive')
         m=json.loads(z.read('MANIFEST.json'))
-        if m.get('schemaVersion')!=1 or m.get('product')!='dto-devicecare' or m.get('version')!='0.1.0-dto-preview' or m.get('deploymentAccepted') is not False:raise ValueError('Wrong product')
+        if m.get('schemaVersion')!=1 or m.get('product')!='dto-devicecare' or m.get('version')!='0.2.0-dto-preview' or m.get('deploymentAccepted') is not False:raise ValueError('Wrong product')
         records=m.get('files',[])
         if len(records)!=len(FILES) or {r['path'] for r in records}!=set(FILES):raise ValueError('Bad manifest')
         for r in records:

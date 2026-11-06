@@ -1,6 +1,6 @@
 # DeviceCare — personal Windows maintenance project
 
-**David Tom Official · 0.1.0 DTO development preview**
+**David Tom Official · 0.2.0 DTO development preview**
 
 A separately developed, read-only Windows workstation assessment prototype. It supports two transparent threshold-based observations: system-drive free space and memory use. It does **not** repair or clean devices, update Windows, install applications, modify services, scan for malware or assert that a computer is healthy.
 
@@ -29,7 +29,7 @@ No username, machine name, serial number, domain, service account, installed app
 
 ## Branding
 
-Personal identity: **David Tom Official**. Project page: https://davidtomofficial.com/devicecare/. Contact: david.tom@davidtomofficial.com. Navy `#0F2747`, off-white `#F8F9FB`, pale blue `#E6ECF2`, decorative gold `#D4A574`. The offline report uses system fonts. Approved original DT logos are not copied or reconstructed here and require a separate asset/rights review before inclusion.
+Personal identity: **David Tom Official**. Project page: https://davidtomofficial.com/devicecare/. Contact: david.tom@davidtomofficial.com. Navy `#0F2747`, off-white `#F8F9FB`, pale blue `#E6ECF2`, decorative gold `#D4A574`. The offline report uses system fonts. The approved original DT header vector is bundled unchanged and embedded locally in the report. No font files are distributed. Native desktop/taskbar/installer integration remains pending; see brand/ASSET-PROVENANCE.md.
 
 ## Development checks
 
@@ -38,10 +38,16 @@ Personal identity: **David Tom Official**. Project page: https://davidtomofficia
 # Only on a disposable or authorized Windows machine:
 .\tests\Run-Checks.ps1 -Native
 python .\tests\test_package.py
-python .\tools\package.py --output DTO-DeviceCare-0.1.0.zip
-python .\tools\package.py --verify DTO-DeviceCare-0.1.0.zip
+python .\tools\package.py --output DTO-DeviceCare-0.2.0.zip
+python .\tools\package.py --verify DTO-DeviceCare-0.2.0.zip
 ```
 
-The package builder accepts only eleven explicitly enumerated source files, plus MANIFEST.json. It refuses overwriting an existing ZIP. Archive checksum matching is not a publisher signature.
+The package builder accepts only fifteen explicitly enumerated source files, plus MANIFEST.json. It refuses overwriting an existing ZIP. Archive checksum matching is not a publisher signature.
 
 See [active TODO](TODO.md), [migration boundaries](docs/MIGRATION.md), and [validation](docs/VALIDATION.md).
+
+## 0.2.0 changes
+
+Readable findings table, status counts, expandable structured evidence and embedded approved DT artwork. The report only projects reviewed fields; unknown caller-added properties are not exported. Threshold decisions use unrounded values, and mutation flags must be Boolean false rather than a loosely equivalent numeric value. This is not the full native desktop product.
+
+[Windows administration coordination backlog](../../Docs/DTO-WINDOWS-ADMIN-TODO.md) · [Technician launchpad backlog](../../Launchpad/TODO.md).
