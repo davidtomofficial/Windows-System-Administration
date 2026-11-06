@@ -95,7 +95,10 @@ try {
     $env:OS='Windows_NT'
     $html=ConvertTo-DTOReviewHtml ([pscustomobject]@{Test='<script>alert("x")</script>'})
     Check (-not $html.Contains('<script>')) 'HTML escaped'
-    Check ($html.Contains('&lt;script&gt;')) 'malicious text retained as text'
+    $pre=[regex]::Match($html,'(?s)<pre>(.*?)</pre>')
+    Check $pre.Success 'HTML evidence region'
+    $roundtrip=[Net.WebUtility]::HtmlDecode($pre.Groups[1].Value) | ConvertFrom-Json
+    Check ($roundtrip.Test -ceq '<script>alert("x")</script>') 'malicious text roundtrips only as data'
     Check ($html.Contains("default-src 'none'")) 'no external resources'
     foreach($color in @('#0F2747','#F8F9FB','#D4A574','#E6ECF2')) {Check $html.Contains($color) ('DTO color '+$color)}
     # Native path checks use disposable files; mocked DISM returns metadata only.
