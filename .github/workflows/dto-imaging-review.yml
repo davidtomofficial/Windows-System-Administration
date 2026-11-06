@@ -1,0 +1,34 @@
+name: DTO Imaging read-only review
+on:
+  push:
+    branches: [dto/imaging-migration-20261105]
+    paths: ['Scripts/Imaging-Provisioning/**', '.github/workflows/dto-imaging-review.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  windows-review:
+    runs-on: windows-2022
+    timeout-minutes: 12
+    steps:
+      - name: Checkout exact public source without credentials
+        shell: pwsh
+        run: |
+          git init .
+          git config core.autocrlf false
+          git remote add origin "https://github.com/$env:GITHUB_REPOSITORY.git"
+          git fetch --depth=1 origin $env:GITHUB_SHA
+          if ($LASTEXITCODE -ne 0) { throw 'Source fetch failed' }
+          git checkout --detach FETCH_HEAD
+          if ($LASTEXITCODE -ne 0) { throw 'Source checkout failed' }
+      - name: Windows PowerShell 5.1 contracts and disposable native WIM
+        shell: powershell
+        run: '& ./Scripts/Imaging-Provisioning/tests/Run-Checks.ps1 -Native'
+      - name: PowerShell 7 contracts
+        shell: pwsh
+        run: '& ./Scripts/Imaging-Provisioning/tests/Run-Checks.ps1'
+      - name: Deterministic packaging
+        shell: pwsh
+        run: |
+          python ./Scripts/Imaging-Provisioning/tests/test_package.py
+          if ($LASTEXITCODE -ne 0) { throw 'Package tests failed' }
