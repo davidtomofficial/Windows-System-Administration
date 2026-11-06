@@ -8,6 +8,8 @@ Revision: 2026-11-05 audit / 0.2.0 development preview. This is the active proje
 
 **Comparison implementation and regression scope verified:** 73 comparison checks passed in each of Windows PowerShell 5.1 and PowerShell 7 in [run 42285281367](https://github.com/davidtomofficial/Windows-System-Administration/actions/runs/42285281367). [Exact tested source and limits](docs/VALIDATION.md#selected-observation-comparison). Preservation readback belongs in the separate dated receipt. The full DTO-WSA-010 handoff remains open for required/optional policy checks, peripherals, user workflows and human signoff. DTO-IMG-010 dashboard/profile migration and DTO-IMG-011 attended Windows 11 acceptance remain open. Comparison does not establish same-device identity, a successful action or deployment readiness.
 
+**Native integration verification complete, November 6:** [PR 23](https://github.com/davidtomofficial/Windows-System-Administration/pull/23) adds six checks connecting the real Windows collector to the canonical comparator and existing HTML renderer. [Run 42287053182](https://github.com/davidtomofficial/Windows-System-Administration/actions/runs/42287053182) passed 98 Imaging Windows PowerShell 5.1/native checks, 82 PowerShell 7 checks and all 73 canonical synthetic comparison checks in each version. [Exact source, scope and limitations](docs/VALIDATION.md#native-comparison-integration---november-6-2026). DTO-WSA-010 remains open for the broader handoff; DTO-IMG-010 and DTO-IMG-011 remain open.
+
 The original audit rows below remain the historical source record except where a dated continuation supplies newer evidence.
 
 | ID | State | Scope and next acceptance |
@@ -28,7 +30,11 @@ The original audit rows below remain the historical source record except where a
 
 No public release promotion, service changes, paid launch or employer/private source publication is implied by this source branch.
 
-## Required check-in continuation — November 5, 2026
+## Profile inventory continuation - November 6, 2026
+
+**DTO-WSA-015 / P1: In progress, inventory stage implemented and CI-verified.** Additive [read-only profile inventory](docs/PROFILE-INVENTORY.md) supports the shared migration workstream. Default output omits profile SIDs and paths, preserves incomplete observations and never approves a removal candidate. Initial [Windows execution evidence](docs/VALIDATION.md#dto-wsa-015-profile-inventory-continuation) records 183 Windows PowerShell 5.1/native and 152 PowerShell 7 profile checks. Full session coverage, protected/shared-profile policy and attended Windows 11 remain pending under the same task. This does not complete DTO-IMG-010 or enable DTO-IMG-013.
+
+## Required check-in continuation - November 5, 2026
 
 - [ ] **DTO-IMG-014 / P1 — Required periodic check-in for future permission-licensed builds.** Implement the shared DTO-WSA-042–046 requirements with disclosed authorized enrollment, minimal aggregate usage, a verified owner-controlled receiver, receipt/retention controls and safe offline behavior. Current code has no check-in or usage telemetry. Existing license grants remain unaffected.
 

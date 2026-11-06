@@ -15,6 +15,14 @@ Navigation refreshed November 6, 2026. Use the integrated `main` tree and the co
 
 The shared check-in requirement is now recorded for all three programs. It is not a deployed collector or an implemented runtime requirement. Do not close it from a policy file or a source archive alone.
 
+## DTO-WSA-015 continuation: profile inventory, November 6
+
+**In progress: inventory stage implemented and CI-verified; broader acceptance open.** The additional [profile inventory command](../Scripts/Imaging-Provisioning/docs/PROFILE-INVENTORY.md) reads bounded local profile metadata with identifiers omitted by default, explicit uncertainty and no removal eligibility. [Windows run 42285198826](https://github.com/davidtomofficial/Windows-System-Administration/actions/runs/42285198826) passed the initial implementation's 183 Windows PowerShell 5.1/native and 152 PowerShell 7 profile checks. Existing workstation, service and WIM commands retain their source bytes.
+
+This is progress on the existing DTO-WSA-015 task in the preserved workstream record. Complete session evidence, protected/shared-account policy, ownership review and attended Windows 11 acceptance remain open. DTO-WSA-016 profile removal and DTO-WSA-004 protected changes are not enabled. Current execution evidence is recorded in [Imaging validation](../Scripts/Imaging-Provisioning/docs/VALIDATION.md).
+
+## DTO-LP-003 continuation: shared result contract, November 6
+
 November 6 continuation: [DTO-LP-003 result contract](TASK-RESULT-CONTRACT.md) adds
 independent observation/action/verification records and a bounded local producer
 and consumer. The component TODO records its actual validation status. This advances
@@ -27,3 +35,5 @@ workstream record remains preserved.
 **DTO-WSA-010 / DTO-IMG-004 and DTO-IMG-007: selected workstation observation comparison implemented and verified within its bounded scope.** A separate module compares seven known fields from two selected schema 2 snapshots, preserves original observation times and distinguishes Changed, Unchanged and Unknown with per-side coverage. Its 73 synthetic checks passed in each of Windows PowerShell 5.1 and PowerShell 7 in run 42285281367. The existing collector source remains unchanged. [Contract and reproducible fictional example](WORKSTATION-COMPARISON.md) | [Exact source and component test evidence](../Scripts/Imaging-Provisioning/docs/VALIDATION.md#selected-observation-comparison).
 
 The full DTO-WSA-010 handoff remains open for required/optional policy checks, peripherals, user workflows and human signoff. The comparison does not prove same-device identity, action success, deployment readiness or Windows 11 acceptance. This dated continuation adds implementation evidence to the preserved workstream record; it does not rewrite that record's historical branch observations or close unrelated tasks.
+
+**Native comparison integration follow-up complete:** [PR 23](https://github.com/davidtomofficial/Windows-System-Administration/pull/23) adds six assertions against the real Windows collector and existing HTML renderer, preserving the canonical comparator and its 73 synthetic checks. [Run 42287053182](https://github.com/davidtomofficial/Windows-System-Administration/actions/runs/42287053182) passed 98 Imaging Windows PowerShell 5.1/native checks and 82 PowerShell 7 checks, plus the 73 comparison checks in each version. [Exact tested source and limits](../Scripts/Imaging-Provisioning/docs/VALIDATION.md#native-comparison-integration---november-6-2026). The broader DTO-WSA-010, DTO-IMG-010 and DTO-IMG-011 acceptance remains open.
