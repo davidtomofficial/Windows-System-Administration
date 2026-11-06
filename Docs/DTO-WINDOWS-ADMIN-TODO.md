@@ -17,6 +17,6 @@ The shared check-in requirement is now recorded for all three programs. It is no
 
 ## DTO-WSA-015 continuation: profile inventory, November 6
 
-**In progress: inventory stage prepared; execution evidence pending.** The additional [profile inventory command](../Scripts/Imaging-Provisioning/docs/PROFILE-INVENTORY.md) reads bounded local profile metadata with identifiers omitted by default, explicit uncertainty and no removal eligibility. Existing workstation, service and WIM commands retain their source bytes.
+**In progress: inventory stage implemented and CI-verified; broader acceptance open.** The additional [profile inventory command](../Scripts/Imaging-Provisioning/docs/PROFILE-INVENTORY.md) reads bounded local profile metadata with identifiers omitted by default, explicit uncertainty and no removal eligibility. [Windows run 42285198826](https://github.com/davidtomofficial/Windows-System-Administration/actions/runs/42285198826) passed the initial implementation's 183 Windows PowerShell 5.1/native and 152 PowerShell 7 profile checks. Existing workstation, service and WIM commands retain their source bytes.
 
 This is progress on the existing DTO-WSA-015 task in the preserved workstream record. Complete session evidence, protected/shared-account policy, ownership review and attended Windows 11 acceptance remain open. DTO-WSA-016 profile removal and DTO-WSA-004 protected changes are not enabled. Current execution evidence is recorded in [Imaging validation](../Scripts/Imaging-Provisioning/docs/VALIDATION.md).

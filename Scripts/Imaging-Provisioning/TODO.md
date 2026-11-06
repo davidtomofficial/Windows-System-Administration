@@ -22,7 +22,7 @@ No public release promotion, service changes, paid launch or employer/private so
 
 ## Profile inventory continuation - November 6, 2026
 
-**DTO-WSA-015 / P1: In progress, inventory stage prepared; execution evidence pending.** Additive [read-only profile inventory](docs/PROFILE-INVENTORY.md) supports the shared migration workstream. Default output omits profile SIDs and paths, preserves incomplete observations and never approves a removal candidate. Full session coverage, protected/shared-profile policy and attended Windows 11 remain pending under the same task. This does not complete DTO-IMG-010 or enable DTO-IMG-013.
+**DTO-WSA-015 / P1: In progress, inventory stage implemented and CI-verified.** Additive [read-only profile inventory](docs/PROFILE-INVENTORY.md) supports the shared migration workstream. Default output omits profile SIDs and paths, preserves incomplete observations and never approves a removal candidate. Initial [Windows execution evidence](docs/VALIDATION.md#dto-wsa-015-profile-inventory-continuation) records 183 Windows PowerShell 5.1/native and 152 PowerShell 7 profile checks. Full session coverage, protected/shared-profile policy and attended Windows 11 remain pending under the same task. This does not complete DTO-IMG-010 or enable DTO-IMG-013.
 
 ## Required check-in continuation - November 5, 2026
 
