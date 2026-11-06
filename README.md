@@ -23,8 +23,16 @@ A reviewable collection of Windows technician tools, development previews and op
 | Component | Current implemented scope | Not yet established |
 |---|---|---|
 | DeviceCare 0.2.0 development preview | Local OS/memory/system-drive observations; two threshold findings; offline DTO report with original DT artwork | Full desktop application, maintenance/repair, installed-device acceptance |
+<<<<<<< /workspace/scratch/3fcca5c73abc/task-work/working/README.md
 | Imaging 0.2.0 development preview | Workstation and bounded service observations; selected before/after snapshot comparison; local WIM metadata/index review and optional hash; offline report | Same-device verification, full handoff, bootable image, OS deployment, installer/recovery qualification |
 | Technician Launchpad | Offline planning catalog, validator and tests | GUI, BAT wrappers, task dispatch; all 26 candidates remain non-executable |
+||||||| /workspace/scratch/3fcca5c73abc/task-work/baseline/README.md
+| Imaging 0.2.0 development preview | Workstation and bounded service observations; local WIM metadata/index review and optional hash; offline report | Bootable image, OS deployment, installer/recovery qualification |
+| Technician Launchpad | Offline planning catalog, validator and tests | GUI, BAT wrappers, task dispatch; all 26 candidates remain non-executable |
+=======
+| Imaging 0.2.0 development preview | Workstation and bounded service observations; local WIM metadata/index review and optional hash; offline report | Bootable image, OS deployment, installer/recovery qualification |
+| Technician Launchpad | Offline planning catalog; shared result contract, producer/consumer and tests | Component adapters, GUI, BAT wrappers, task dispatch; all 26 candidates remain non-executable |
+>>>>>>> /workspace/scratch/3fcca5c73abc/task-work/main-incoming/README.md
 | Periodic check-ins | Required future licensed-build design and acceptance backlog | Collector endpoint, client integration, real usage counts or enforcement |
 
 Automated component tests are not a full-product or physical Windows 11 acceptance. See the [review guide](Docs/REVIEWER-GUIDE.md) for exact source/run references. No A+ grade has been awarded; the [quality contract](Docs/REPOSITORY-A-PLUS.md) keeps unverified criteria open.
