@@ -46,11 +46,15 @@ jobs:
       - name: Imaging Windows PowerShell 5.1 native and contracts
         shell: powershell
         run: '& ./Scripts/Imaging-Provisioning/tests/Run-Checks.ps1 -Native'
+      - name: Profile inventory Windows PowerShell 5.1 native and contracts
+        shell: powershell
+        run: '& ./Scripts/Imaging-Provisioning/tests/Run-ProfileChecks.ps1 -Native'
       - name: PowerShell 7 component contracts
         shell: pwsh
         run: |
           & ./Scripts/DeviceCare/tests/Run-Checks.ps1
           & ./Scripts/Imaging-Provisioning/tests/Run-Checks.ps1
+          & ./Scripts/Imaging-Provisioning/tests/Run-ProfileChecks.ps1
       - name: Shared result contract on Windows PowerShell 5.1
         shell: powershell
         run: '& ./Tests/Run-ResultContractChecks.ps1'
