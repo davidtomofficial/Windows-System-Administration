@@ -162,3 +162,5 @@ try {
     if(Test-Path -LiteralPath $temp) {Remove-Item -LiteralPath $temp -Recurse -Force}
 }
 Write-Output ('DTO_CHECKS_PASSED='+$script:passed+'; NATIVE='+[bool]$Native+'; PS='+$PSVersionTable.PSVersion.ToString())
+# Pure synthetic comparison checks run in both supported PowerShell test jobs.
+& (Join-Path $PSScriptRoot 'Run-ComparisonChecks.ps1')

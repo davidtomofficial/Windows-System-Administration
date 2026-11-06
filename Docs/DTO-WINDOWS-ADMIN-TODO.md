@@ -29,3 +29,9 @@ and consumer. The component TODO records its actual validation status. This adva
 the result-format portion of DTO-WSA-003; input/privilege contracts, dispatch and
 live integration remain open under WSA-003, LP-004/010/011 and DC-018. The original
 workstream record remains preserved.
+
+## Current implementation continuation: November 6, 2026
+
+**DTO-WSA-010 / DTO-IMG-004 and DTO-IMG-007: selected workstation observation comparison implemented and verified within its bounded scope.** A separate module compares seven known fields from two selected schema 2 snapshots, preserves original observation times and distinguishes Changed, Unchanged and Unknown with per-side coverage. Its 73 synthetic checks passed in each of Windows PowerShell 5.1 and PowerShell 7 in run 42285281367. The existing collector source remains unchanged. [Contract and reproducible fictional example](WORKSTATION-COMPARISON.md) | [Exact source and component test evidence](../Scripts/Imaging-Provisioning/docs/VALIDATION.md#selected-observation-comparison).
+
+The full DTO-WSA-010 handoff remains open for required/optional policy checks, peripherals, user workflows and human signoff. The comparison does not prove same-device identity, action success, deployment readiness or Windows 11 acceptance. This dated continuation adds implementation evidence to the preserved workstream record; it does not rewrite that record's historical branch observations or close unrelated tasks.

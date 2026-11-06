@@ -7,7 +7,7 @@
 | Component | Implemented scope | Source and review |
 |---|---|---|
 | DeviceCare 0.2.0 | OS, memory and system-drive observations; two configurable threshold findings; offline DTO HTML report | [README](DeviceCare/README.md) · [Source](DeviceCare/src/) · [Checks](DeviceCare/tests/) · [TODO](DeviceCare/TODO.md) |
-| Imaging & Provisioning 0.2.0 | Workstation and bounded service observations; local WIM metadata/index review, optional SHA-256 and offline report | [README](Imaging-Provisioning/README.md) · [Source](Imaging-Provisioning/src/) · [Checks](Imaging-Provisioning/tests/) · [TODO](Imaging-Provisioning/TODO.md) |
+| Imaging & Provisioning 0.2.0 | Workstation and bounded service observations; selected before/after snapshot comparison; local WIM metadata/index review, optional SHA-256 and offline report | [README](Imaging-Provisioning/README.md) · [Source](Imaging-Provisioning/src/) · [Checks](Imaging-Provisioning/tests/) · [TODO](Imaging-Provisioning/TODO.md) |
 
 These previews do not implement general maintenance/repair, OS image application, partitioning or installer execution. Automated Windows Server checks do not establish attended Windows 11 acceptance. The [review guide](../Docs/REVIEWER-GUIDE.md) identifies source revisions and recorded runs. The separate [Launchpad](../Launchpad/README.md) remains a non-executable planning catalog.
 
