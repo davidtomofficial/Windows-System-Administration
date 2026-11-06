@@ -14,3 +14,9 @@ Navigation refreshed November 6, 2026. Use the integrated `main` tree and the co
 [Before/after migration map](REPOSITORY-MIGRATION.md) · [Reviewer guide](REVIEWER-GUIDE.md) · [Work-agent continuation](WORK-AGENT-HANDOFF.md).
 
 The shared check-in requirement is now recorded for all three programs. It is not a deployed collector or an implemented runtime requirement. Do not close it from a policy file or a source archive alone.
+
+## DTO-WSA-015 continuation: profile inventory, November 6
+
+**In progress: inventory stage prepared; execution evidence pending.** The additional [profile inventory command](../Scripts/Imaging-Provisioning/docs/PROFILE-INVENTORY.md) reads bounded local profile metadata with identifiers omitted by default, explicit uncertainty and no removal eligibility. Existing workstation, service and WIM commands retain their source bytes.
+
+This is progress on the existing DTO-WSA-015 task in the preserved workstream record. Complete session evidence, protected/shared-account policy, ownership review and attended Windows 11 acceptance remain open. DTO-WSA-016 profile removal and DTO-WSA-004 protected changes are not enabled. Current execution evidence is recorded in [Imaging validation](../Scripts/Imaging-Provisioning/docs/VALIDATION.md).

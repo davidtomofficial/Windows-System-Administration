@@ -20,7 +20,11 @@ Revision: 2026-11-05 audit / 0.2.0 development preview. This is the active proje
 
 No public release promotion, service changes, paid launch or employer/private source publication is implied by this source branch.
 
-## Required check-in continuation — November 5, 2026
+## Profile inventory continuation - November 6, 2026
+
+**DTO-WSA-015 / P1: In progress, inventory stage prepared; execution evidence pending.** Additive [read-only profile inventory](docs/PROFILE-INVENTORY.md) supports the shared migration workstream. Default output omits profile SIDs and paths, preserves incomplete observations and never approves a removal candidate. Full session coverage, protected/shared-profile policy and attended Windows 11 remain pending under the same task. This does not complete DTO-IMG-010 or enable DTO-IMG-013.
+
+## Required check-in continuation - November 5, 2026
 
 - [ ] **DTO-IMG-014 / P1 — Required periodic check-in for future permission-licensed builds.** Implement the shared DTO-WSA-042–046 requirements with disclosed authorized enrollment, minimal aggregate usage, a verified owner-controlled receiver, receipt/retention controls and safe offline behavior. Current code has no check-in or usage telemetry. Existing license grants remain unaffected.
 

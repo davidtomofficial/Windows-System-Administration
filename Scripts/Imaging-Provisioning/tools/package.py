@@ -10,7 +10,8 @@ FILES = (
     'README.md', 'TODO.md', '.gitignore', 'LICENSE.md', 'brand/product.json', 'docs/MIGRATION.md',
     'docs/VALIDATION.md', 'src/DTOImaging.psm1', 'src/Get-DTOWorkstationSnapshot.ps1',
     'src/Get-DTOImageReview.ps1', 'tests/Run-Checks.ps1', 'tests/test_package.py',
-    'tools/package.py',
+    'tools/package.py', 'src/ProfileInventory.psm1', 'src/Get-DTOProfileInventory.ps1',
+    'tests/Run-ProfileChecks.ps1', 'docs/PROFILE-INVENTORY.md',
 )
 STAMP = (2026, 11, 5, 0, 0, 0)
 

@@ -8,7 +8,7 @@ Covered original software requires explicit written permission unless an applica
 
 ## Implemented scope
 
-Privacy-conscious workstation observations, bounded service inventory, read-only local WIM metadata/index review, optional SHA-256 hashing and a DTO offline HTML report. The original full desktop workflow has not been migrated.
+Privacy-conscious workstation observations, bounded service inventory, read-only local WIM metadata/index review, optional SHA-256 hashing and a DTO offline HTML report. An additional [profile inventory command](docs/PROFILE-INVENTORY.md) provides read-only profile observations for DTO-WSA-015. The original full desktop workflow has not been migrated.
 
 ## Authorized development use
 
@@ -38,12 +38,15 @@ The HTML is returned as a string; no automatic save, upload or email. Hardware, 
 .\tests\Run-Checks.ps1
 # Disposable Windows lab: creates/removes a synthetic text-file WIM.
 .\tests\Run-Checks.ps1 -Native
+.\tests\Run-ProfileChecks.ps1
+# Reads profile metadata on the authorized Windows test host:
+.\tests\Run-ProfileChecks.ps1 -Native
 python .\tests\test_package.py
 python .\tools\package.py --output DTO-Imaging-0.2.0.zip
 python .\tools\package.py --verify DTO-Imaging-0.2.0.zip
 ```
 
-Thirteen allowlisted source files, including LICENSE.md, plus MANIFEST.json are packaged. Python 3.9+ is for packaging; it is not required by the Windows observation scripts. A package checksum is not publisher trust or deployment acceptance.
+The explicit allowlist in `tools/package.py` packages source, tests, documentation and LICENSE.md with MANIFEST.json. Python 3.9+ is for packaging; it is not required by the Windows observation scripts. A package checksum is not publisher trust or deployment acceptance.
 
 ## Identity and future check-ins
 
