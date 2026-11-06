@@ -77,15 +77,44 @@ try{
  Check $html.Contains("default-src 'none'") 'offline csp'
  foreach($c in @('#0F2747','#F8F9FB','#D4A574','#E6ECF2')){Check ($html.Contains($c)) ('palette '+$c)}
  Refuses {ConvertTo-DTODeviceCareHtml -Assessment ([pscustomobject]@{AssessmentType='ReadOnlyRecommendations';MaintenanceAuthorized=$true})} 'no authorized report'
- Scenario 'normal';$boundary=Get-DTODeviceCareSnapshot
- $boundary.SystemDisk.Data.FreeSpace=14.999*1GB
- $bf=Get-DTODeviceCareFindings -Snapshot $boundary
- Check ($bf.Findings[1].State -eq 'Review') 'disk unrounded boundary'
- $boundary.OS.Data.TotalVisibleMemorySize=100000
- $boundary.OS.Data.FreePhysicalMemory=15040
- $bf=Get-DTODeviceCareFindings -Snapshot $boundary
- Check ($bf.Findings[0].State -eq 'Observed') 'memory unrounded boundary'
- Check ($bf.Thresholds.MinimumDiskFreeGiB -eq 15) 'effective threshold recorded'
+ # DTO-DC-016: distinct raw measurements intentionally share a rounded display.
+ # Defaults omit threshold arguments; configured cases must honor both overrides.
+ Scenario 'normal'
+ $thresholdSets=@(
+    @{Name='default';Parameters=@{};DiskMinimum=15;MemoryMaximum=85;
+      DiskFree=@((15GB-1),15GB,(15GB+1));MemoryFree=@(15040,15000,14960)},
+    @{Name='configured';Parameters=@{MinimumDiskFreeGiB=20.25;MaximumMemoryUsedPercent=72.5};
+      DiskMinimum=20.25;MemoryMaximum=72.5;
+      DiskFree=@((20.25GB-1),20.25GB,(20.25GB+1));MemoryFree=@(27540,27500,27460)}
+ )
+ $positions=@('below','equal','above')
+ $diskStates=@('Review','Observed','Observed')
+ $memoryStates=@('Observed','Review','Review')
+ foreach($thresholdSet in $thresholdSets){
+    $parameters=$thresholdSet.Parameters
+    for($i=0;$i -lt 3;$i++){
+        $label=$thresholdSet.Name+' '+$positions[$i]
+        $diskSnapshot=Get-DTODeviceCareSnapshot
+        $diskSnapshot.SystemDisk.Data.FreeSpace=$thresholdSet.DiskFree[$i]
+        $diskAssessment=Get-DTODeviceCareFindings -Snapshot $diskSnapshot @parameters
+        $diskFinding=$diskAssessment.Findings|Where-Object {$_.Id -eq 'system-disk'}
+        Check ($diskFinding.State -eq $diskStates[$i]) ('disk state '+$label)
+        Check ($diskFinding.Observed -eq $thresholdSet.DiskMinimum) ('disk rounded display '+$label)
+        Check ($diskAssessment.Thresholds.MinimumDiskFreeGiB -eq $thresholdSet.DiskMinimum -and
+               $diskAssessment.Thresholds.MaximumMemoryUsedPercent -eq $thresholdSet.MemoryMaximum) ('disk effective thresholds '+$label)
+
+        $memorySnapshot=Get-DTODeviceCareSnapshot
+        $memorySnapshot.OS.Data.TotalVisibleMemorySize=100000
+        $memorySnapshot.OS.Data.FreePhysicalMemory=$thresholdSet.MemoryFree[$i]
+        $memoryAssessment=Get-DTODeviceCareFindings -Snapshot $memorySnapshot @parameters
+        $memoryFinding=$memoryAssessment.Findings|Where-Object {$_.Id -eq 'memory'}
+        Check ($memoryFinding.State -eq $memoryStates[$i]) ('memory state '+$label)
+        Check ($memoryFinding.Observed -eq $thresholdSet.MemoryMaximum) ('memory rounded display '+$label)
+        Check ($memoryAssessment.Thresholds.MinimumDiskFreeGiB -eq $thresholdSet.DiskMinimum -and
+               $memoryAssessment.Thresholds.MaximumMemoryUsedPercent -eq $thresholdSet.MemoryMaximum) ('memory effective thresholds '+$label)
+    }
+ }
+ $boundary=Get-DTODeviceCareSnapshot
  $boundary.ChangesAllowed=0
  Refuses {Get-DTODeviceCareFindings -Snapshot $boundary} 'numeric false refused'
  $sample|Add-Member -NotePropertyName PrivateIdentifier -NotePropertyValue 'DO-NOT-EXPORT'
