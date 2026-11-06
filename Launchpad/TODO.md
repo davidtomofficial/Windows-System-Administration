@@ -8,7 +8,7 @@ ID abbreviations below refer to stable `DTO-LP-###` and `DTO-WSA-###` tasks. Dev
 
 | ID | Priority | Status | Work / acceptance |
 |---|---|---|---|
-| DTO-LP-001 | P0 | Implemented, local tests | **Planning catalog and strict validation.** 26 non-executable candidates; duplicate keys/IDs, unexpected fields, non-null launchers and execution flags refused. Windows CI pending. |
+| DTO-LP-001 | P0 | Implemented, component checks passed | **Planning catalog and strict validation.** 26 non-executable candidates; duplicate keys/IDs, unexpected fields, non-null launchers and execution flags refused. Twelve planning checks and the 26-entry listing passed Windows CI run 42145612233 at deadfd6add0fb391dd3113e6fd9cfd501e8a7603. No action executed. |
 | DTO-LP-002 | P0 | Open | **Release catalog contract.** Separate planned catalog from actions.json; exact implementation/version/hash, input schema, runtime/architecture, impact, prerequisites and native evidence required. Depends on LP-003/004. |
 | DTO-LP-003 | P0 | Open | **One result and evidence contract.** Record observation/action/verification separately; success, failed, partial, skipped, unknown, cancellation and restart-required remain distinct. Version schema and preserve original timestamps. |
 | DTO-LP-004 | P0 | Open | **Fixed dispatch and safe parameters.** Known task IDs and owned relative paths only; no arbitrary shell, eval, URL execution or PATH-shadowed tools. Validate every entry point, including direct BAT/PowerShell. |
