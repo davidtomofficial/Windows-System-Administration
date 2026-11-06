@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "status": "VerifiedWithinStatedScope",
+  "workDate": "2026-11-05",
+  "sourceCommit": "7ae130b4b33827574da4a9c591885d16ed7d8d68",
+  "sourceGitTree": "4f9b0cc91aaf046b002bed6d748a5e4751192e4a",
+  "ciRun": 42137376120,
+  "testedCommit": "e71a47e356d1a070d57aa64e8978a0077f3dd323",
+  "windowsPowerShellChecks": 87,
+  "powerShell7ContractChecks": 77,
+  "pythonTests": 8,
+  "finalSourceCI": {
+    "run": 42138003752,
+    "conclusion": "success",
+    "headSha": "7ae130b4b33827574da4a9c591885d16ed7d8d68"
+  },
+  "sourcePackage": {
+    "fileName": "DTO-Imaging-0.2.0-2026-11-05.zip",
+    "bytes": 20345,
+    "sha256": "9d386c841e8d8e3c55b86b40adae36e307c143354159730a20fe1e7bfba63a29",
+    "zipCrcPassed": true,
+    "sourceFileCount": 12,
+    "membersIncludingManifest": 13,
+    "sharePointRawReadbackMatched": true,
+    "deterministicRebuildMatched": true,
+    "allPackagedFilesMatchGitHubProjectTree": true
+  },
+  "tasksTracked": 13,
+  "nativeWindows11Acceptance": false,
+  "osDeploymentAcceptance": false,
+  "publicMainModified": false,
+  "originalAttendedRowsRemainPending": 55,
+  "notIncluded": [
+    "WPF dashboard migration",
+    "official DT icon integration",
+    "saved software profiles and full application/service evidence contracts",
+    "OS image application",
+    "production installer acceptance",
+    "protected recovery acceptance"
+  ],
+  "sharePointTrackersVerified": 3,
+  "preworkCopyVerified": true,
+  "note": "Source and backup parity is not deployment acceptance. Windows checks used Server 2022 and a synthetic text-file WIM. No native PowerShell 7 DISM acceptance claimed."
+}
