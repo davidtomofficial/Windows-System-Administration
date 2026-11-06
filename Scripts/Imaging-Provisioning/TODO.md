@@ -25,3 +25,9 @@ No public release promotion, service changes, paid launch or employer/private so
 - [ ] **DTO-IMG-014 / P1 — Required periodic check-in for future permission-licensed builds.** Implement the shared DTO-WSA-042–046 requirements with disclosed authorized enrollment, minimal aggregate usage, a verified owner-controlled receiver, receipt/retention controls and safe offline behavior. Current code has no check-in or usage telemetry. Existing license grants remain unaffected.
 
 [Shared implementation contract](../../Docs/USAGE-CHECK-IN.md) · [Repository continuation TODO](../../Docs/REPOSITORY-REVIEW-TODO.md)
+
+## DTO-WSA-010: read-only before/after comparison
+
+**November 6, 2026: implemented comparison subset.** Imaging now provides a separate comparison module for two existing schema-2 workstation snapshots. It projects the seven supported OS/hardware fields, retains timestamps and coverage, and distinguishes Changed, Unchanged and Unknown without collecting a new snapshot or changing a device. It omits computer names and extra input fields. Processor ordering is ignored while multiplicity is retained.
+
+[Guide](docs/SNAPSHOT-COMPARISON.md) | [Validation](docs/VALIDATION.md) | [Existing parent authority](../../Docs/DTO-WINDOWS-ADMIN-TODO.md#dto-wsa-010-workstation-comparison-continuation). Original DTO-IMG task IDs and states remain intact. Execution evidence belongs to the linked validation record. Broader DTO-WSA-010 handoff, native UI, profile editing, deployment, identity verification and attended Windows 11 acceptance remain open.

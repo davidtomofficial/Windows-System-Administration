@@ -4,7 +4,7 @@ Navigation refreshed November 6, 2026. Use the integrated `main` tree and the co
 
 | Scope | Authoritative tasks | Current interpretation |
 |---|---|---|
-| Windows workstreams | [DTO-WSA-001–040](DTO-WINDOWS-ADMIN-WORKSTREAMS.md) | Original workstream record preserved byte-for-byte. Its pre-integration branch observations are superseded only by the migration record below. |
+| Windows workstreams | [DTO-WSA-001–040](DTO-WINDOWS-ADMIN-WORKSTREAMS.md) | Original workstream record preserved byte-for-byte. Read the migration record and current task updates below for later implementation evidence. |
 | Repository migration, licenses and check-ins | [DTO-WSA-041–048 and DTO-GH review tasks](REPOSITORY-REVIEW-TODO.md) | Active continuation; distinguishes implemented source from unimplemented services. |
 | DeviceCare | [DTO-DC-001–020](../Scripts/DeviceCare/TODO.md) and DTO-DC-021 in the shared review TODO | Read-only 0.2.0 preview; full desktop, maintenance and check-ins remain unaccepted. |
 | Imaging | [DTO-IMG-001–013](../Scripts/Imaging-Provisioning/TODO.md) and DTO-IMG-014 in the shared review TODO | Read-only 0.2.0 preview now staged alongside DeviceCare; original branch retained. |
@@ -14,3 +14,9 @@ Navigation refreshed November 6, 2026. Use the integrated `main` tree and the co
 [Before/after migration map](REPOSITORY-MIGRATION.md) · [Reviewer guide](REVIEWER-GUIDE.md) · [Work-agent continuation](WORK-AGENT-HANDOFF.md).
 
 The shared check-in requirement is now recorded for all three programs. It is not a deployed collector or an implemented runtime requirement. Do not close it from a policy file or a source archive alone.
+
+## DTO-WSA-010: workstation comparison continuation
+
+**November 6, 2026: implemented comparison subset.** The new Imaging comparison module compares two caller-selected workstation snapshots using seven known OS/hardware fields, recorded timestamps and collection coverage. Missing or incomplete evidence remains Unknown. Processor names are compared as a multiset, preserving repeated identical processors without depending on enumeration order. Device identity, device health, deployment acceptance and human handoff are not inferred.
+
+[Comparison guide and supported scope](../Scripts/Imaging-Provisioning/docs/SNAPSHOT-COMPARISON.md) | [Component validation](../Scripts/Imaging-Provisioning/docs/VALIDATION.md). The existing observation and image-inspection runtime remains unchanged. The broader DTO-WSA-010 work still needs required/optional criteria, peripheral and user-workflow evidence, operator signoff and attended acceptance. This continuation does not close that parent task or the native Imaging dashboard/profile migration.

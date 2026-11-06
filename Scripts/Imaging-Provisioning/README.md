@@ -8,7 +8,7 @@ Covered original software requires explicit written permission unless an applica
 
 ## Implemented scope
 
-Privacy-conscious workstation observations, bounded service inventory, read-only local WIM metadata/index review, optional SHA-256 hashing and a DTO offline HTML report. The original full desktop workflow has not been migrated.
+Privacy-conscious workstation observations, bounded service inventory, read-only local WIM metadata/index review, optional SHA-256 hashing and a DTO offline HTML report. A separate [snapshot comparison module](docs/SNAPSHOT-COMPARISON.md) compares two selected schema-2 workstation observations with explicit changed, unchanged and unknown results. The original full desktop workflow has not been migrated.
 
 ## Authorized development use
 
@@ -43,7 +43,7 @@ python .\tools\package.py --output DTO-Imaging-0.2.0.zip
 python .\tools\package.py --verify DTO-Imaging-0.2.0.zip
 ```
 
-Thirteen allowlisted source files, including LICENSE.md, plus MANIFEST.json are packaged. Python 3.9+ is for packaging; it is not required by the Windows observation scripts. A package checksum is not publisher trust or deployment acceptance.
+Sixteen allowlisted source files, including LICENSE.md and the comparison module, guide and checks, plus MANIFEST.json are packaged. Python 3.9+ is for packaging; it is not required by the Windows observation scripts. A package checksum is not publisher trust or deployment acceptance.
 
 ## Identity and future check-ins
 
