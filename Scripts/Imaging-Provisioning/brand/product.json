@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "productId": "dto-imaging-provisioning",
+  "productName": "DTO Imaging & Provisioning",
+  "publisher": "David Tom Official",
+  "version": "0.1.0-migration",
+  "channel": "Public-safe development scaffold",
+  "websiteUrl": "https://davidtomofficial.com/",
+  "contactUrl": "https://davidtomofficial.com/",
+  "sourceProject": "DTS Technician 0.23.0 (private archival source)",
+  "supportEmail": null,
+  "releaseStatus": "Not qualified for deployment",
+  "brandingStatus": "DTO asset and palette verification pending"
+}
