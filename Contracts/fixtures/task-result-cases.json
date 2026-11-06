@@ -1,0 +1,2575 @@
+{
+  "fixtureSchemaVersion": 1,
+  "cases": [
+    {
+      "id": "observation-complete-retains-original-time",
+      "valid": true,
+      "result": {
+        "schemaVersion": 1,
+        "operationId": "synthetic.devicecare.snapshot",
+        "runId": "11111111-1111-4111-8111-111111111111",
+        "operationKind": "Observation",
+        "source": {
+          "component": "Synthetic.DeviceCare",
+          "version": "0.0.0-fixture",
+          "revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        "startedAtUtc": "2026-01-02T03:04:05.1234567Z",
+        "completedAtUtc": "2026-01-02T03:04:06.1234567Z",
+        "changesAttempted": false,
+        "effects": "None",
+        "restartRequired": false,
+        "observation": {
+          "status": "Succeeded",
+          "reasonCode": "CollectionComplete",
+          "evidenceIds": [
+            "snapshot"
+          ]
+        },
+        "action": {
+          "status": "Skipped",
+          "reasonCode": "NotRequested",
+          "evidenceIds": []
+        },
+        "verification": {
+          "status": "Skipped",
+          "reasonCode": "NotRequested",
+          "evidenceIds": []
+        },
+        "evidence": [
+          {
+            "id": "snapshot",
+            "type": "Synthetic.DeviceCare.Snapshot",
+            "schemaVersion": 1,
+            "collectedAtUtc": "2025-12-31T23:59:59.7654321+00:00",
+            "coverage": "Complete",
+            "sha256": null
+          }
+        ]
+      }
+    },
+    {
+      "id": "plan-only",
+      "valid": true,
+      "result": {
+        "schemaVersion": 1,
+        "operationId": "synthetic.plan",
+        "runId": "11111111-1111-4111-8111-111111111111",
+        "operationKind": "Plan",
+        "source": {
+          "component": "Synthetic.DeviceCare",
+          "version": "0.0.0-fixture",
+          "revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        "startedAtUtc": "2026-01-02T03:04:05.1234567Z",
+        "completedAtUtc": "2026-01-02T03:04:06.1234567Z",
+        "changesAttempted": false,
+        "effects": "None",
+        "restartRequired": false,
+        "observation": {
+          "status": "Succeeded",
+          "reasonCode": "CollectionComplete",
+          "evidenceIds": [
+            "snapshot"
+          ]
+        },
+        "action": {
+          "status": "Skipped",
+          "reasonCode": "NotRequested",
+          "evidenceIds": []
+        },
+        "verification": {
+          "status": "Skipped",
+          "reasonCode": "NotRequested",
+          "evidenceIds": []
+        },
+        "evidence": [
+          {
+            "id": "snapshot",
+            "type": "Synthetic.DeviceCare.Snapshot",
+            "schemaVersion": 1,
+            "collectedAtUtc": "2025-12-31T23:59:59.7654321+00:00",
+            "coverage": "Complete",
+            "sha256": null
+          }
+        ]
+      }
+    },
+    {
+      "id": "unknown-source-and-run-times",
+      "valid": true,
+      "result": {
+        "schemaVersion": 1,
+        "operationId": "synthetic.devicecare.snapshot",
+        "runId": "11111111-1111-4111-8111-111111111111",
+        "operationKind": "Observation",
+        "source": {
+          "component": "Synthetic.DeviceCare",
+          "version": "0.0.0-fixture",
+          "revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        "startedAtUtc": null,
+        "completedAtUtc": null,
+        "changesAttempted": false,
+        "effects": "None",
+        "restartRequired": null,
+        "observation": {
+          "status": "Succeeded",
+          "reasonCode": "CollectionComplete",
+          "evidenceIds": [
+            "snapshot"
+          ]
+        },
+        "action": {
+          "status": "Skipped",
+          "reasonCode": "NotRequested",
+          "evidenceIds": []
+        },
+        "verification": {
+          "status": "Skipped",
+          "reasonCode": "NotRequested",
+          "evidenceIds": []
+        },
+        "evidence": [
+          {
+            "id": "snapshot",
+            "type": "Synthetic.DeviceCare.Snapshot",
+            "schemaVersion": 1,
+            "collectedAtUtc": null,
+            "coverage": "Complete",
+            "sha256": null
+          }
+        ]
+      }
+    },
+    {
+      "id": "partial-observation",
+      "valid": true,
+      "result": {
+        "schemaVersion": 1,
+        "operationId": "synthetic.devicecare.snapshot",
+        "runId": "11111111-1111-4111-8111-111111111111",
+        "operationKind": "Observation",
+        "source": {
+          "component": "Synthetic.DeviceCare",
+          "version": "0.0.0-fixture",
+          "revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        "startedAtUtc": "2026-01-02T03:04:05.1234567Z",
+        "completedAtUtc": "2026-01-02T03:04:06.1234567Z",
+        "changesAttempted": false,
+        "effects": "None",
+        "restartRequired": false,
+        "observation": {
+          "status": "Partial",
+          "reasonCode": "ProviderPartlyAvailable",
+          "evidenceIds": [
+            "snapshot"
+          ]
+        },
+        "action": {
+          "status": "Skipped",
+          "reasonCode": "NotRequested",
+          "evidenceIds": []
+        },
+        "verification": {
+          "status": "Skipped",
+          "reasonCode": "NotRequested",
+          "evidenceIds": []
+        },
+        "evidence": [
+          {
+            "id": "snapshot",
+            "type": "Synthetic.DeviceCare.Snapshot",
+            "schemaVersion": 1,
+            "collectedAtUtc": "2025-12-31T23:59:59.7654321+00:00",
+            "coverage": "Partial",
+            "sha256": null
+          }
+        ]
+      }
+    },
+    {
+      "id": "unknown-observation-without-evidence",
+      "valid": true,
+      "result": {
+        "schemaVersion": 1,
+        "operationId": "synthetic.devicecare.snapshot",
+        "runId": "11111111-1111-4111-8111-111111111111",
+        "operationKind": "Observation",
+        "source": {
+          "component": "Synthetic.DeviceCare",
+          "version": "0.0.0-fixture",
+          "revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        "startedAtUtc": "2026-01-02T03:04:05.1234567Z",
+        "completedAtUtc": "2026-01-02T03:04:06.1234567Z",
+        "changesAttempted": false,
+        "effects": "None",
+        "restartRequired": false,
+        "observation": {
+          "status": "Unknown",
+          "reasonCode": "ProviderUnavailable",
+          "evidenceIds": []
+        },
+        "action": {
+          "status": "Skipped",
+          "reasonCode": "NotRequested",
+          "evidenceIds": []
+        },
+        "verification": {
+          "status": "Skipped",
+          "reasonCode": "NotRequested",
+          "evidenceIds": []
+        },
+        "evidence": []
+      }
+    },
+    {
+      "id": "change-with-separate-verification",
+      "valid": true,
+      "result": {
+        "schemaVersion": 1,
+        "operationId": "synthetic.change",
+        "runId": "11111111-1111-4111-8111-111111111111",
+        "operationKind": "Change",
+        "source": {
+          "component": "Synthetic.DeviceCare",
+          "version": "0.0.0-fixture",
+          "revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        "startedAtUtc": "2026-01-02T03:04:05.1234567Z",
+        "completedAtUtc": "2026-01-02T03:04:06.1234567Z",
+        "changesAttempted": true,
+        "effects": "Observed",
+        "restartRequired": false,
+        "observation": {
+          "status": "Succeeded",
+          "reasonCode": "CollectionComplete",
+          "evidenceIds": [
+            "snapshot"
+          ]
+        },
+        "action": {
+          "status": "Succeeded",
+          "reasonCode": "ActionReportedComplete",
+          "evidenceIds": [
+            "action-log"
+          ]
+        },
+        "verification": {
+          "status": "Succeeded",
+          "reasonCode": "PostconditionObserved",
+          "evidenceIds": [
+            "verification"
+          ]
+        },
+        "evidence": [
+          {
+            "id": "snapshot",
+            "type": "Synthetic.DeviceCare.Snapshot",
+            "schemaVersion": 1,
+            "collectedAtUtc": "2025-12-31T23:59:59.7654321+00:00",
+            "coverage": "Complete",
+            "sha256": null
+          },
+          {
+            "id": "action-log",
+            "type": "Synthetic.Change.Action",
+            "schemaVersion": 1,
+            "collectedAtUtc": "2026-01-02T03:04:05.9999999Z",
+            "coverage": "Complete",
+            "sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+          },
+          {
+            "id": "verification",
+            "type": "Synthetic.Change.Verification",
+            "schemaVersion": 2,
+            "collectedAtUtc": "2026-01-02T03:04:06Z",
+            "coverage": "Complete",
+            "sha256": null
+          }
+        ]
+      }
+    },
+    {
+      "id": "successful-action-failed-verification",
+      "valid": true,
+      "result": {
+        "schemaVersion": 1,
+        "operationId": "synthetic.change",
+        "runId": "11111111-1111-4111-8111-111111111111",
+        "operationKind": "Change",
+        "source": {
+          "component": "Synthetic.DeviceCare",
+          "version": "0.0.0-fixture",
+          "revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        "startedAtUtc": "2026-01-02T03:04:05.1234567Z",
+        "completedAtUtc": "2026-01-02T03:04:06.1234567Z",
+        "changesAttempted": true,
+        "effects": "Observed",
+        "restartRequired": false,
+        "observation": {
+          "status": "Succeeded",
+          "reasonCode": "CollectionComplete",
+          "evidenceIds": [
+            "snapshot"
+          ]
+        },
+        "action": {
+          "status": "Succeeded",
+          "reasonCode": "ActionReportedComplete",
+          "evidenceIds": [
+            "action-log"
+          ]
+        },
+        "verification": {
+          "status": "Failed",
+          "reasonCode": "PostconditionNotObserved",
+          "evidenceIds": [
+            "verification"
+          ]
+        },
+        "evidence": [
+          {
+            "id": "snapshot",
+            "type": "Synthetic.DeviceCare.Snapshot",
+            "schemaVersion": 1,
+            "collectedAtUtc": "2025-12-31T23:59:59.7654321+00:00",
+            "coverage": "Complete",
+            "sha256": null
+          },
+          {
+            "id": "action-log",
+            "type": "Synthetic.Change.Action",
+            "schemaVersion": 1,
+            "collectedAtUtc": "2026-01-02T03:04:05.9999999Z",
+            "coverage": "Complete",
+            "sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+          },
+          {
+            "id": "verification",
+            "type": "Synthetic.Change.Verification",
+            "schemaVersion": 2,
+            "collectedAtUtc": "2026-01-02T03:04:06Z",
+            "coverage": "Complete",
+            "sha256": null
+          }
+        ]
+      }
+    },
+    {
+      "id": "failed-action-still-requires-restart",
+      "valid": true,
+      "result": {
+        "schemaVersion": 1,
+        "operationId": "synthetic.change",
+        "runId": "11111111-1111-4111-8111-111111111111",
+        "operationKind": "Change",
+        "source": {
+          "component": "Synthetic.DeviceCare",
+          "version": "0.0.0-fixture",
+          "revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        "startedAtUtc": "2026-01-02T03:04:05.1234567Z",
+        "completedAtUtc": "2026-01-02T03:04:06.1234567Z",
+        "changesAttempted": true,
+        "effects": "Observed",
+        "restartRequired": true,
+        "observation": {
+          "status": "Succeeded",
+          "reasonCode": "CollectionComplete",
+          "evidenceIds": [
+            "snapshot"
+          ]
+        },
+        "action": {
+          "status": "Failed",
+          "reasonCode": "ActionFailedAfterChange",
+          "evidenceIds": [
+            "action-log"
+          ]
+        },
+        "verification": {
+          "status": "Unknown",
+          "reasonCode": "PendingInvestigation",
+          "evidenceIds": []
+        },
+        "evidence": [
+          {
+            "id": "snapshot",
+            "type": "Synthetic.DeviceCare.Snapshot",
+            "schemaVersion": 1,
+            "collectedAtUtc": "2025-12-31T23:59:59.7654321+00:00",
+            "coverage": "Complete",
+            "sha256": null
+          },
+          {
+            "id": "action-log",
+            "type": "Synthetic.Change.Action",
+            "schemaVersion": 1,
+            "collectedAtUtc": "2026-01-02T03:04:05.9999999Z",
+            "coverage": "Complete",
+            "sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+          },
+          {
+            "id": "verification",
+            "type": "Synthetic.Change.Verification",
+            "schemaVersion": 2,
+            "collectedAtUtc": "2026-01-02T03:04:06Z",
+            "coverage": "Complete",
+            "sha256": null
+          }
+        ]
+      }
+    },
+    {
+      "id": "partial-action-still-requires-restart",
+      "valid": true,
+      "result": {
+        "schemaVersion": 1,
+        "operationId": "synthetic.change",
+        "runId": "11111111-1111-4111-8111-111111111111",
+        "operationKind": "Change",
+        "source": {
+          "component": "Synthetic.DeviceCare",
+          "version": "0.0.0-fixture",
+          "revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        "startedAtUtc": "2026-01-02T03:04:05.1234567Z",
+        "completedAtUtc": "2026-01-02T03:04:06.1234567Z",
+        "changesAttempted": true,
+        "effects": "Observed",
+        "restartRequired": true,
+        "observation": {
+          "status": "Succeeded",
+          "reasonCode": "CollectionComplete",
+          "evidenceIds": [
+            "snapshot"
+          ]
+        },
+        "action": {
+          "status": "Partial",
+          "reasonCode": "SomeChangesCompleted",
+          "evidenceIds": [
+            "action-log"
+          ]
+        },
+        "verification": {
+          "status": "Unknown",
+          "reasonCode": "PendingInvestigation",
+          "evidenceIds": []
+        },
+        "evidence": [
+          {
+            "id": "snapshot",
+            "type": "Synthetic.DeviceCare.Snapshot",
+            "schemaVersion": 1,
+            "collectedAtUtc": "2025-12-31T23:59:59.7654321+00:00",
+            "coverage": "Complete",
+            "sha256": null
+          },
+          {
+            "id": "action-log",
+            "type": "Synthetic.Change.Action",
+            "schemaVersion": 1,
+            "collectedAtUtc": "2026-01-02T03:04:05.9999999Z",
+            "coverage": "Complete",
+            "sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+          },
+          {
+            "id": "verification",
+            "type": "Synthetic.Change.Verification",
+            "schemaVersion": 2,
+            "collectedAtUtc": "2026-01-02T03:04:06Z",
+            "coverage": "Complete",
+            "sha256": null
+          }
+        ]
+      }
+    },
+    {
+      "id": "cancellation-preserves-unknown-effects",
+      "valid": true,
+      "result": {
+        "schemaVersion": 1,
+        "operationId": "synthetic.change",
+        "runId": "11111111-1111-4111-8111-111111111111",
+        "operationKind": "Change",
+        "source": {
+          "component": "Synthetic.DeviceCare",
+          "version": "0.0.0-fixture",
+          "revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        "startedAtUtc": "2026-01-02T03:04:05.1234567Z",
+        "completedAtUtc": "2026-01-02T03:04:06.1234567Z",
+        "changesAttempted": true,
+        "effects": "Unknown",
+        "restartRequired": null,
+        "observation": {
+          "status": "Succeeded",
+          "reasonCode": "CollectionComplete",
+          "evidenceIds": [
+            "snapshot"
+          ]
+        },
+        "action": {
+          "status": "Cancelled",
+          "reasonCode": "OperatorCancelled",
+          "evidenceIds": [
+            "action-log"
+          ]
+        },
+        "verification": {
+          "status": "Unknown",
+          "reasonCode": "EffectsNotVerified",
+          "evidenceIds": []
+        },
+        "evidence": [
+          {
+            "id": "snapshot",
+            "type": "Synthetic.DeviceCare.Snapshot",
+            "schemaVersion": 1,
+            "collectedAtUtc": "2025-12-31T23:59:59.7654321+00:00",
+            "coverage": "Complete",
+            "sha256": null
+          },
+          {
+            "id": "action-log",
+            "type": "Synthetic.Change.Action",
+            "schemaVersion": 1,
+            "collectedAtUtc": "2026-01-02T03:04:05.9999999Z",
+            "coverage": "Complete",
+            "sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+          },
+          {
+            "id": "verification",
+            "type": "Synthetic.Change.Verification",
+            "schemaVersion": 2,
+            "collectedAtUtc": "2026-01-02T03:04:06Z",
+            "coverage": "Complete",
+            "sha256": null
+          }
+        ]
+      }
+    },
+    {
+      "id": "cancellation-before-attempt",
+      "valid": true,
+      "result": {
+        "schemaVersion": 1,
+        "operationId": "synthetic.devicecare.snapshot",
+        "runId": "11111111-1111-4111-8111-111111111111",
+        "operationKind": "Change",
+        "source": {
+          "component": "Synthetic.DeviceCare",
+          "version": "0.0.0-fixture",
+          "revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        "startedAtUtc": "2026-01-02T03:04:05.1234567Z",
+        "completedAtUtc": "2026-01-02T03:04:06.1234567Z",
+        "changesAttempted": false,
+        "effects": "None",
+        "restartRequired": false,
+        "observation": {
+          "status": "Succeeded",
+          "reasonCode": "CollectionComplete",
+          "evidenceIds": [
+            "snapshot"
+          ]
+        },
+        "action": {
+          "status": "Cancelled",
+          "reasonCode": "CancelledBeforeAttempt",
+          "evidenceIds": []
+        },
+        "verification": {
+          "status": "Skipped",
+          "reasonCode": "NotRequested",
+          "evidenceIds": []
+        },
+        "evidence": [
+          {
+            "id": "snapshot",
+            "type": "Synthetic.DeviceCare.Snapshot",
+            "schemaVersion": 1,
+            "collectedAtUtc": "2025-12-31T23:59:59.7654321+00:00",
+            "coverage": "Complete",
+            "sha256": null
+          }
+        ]
+      }
+    },
+    {
+      "id": "restart-pending-verification",
+      "valid": true,
+      "result": {
+        "schemaVersion": 1,
+        "operationId": "synthetic.change",
+        "runId": "11111111-1111-4111-8111-111111111111",
+        "operationKind": "Change",
+        "source": {
+          "component": "Synthetic.DeviceCare",
+          "version": "0.0.0-fixture",
+          "revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        "startedAtUtc": "2026-01-02T03:04:05.1234567Z",
+        "completedAtUtc": "2026-01-02T03:04:06.1234567Z",
+        "changesAttempted": true,
+        "effects": "Observed",
+        "restartRequired": true,
+        "observation": {
+          "status": "Succeeded",
+          "reasonCode": "CollectionComplete",
+          "evidenceIds": [
+            "snapshot"
+          ]
+        },
+        "action": {
+          "status": "RestartRequired",
+          "reasonCode": "RestartPending",
+          "evidenceIds": [
+            "action-log"
+          ]
+        },
+        "verification": {
+          "status": "Skipped",
+          "reasonCode": "AwaitingRestart",
+          "evidenceIds": []
+        },
+        "evidence": [
+          {
+            "id": "snapshot",
+            "type": "Synthetic.DeviceCare.Snapshot",
+            "schemaVersion": 1,
+            "collectedAtUtc": "2025-12-31T23:59:59.7654321+00:00",
+            "coverage": "Complete",
+            "sha256": null
+          },
+          {
+            "id": "action-log",
+            "type": "Synthetic.Change.Action",
+            "schemaVersion": 1,
+            "collectedAtUtc": "2026-01-02T03:04:05.9999999Z",
+            "coverage": "Complete",
+            "sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+          },
+          {
+            "id": "verification",
+            "type": "Synthetic.Change.Verification",
+            "schemaVersion": 2,
+            "collectedAtUtc": "2026-01-02T03:04:06Z",
+            "coverage": "Complete",
+            "sha256": null
+          }
+        ]
+      }
+    },
+    {
+      "id": "unknown-change-outcome",
+      "valid": true,
+      "result": {
+        "schemaVersion": 1,
+        "operationId": "synthetic.change",
+        "runId": "11111111-1111-4111-8111-111111111111",
+        "operationKind": "Change",
+        "source": {
+          "component": "Synthetic.DeviceCare",
+          "version": "0.0.0-fixture",
+          "revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        "startedAtUtc": "2026-01-02T03:04:05.1234567Z",
+        "completedAtUtc": "2026-01-02T03:04:06.1234567Z",
+        "changesAttempted": true,
+        "effects": "Unknown",
+        "restartRequired": null,
+        "observation": {
+          "status": "Succeeded",
+          "reasonCode": "CollectionComplete",
+          "evidenceIds": [
+            "snapshot"
+          ]
+        },
+        "action": {
+          "status": "Unknown",
+          "reasonCode": "ResultUnavailable",
+          "evidenceIds": []
+        },
+        "verification": {
+          "status": "Unknown",
+          "reasonCode": "NotEstablished",
+          "evidenceIds": []
+        },
+        "evidence": [
+          {
+            "id": "snapshot",
+            "type": "Synthetic.DeviceCare.Snapshot",
+            "schemaVersion": 1,
+            "collectedAtUtc": "2025-12-31T23:59:59.7654321+00:00",
+            "coverage": "Complete",
+            "sha256": null
+          },
+          {
+            "id": "action-log",
+            "type": "Synthetic.Change.Action",
+            "schemaVersion": 1,
+            "collectedAtUtc": "2026-01-02T03:04:05.9999999Z",
+            "coverage": "Complete",
+            "sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+          },
+          {
+            "id": "verification",
+            "type": "Synthetic.Change.Verification",
+            "schemaVersion": 2,
+            "collectedAtUtc": "2026-01-02T03:04:06Z",
+            "coverage": "Complete",
+            "sha256": null
+          }
+        ]
+      }
+    },
+    {
+      "id": "no-op-change-attempt",
+      "valid": true,
+      "result": {
+        "schemaVersion": 1,
+        "operationId": "synthetic.change",
+        "runId": "11111111-1111-4111-8111-111111111111",
+        "operationKind": "Change",
+        "source": {
+          "component": "Synthetic.DeviceCare",
+          "version": "0.0.0-fixture",
+          "revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        "startedAtUtc": "2026-01-02T03:04:05.1234567Z",
+        "completedAtUtc": "2026-01-02T03:04:06.1234567Z",
+        "changesAttempted": true,
+        "effects": "None",
+        "restartRequired": false,
+        "observation": {
+          "status": "Succeeded",
+          "reasonCode": "CollectionComplete",
+          "evidenceIds": [
+            "snapshot"
+          ]
+        },
+        "action": {
+          "status": "Succeeded",
+          "reasonCode": "ActionReportedComplete",
+          "evidenceIds": [
+            "action-log"
+          ]
+        },
+        "verification": {
+          "status": "Succeeded",
+          "reasonCode": "PostconditionObserved",
+          "evidenceIds": [
+            "verification"
+          ]
+        },
+        "evidence": [
+          {
+            "id": "snapshot",
+            "type": "Synthetic.DeviceCare.Snapshot",
+            "schemaVersion": 1,
+            "collectedAtUtc": "2025-12-31T23:59:59.7654321+00:00",
+            "coverage": "Complete",
+            "sha256": null
+          },
+          {
+            "id": "action-log",
+            "type": "Synthetic.Change.Action",
+            "schemaVersion": 1,
+            "collectedAtUtc": "2026-01-02T03:04:05.9999999Z",
+            "coverage": "Complete",
+            "sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+          },
+          {
+            "id": "verification",
+            "type": "Synthetic.Change.Verification",
+            "schemaVersion": 2,
+            "collectedAtUtc": "2026-01-02T03:04:06Z",
+            "coverage": "Complete",
+            "sha256": null
+          }
+        ]
+      }
+    },
+    {
+      "id": "boolean-contract-version",
+      "valid": false,
+      "result": {
+        "schemaVersion": true,
+        "operationId": "synthetic.devicecare.snapshot",
+        "runId": "11111111-1111-4111-8111-111111111111",
+        "operationKind": "Observation",
+        "source": {
+          "component": "Synthetic.DeviceCare",
+          "version": "0.0.0-fixture",
+          "revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        "startedAtUtc": "2026-01-02T03:04:05.1234567Z",
+        "completedAtUtc": "2026-01-02T03:04:06.1234567Z",
+        "changesAttempted": false,
+        "effects": "None",
+        "restartRequired": false,
+        "observation": {
+          "status": "Succeeded",
+          "reasonCode": "CollectionComplete",
+          "evidenceIds": [
+            "snapshot"
+          ]
+        },
+        "action": {
+          "status": "Skipped",
+          "reasonCode": "NotRequested",
+          "evidenceIds": []
+        },
+        "verification": {
+          "status": "Skipped",
+          "reasonCode": "NotRequested",
+          "evidenceIds": []
+        },
+        "evidence": [
+          {
+            "id": "snapshot",
+            "type": "Synthetic.DeviceCare.Snapshot",
+            "schemaVersion": 1,
+            "collectedAtUtc": "2025-12-31T23:59:59.7654321+00:00",
+            "coverage": "Complete",
+            "sha256": null
+          }
+        ]
+      }
+    },
+    {
+      "id": "future-contract-version",
+      "valid": false,
+      "result": {
+        "schemaVersion": 2,
+        "operationId": "synthetic.devicecare.snapshot",
+        "runId": "11111111-1111-4111-8111-111111111111",
+        "operationKind": "Observation",
+        "source": {
+          "component": "Synthetic.DeviceCare",
+          "version": "0.0.0-fixture",
+          "revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        "startedAtUtc": "2026-01-02T03:04:05.1234567Z",
+        "completedAtUtc": "2026-01-02T03:04:06.1234567Z",
+        "changesAttempted": false,
+        "effects": "None",
+        "restartRequired": false,
+        "observation": {
+          "status": "Succeeded",
+          "reasonCode": "CollectionComplete",
+          "evidenceIds": [
+            "snapshot"
+          ]
+        },
+        "action": {
+          "status": "Skipped",
+          "reasonCode": "NotRequested",
+          "evidenceIds": []
+        },
+        "verification": {
+          "status": "Skipped",
+          "reasonCode": "NotRequested",
+          "evidenceIds": []
+        },
+        "evidence": [
+          {
+            "id": "snapshot",
+            "type": "Synthetic.DeviceCare.Snapshot",
+            "schemaVersion": 1,
+            "collectedAtUtc": "2025-12-31T23:59:59.7654321+00:00",
+            "coverage": "Complete",
+            "sha256": null
+          }
+        ]
+      }
+    },
+    {
+      "id": "unexpected-command-field",
+      "valid": false,
+      "result": {
+        "schemaVersion": 1,
+        "operationId": "synthetic.devicecare.snapshot",
+        "runId": "11111111-1111-4111-8111-111111111111",
+        "operationKind": "Observation",
+        "source": {
+          "component": "Synthetic.DeviceCare",
+          "version": "0.0.0-fixture",
+          "revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        "startedAtUtc": "2026-01-02T03:04:05.1234567Z",
+        "completedAtUtc": "2026-01-02T03:04:06.1234567Z",
+        "changesAttempted": false,
+        "effects": "None",
+        "restartRequired": false,
+        "observation": {
+          "status": "Succeeded",
+          "reasonCode": "CollectionComplete",
+          "evidenceIds": [
+            "snapshot"
+          ]
+        },
+        "action": {
+          "status": "Skipped",
+          "reasonCode": "NotRequested",
+          "evidenceIds": []
+        },
+        "verification": {
+          "status": "Skipped",
+          "reasonCode": "NotRequested",
+          "evidenceIds": []
+        },
+        "evidence": [
+          {
+            "id": "snapshot",
+            "type": "Synthetic.DeviceCare.Snapshot",
+            "schemaVersion": 1,
+            "collectedAtUtc": "2025-12-31T23:59:59.7654321+00:00",
+            "coverage": "Complete",
+            "sha256": null
+          }
+        ],
+        "command": "synthetic-command"
+      }
+    },
+    {
+      "id": "unexpected-source-field",
+      "valid": false,
+      "result": {
+        "schemaVersion": 1,
+        "operationId": "synthetic.devicecare.snapshot",
+        "runId": "11111111-1111-4111-8111-111111111111",
+        "operationKind": "Observation",
+        "source": {
+          "component": "Synthetic.DeviceCare",
+          "version": "0.0.0-fixture",
+          "revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "path": "synthetic-path"
+        },
+        "startedAtUtc": "2026-01-02T03:04:05.1234567Z",
+        "completedAtUtc": "2026-01-02T03:04:06.1234567Z",
+        "changesAttempted": false,
+        "effects": "None",
+        "restartRequired": false,
+        "observation": {
+          "status": "Succeeded",
+          "reasonCode": "CollectionComplete",
+          "evidenceIds": [
+            "snapshot"
+          ]
+        },
+        "action": {
+          "status": "Skipped",
+          "reasonCode": "NotRequested",
+          "evidenceIds": []
+        },
+        "verification": {
+          "status": "Skipped",
+          "reasonCode": "NotRequested",
+          "evidenceIds": []
+        },
+        "evidence": [
+          {
+            "id": "snapshot",
+            "type": "Synthetic.DeviceCare.Snapshot",
+            "schemaVersion": 1,
+            "collectedAtUtc": "2025-12-31T23:59:59.7654321+00:00",
+            "coverage": "Complete",
+            "sha256": null
+          }
+        ]
+      }
+    },
+    {
+      "id": "unexpected-phase-field",
+      "valid": false,
+      "result": {
+        "schemaVersion": 1,
+        "operationId": "synthetic.devicecare.snapshot",
+        "runId": "11111111-1111-4111-8111-111111111111",
+        "operationKind": "Observation",
+        "source": {
+          "component": "Synthetic.DeviceCare",
+          "version": "0.0.0-fixture",
+          "revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        "startedAtUtc": "2026-01-02T03:04:05.1234567Z",
+        "completedAtUtc": "2026-01-02T03:04:06.1234567Z",
+        "changesAttempted": false,
+        "effects": "None",
+        "restartRequired": false,
+        "observation": {
+          "status": "Succeeded",
+          "reasonCode": "CollectionComplete",
+          "evidenceIds": [
+            "snapshot"
+          ]
+        },
+        "action": {
+          "status": "Skipped",
+          "reasonCode": "NotRequested",
+          "evidenceIds": [],
+          "exitCode": 0
+        },
+        "verification": {
+          "status": "Skipped",
+          "reasonCode": "NotRequested",
+          "evidenceIds": []
+        },
+        "evidence": [
+          {
+            "id": "snapshot",
+            "type": "Synthetic.DeviceCare.Snapshot",
+            "schemaVersion": 1,
+            "collectedAtUtc": "2025-12-31T23:59:59.7654321+00:00",
+            "coverage": "Complete",
+            "sha256": null
+          }
+        ]
+      }
+    },
+    {
+      "id": "unexpected-evidence-field",
+      "valid": false,
+      "result": {
+        "schemaVersion": 1,
+        "operationId": "synthetic.devicecare.snapshot",
+        "runId": "11111111-1111-4111-8111-111111111111",
+        "operationKind": "Observation",
+        "source": {
+          "component": "Synthetic.DeviceCare",
+          "version": "0.0.0-fixture",
+          "revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        "startedAtUtc": "2026-01-02T03:04:05.1234567Z",
+        "completedAtUtc": "2026-01-02T03:04:06.1234567Z",
+        "changesAttempted": false,
+        "effects": "None",
+        "restartRequired": false,
+        "observation": {
+          "status": "Succeeded",
+          "reasonCode": "CollectionComplete",
+          "evidenceIds": [
+            "snapshot"
+          ]
+        },
+        "action": {
+          "status": "Skipped",
+          "reasonCode": "NotRequested",
+          "evidenceIds": []
+        },
+        "verification": {
+          "status": "Skipped",
+          "reasonCode": "NotRequested",
+          "evidenceIds": []
+        },
+        "evidence": [
+          {
+            "id": "snapshot",
+            "type": "Synthetic.DeviceCare.Snapshot",
+            "schemaVersion": 1,
+            "collectedAtUtc": "2025-12-31T23:59:59.7654321+00:00",
+            "coverage": "Complete",
+            "sha256": null,
+            "payload": {}
+          }
+        ]
+      }
+    },
+    {
+      "id": "nonboolean-changes-attempted",
+      "valid": false,
+      "result": {
+        "schemaVersion": 1,
+        "operationId": "synthetic.devicecare.snapshot",
+        "runId": "11111111-1111-4111-8111-111111111111",
+        "operationKind": "Observation",
+        "source": {
+          "component": "Synthetic.DeviceCare",
+          "version": "0.0.0-fixture",
+          "revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        "startedAtUtc": "2026-01-02T03:04:05.1234567Z",
+        "completedAtUtc": "2026-01-02T03:04:06.1234567Z",
+        "changesAttempted": 0,
+        "effects": "None",
+        "restartRequired": false,
+        "observation": {
+          "status": "Succeeded",
+          "reasonCode": "CollectionComplete",
+          "evidenceIds": [
+            "snapshot"
+          ]
+        },
+        "action": {
+          "status": "Skipped",
+          "reasonCode": "NotRequested",
+          "evidenceIds": []
+        },
+        "verification": {
+          "status": "Skipped",
+          "reasonCode": "NotRequested",
+          "evidenceIds": []
+        },
+        "evidence": [
+          {
+            "id": "snapshot",
+            "type": "Synthetic.DeviceCare.Snapshot",
+            "schemaVersion": 1,
+            "collectedAtUtc": "2025-12-31T23:59:59.7654321+00:00",
+            "coverage": "Complete",
+            "sha256": null
+          }
+        ]
+      }
+    },
+    {
+      "id": "nonboolean-restart-required",
+      "valid": false,
+      "result": {
+        "schemaVersion": 1,
+        "operationId": "synthetic.devicecare.snapshot",
+        "runId": "11111111-1111-4111-8111-111111111111",
+        "operationKind": "Observation",
+        "source": {
+          "component": "Synthetic.DeviceCare",
+          "version": "0.0.0-fixture",
+          "revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        "startedAtUtc": "2026-01-02T03:04:05.1234567Z",
+        "completedAtUtc": "2026-01-02T03:04:06.1234567Z",
+        "changesAttempted": false,
+        "effects": "None",
+        "restartRequired": 0,
+        "observation": {
+          "status": "Succeeded",
+          "reasonCode": "CollectionComplete",
+          "evidenceIds": [
+            "snapshot"
+          ]
+        },
+        "action": {
+          "status": "Skipped",
+          "reasonCode": "NotRequested",
+          "evidenceIds": []
+        },
+        "verification": {
+          "status": "Skipped",
+          "reasonCode": "NotRequested",
+          "evidenceIds": []
+        },
+        "evidence": [
+          {
+            "id": "snapshot",
+            "type": "Synthetic.DeviceCare.Snapshot",
+            "schemaVersion": 1,
+            "collectedAtUtc": "2025-12-31T23:59:59.7654321+00:00",
+            "coverage": "Complete",
+            "sha256": null
+          }
+        ]
+      }
+    },
+    {
+      "id": "blank-source-version",
+      "valid": false,
+      "result": {
+        "schemaVersion": 1,
+        "operationId": "synthetic.devicecare.snapshot",
+        "runId": "11111111-1111-4111-8111-111111111111",
+        "operationKind": "Observation",
+        "source": {
+          "component": "Synthetic.DeviceCare",
+          "version": "   ",
+          "revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        "startedAtUtc": "2026-01-02T03:04:05.1234567Z",
+        "completedAtUtc": "2026-01-02T03:04:06.1234567Z",
+        "changesAttempted": false,
+        "effects": "None",
+        "restartRequired": false,
+        "observation": {
+          "status": "Succeeded",
+          "reasonCode": "CollectionComplete",
+          "evidenceIds": [
+            "snapshot"
+          ]
+        },
+        "action": {
+          "status": "Skipped",
+          "reasonCode": "NotRequested",
+          "evidenceIds": []
+        },
+        "verification": {
+          "status": "Skipped",
+          "reasonCode": "NotRequested",
+          "evidenceIds": []
+        },
+        "evidence": [
+          {
+            "id": "snapshot",
+            "type": "Synthetic.DeviceCare.Snapshot",
+            "schemaVersion": 1,
+            "collectedAtUtc": "2025-12-31T23:59:59.7654321+00:00",
+            "coverage": "Complete",
+            "sha256": null
+          }
+        ]
+      }
+    },
+    {
+      "id": "source-control-character",
+      "valid": false,
+      "result": {
+        "schemaVersion": 1,
+        "operationId": "synthetic.devicecare.snapshot",
+        "runId": "11111111-1111-4111-8111-111111111111",
+        "operationKind": "Observation",
+        "source": {
+          "component": "Synthetic\nComponent",
+          "version": "0.0.0-fixture",
+          "revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        "startedAtUtc": "2026-01-02T03:04:05.1234567Z",
+        "completedAtUtc": "2026-01-02T03:04:06.1234567Z",
+        "changesAttempted": false,
+        "effects": "None",
+        "restartRequired": false,
+        "observation": {
+          "status": "Succeeded",
+          "reasonCode": "CollectionComplete",
+          "evidenceIds": [
+            "snapshot"
+          ]
+        },
+        "action": {
+          "status": "Skipped",
+          "reasonCode": "NotRequested",
+          "evidenceIds": []
+        },
+        "verification": {
+          "status": "Skipped",
+          "reasonCode": "NotRequested",
+          "evidenceIds": []
+        },
+        "evidence": [
+          {
+            "id": "snapshot",
+            "type": "Synthetic.DeviceCare.Snapshot",
+            "schemaVersion": 1,
+            "collectedAtUtc": "2025-12-31T23:59:59.7654321+00:00",
+            "coverage": "Complete",
+            "sha256": null
+          }
+        ]
+      }
+    },
+    {
+      "id": "short-source-revision",
+      "valid": false,
+      "result": {
+        "schemaVersion": 1,
+        "operationId": "synthetic.devicecare.snapshot",
+        "runId": "11111111-1111-4111-8111-111111111111",
+        "operationKind": "Observation",
+        "source": {
+          "component": "Synthetic.DeviceCare",
+          "version": "0.0.0-fixture",
+          "revision": "aaaaaaa"
+        },
+        "startedAtUtc": "2026-01-02T03:04:05.1234567Z",
+        "completedAtUtc": "2026-01-02T03:04:06.1234567Z",
+        "changesAttempted": false,
+        "effects": "None",
+        "restartRequired": false,
+        "observation": {
+          "status": "Succeeded",
+          "reasonCode": "CollectionComplete",
+          "evidenceIds": [
+            "snapshot"
+          ]
+        },
+        "action": {
+          "status": "Skipped",
+          "reasonCode": "NotRequested",
+          "evidenceIds": []
+        },
+        "verification": {
+          "status": "Skipped",
+          "reasonCode": "NotRequested",
+          "evidenceIds": []
+        },
+        "evidence": [
+          {
+            "id": "snapshot",
+            "type": "Synthetic.DeviceCare.Snapshot",
+            "schemaVersion": 1,
+            "collectedAtUtc": "2025-12-31T23:59:59.7654321+00:00",
+            "coverage": "Complete",
+            "sha256": null
+          }
+        ]
+      }
+    },
+    {
+      "id": "unsupported-operation-id",
+      "valid": false,
+      "result": {
+        "schemaVersion": 1,
+        "operationId": "synthetic/path",
+        "runId": "11111111-1111-4111-8111-111111111111",
+        "operationKind": "Observation",
+        "source": {
+          "component": "Synthetic.DeviceCare",
+          "version": "0.0.0-fixture",
+          "revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        "startedAtUtc": "2026-01-02T03:04:05.1234567Z",
+        "completedAtUtc": "2026-01-02T03:04:06.1234567Z",
+        "changesAttempted": false,
+        "effects": "None",
+        "restartRequired": false,
+        "observation": {
+          "status": "Succeeded",
+          "reasonCode": "CollectionComplete",
+          "evidenceIds": [
+            "snapshot"
+          ]
+        },
+        "action": {
+          "status": "Skipped",
+          "reasonCode": "NotRequested",
+          "evidenceIds": []
+        },
+        "verification": {
+          "status": "Skipped",
+          "reasonCode": "NotRequested",
+          "evidenceIds": []
+        },
+        "evidence": [
+          {
+            "id": "snapshot",
+            "type": "Synthetic.DeviceCare.Snapshot",
+            "schemaVersion": 1,
+            "collectedAtUtc": "2025-12-31T23:59:59.7654321+00:00",
+            "coverage": "Complete",
+            "sha256": null
+          }
+        ]
+      }
+    },
+    {
+      "id": "invalid-calendar-date",
+      "valid": false,
+      "result": {
+        "schemaVersion": 1,
+        "operationId": "synthetic.devicecare.snapshot",
+        "runId": "11111111-1111-4111-8111-111111111111",
+        "operationKind": "Observation",
+        "source": {
+          "component": "Synthetic.DeviceCare",
+          "version": "0.0.0-fixture",
+          "revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        "startedAtUtc": "2026-02-30T03:04:05Z",
+        "completedAtUtc": "2026-01-02T03:04:06.1234567Z",
+        "changesAttempted": false,
+        "effects": "None",
+        "restartRequired": false,
+        "observation": {
+          "status": "Succeeded",
+          "reasonCode": "CollectionComplete",
+          "evidenceIds": [
+            "snapshot"
+          ]
+        },
+        "action": {
+          "status": "Skipped",
+          "reasonCode": "NotRequested",
+          "evidenceIds": []
+        },
+        "verification": {
+          "status": "Skipped",
+          "reasonCode": "NotRequested",
+          "evidenceIds": []
+        },
+        "evidence": [
+          {
+            "id": "snapshot",
+            "type": "Synthetic.DeviceCare.Snapshot",
+            "schemaVersion": 1,
+            "collectedAtUtc": "2025-12-31T23:59:59.7654321+00:00",
+            "coverage": "Complete",
+            "sha256": null
+          }
+        ]
+      }
+    },
+    {
+      "id": "timestamp-without-timezone",
+      "valid": false,
+      "result": {
+        "schemaVersion": 1,
+        "operationId": "synthetic.devicecare.snapshot",
+        "runId": "11111111-1111-4111-8111-111111111111",
+        "operationKind": "Observation",
+        "source": {
+          "component": "Synthetic.DeviceCare",
+          "version": "0.0.0-fixture",
+          "revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        "startedAtUtc": "2026-01-02T03:04:05",
+        "completedAtUtc": "2026-01-02T03:04:06.1234567Z",
+        "changesAttempted": false,
+        "effects": "None",
+        "restartRequired": false,
+        "observation": {
+          "status": "Succeeded",
+          "reasonCode": "CollectionComplete",
+          "evidenceIds": [
+            "snapshot"
+          ]
+        },
+        "action": {
+          "status": "Skipped",
+          "reasonCode": "NotRequested",
+          "evidenceIds": []
+        },
+        "verification": {
+          "status": "Skipped",
+          "reasonCode": "NotRequested",
+          "evidenceIds": []
+        },
+        "evidence": [
+          {
+            "id": "snapshot",
+            "type": "Synthetic.DeviceCare.Snapshot",
+            "schemaVersion": 1,
+            "collectedAtUtc": "2025-12-31T23:59:59.7654321+00:00",
+            "coverage": "Complete",
+            "sha256": null
+          }
+        ]
+      }
+    },
+    {
+      "id": "completion-precedes-start-by-one-tick",
+      "valid": false,
+      "result": {
+        "schemaVersion": 1,
+        "operationId": "synthetic.devicecare.snapshot",
+        "runId": "11111111-1111-4111-8111-111111111111",
+        "operationKind": "Observation",
+        "source": {
+          "component": "Synthetic.DeviceCare",
+          "version": "0.0.0-fixture",
+          "revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        "startedAtUtc": "2026-01-02T03:04:05.1234567Z",
+        "completedAtUtc": "2026-01-02T03:04:05.1234566Z",
+        "changesAttempted": false,
+        "effects": "None",
+        "restartRequired": false,
+        "observation": {
+          "status": "Succeeded",
+          "reasonCode": "CollectionComplete",
+          "evidenceIds": [
+            "snapshot"
+          ]
+        },
+        "action": {
+          "status": "Skipped",
+          "reasonCode": "NotRequested",
+          "evidenceIds": []
+        },
+        "verification": {
+          "status": "Skipped",
+          "reasonCode": "NotRequested",
+          "evidenceIds": []
+        },
+        "evidence": [
+          {
+            "id": "snapshot",
+            "type": "Synthetic.DeviceCare.Snapshot",
+            "schemaVersion": 1,
+            "collectedAtUtc": "2025-12-31T23:59:59.7654321+00:00",
+            "coverage": "Complete",
+            "sha256": null
+          }
+        ]
+      }
+    },
+    {
+      "id": "duplicate-evidence-id",
+      "valid": false,
+      "result": {
+        "schemaVersion": 1,
+        "operationId": "synthetic.devicecare.snapshot",
+        "runId": "11111111-1111-4111-8111-111111111111",
+        "operationKind": "Observation",
+        "source": {
+          "component": "Synthetic.DeviceCare",
+          "version": "0.0.0-fixture",
+          "revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        "startedAtUtc": "2026-01-02T03:04:05.1234567Z",
+        "completedAtUtc": "2026-01-02T03:04:06.1234567Z",
+        "changesAttempted": false,
+        "effects": "None",
+        "restartRequired": false,
+        "observation": {
+          "status": "Succeeded",
+          "reasonCode": "CollectionComplete",
+          "evidenceIds": [
+            "snapshot"
+          ]
+        },
+        "action": {
+          "status": "Skipped",
+          "reasonCode": "NotRequested",
+          "evidenceIds": []
+        },
+        "verification": {
+          "status": "Skipped",
+          "reasonCode": "NotRequested",
+          "evidenceIds": []
+        },
+        "evidence": [
+          {
+            "id": "snapshot",
+            "type": "Synthetic.DeviceCare.Snapshot",
+            "schemaVersion": 1,
+            "collectedAtUtc": "2025-12-31T23:59:59.7654321+00:00",
+            "coverage": "Complete",
+            "sha256": null
+          },
+          {
+            "id": "snapshot",
+            "type": "Synthetic.DeviceCare.Snapshot",
+            "schemaVersion": 1,
+            "collectedAtUtc": "2025-12-31T23:59:59.7654321+00:00",
+            "coverage": "Complete",
+            "sha256": null
+          }
+        ]
+      }
+    },
+    {
+      "id": "duplicate-phase-reference",
+      "valid": false,
+      "result": {
+        "schemaVersion": 1,
+        "operationId": "synthetic.devicecare.snapshot",
+        "runId": "11111111-1111-4111-8111-111111111111",
+        "operationKind": "Observation",
+        "source": {
+          "component": "Synthetic.DeviceCare",
+          "version": "0.0.0-fixture",
+          "revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        "startedAtUtc": "2026-01-02T03:04:05.1234567Z",
+        "completedAtUtc": "2026-01-02T03:04:06.1234567Z",
+        "changesAttempted": false,
+        "effects": "None",
+        "restartRequired": false,
+        "observation": {
+          "status": "Succeeded",
+          "reasonCode": "CollectionComplete",
+          "evidenceIds": [
+            "snapshot",
+            "snapshot"
+          ]
+        },
+        "action": {
+          "status": "Skipped",
+          "reasonCode": "NotRequested",
+          "evidenceIds": []
+        },
+        "verification": {
+          "status": "Skipped",
+          "reasonCode": "NotRequested",
+          "evidenceIds": []
+        },
+        "evidence": [
+          {
+            "id": "snapshot",
+            "type": "Synthetic.DeviceCare.Snapshot",
+            "schemaVersion": 1,
+            "collectedAtUtc": "2025-12-31T23:59:59.7654321+00:00",
+            "coverage": "Complete",
+            "sha256": null
+          }
+        ]
+      }
+    },
+    {
+      "id": "unresolved-evidence-reference",
+      "valid": false,
+      "result": {
+        "schemaVersion": 1,
+        "operationId": "synthetic.devicecare.snapshot",
+        "runId": "11111111-1111-4111-8111-111111111111",
+        "operationKind": "Observation",
+        "source": {
+          "component": "Synthetic.DeviceCare",
+          "version": "0.0.0-fixture",
+          "revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        "startedAtUtc": "2026-01-02T03:04:05.1234567Z",
+        "completedAtUtc": "2026-01-02T03:04:06.1234567Z",
+        "changesAttempted": false,
+        "effects": "None",
+        "restartRequired": false,
+        "observation": {
+          "status": "Succeeded",
+          "reasonCode": "CollectionComplete",
+          "evidenceIds": [
+            "missing"
+          ]
+        },
+        "action": {
+          "status": "Skipped",
+          "reasonCode": "NotRequested",
+          "evidenceIds": []
+        },
+        "verification": {
+          "status": "Skipped",
+          "reasonCode": "NotRequested",
+          "evidenceIds": []
+        },
+        "evidence": [
+          {
+            "id": "snapshot",
+            "type": "Synthetic.DeviceCare.Snapshot",
+            "schemaVersion": 1,
+            "collectedAtUtc": "2025-12-31T23:59:59.7654321+00:00",
+            "coverage": "Complete",
+            "sha256": null
+          }
+        ]
+      }
+    },
+    {
+      "id": "observation-success-without-evidence",
+      "valid": false,
+      "result": {
+        "schemaVersion": 1,
+        "operationId": "synthetic.devicecare.snapshot",
+        "runId": "11111111-1111-4111-8111-111111111111",
+        "operationKind": "Observation",
+        "source": {
+          "component": "Synthetic.DeviceCare",
+          "version": "0.0.0-fixture",
+          "revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        "startedAtUtc": "2026-01-02T03:04:05.1234567Z",
+        "completedAtUtc": "2026-01-02T03:04:06.1234567Z",
+        "changesAttempted": false,
+        "effects": "None",
+        "restartRequired": false,
+        "observation": {
+          "status": "Succeeded",
+          "reasonCode": "CollectionComplete",
+          "evidenceIds": []
+        },
+        "action": {
+          "status": "Skipped",
+          "reasonCode": "NotRequested",
+          "evidenceIds": []
+        },
+        "verification": {
+          "status": "Skipped",
+          "reasonCode": "NotRequested",
+          "evidenceIds": []
+        },
+        "evidence": [
+          {
+            "id": "snapshot",
+            "type": "Synthetic.DeviceCare.Snapshot",
+            "schemaVersion": 1,
+            "collectedAtUtc": "2025-12-31T23:59:59.7654321+00:00",
+            "coverage": "Complete",
+            "sha256": null
+          }
+        ]
+      }
+    },
+    {
+      "id": "observation-success-with-partial-evidence",
+      "valid": false,
+      "result": {
+        "schemaVersion": 1,
+        "operationId": "synthetic.devicecare.snapshot",
+        "runId": "11111111-1111-4111-8111-111111111111",
+        "operationKind": "Observation",
+        "source": {
+          "component": "Synthetic.DeviceCare",
+          "version": "0.0.0-fixture",
+          "revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        "startedAtUtc": "2026-01-02T03:04:05.1234567Z",
+        "completedAtUtc": "2026-01-02T03:04:06.1234567Z",
+        "changesAttempted": false,
+        "effects": "None",
+        "restartRequired": false,
+        "observation": {
+          "status": "Succeeded",
+          "reasonCode": "CollectionComplete",
+          "evidenceIds": [
+            "snapshot"
+          ]
+        },
+        "action": {
+          "status": "Skipped",
+          "reasonCode": "NotRequested",
+          "evidenceIds": []
+        },
+        "verification": {
+          "status": "Skipped",
+          "reasonCode": "NotRequested",
+          "evidenceIds": []
+        },
+        "evidence": [
+          {
+            "id": "snapshot",
+            "type": "Synthetic.DeviceCare.Snapshot",
+            "schemaVersion": 1,
+            "collectedAtUtc": "2025-12-31T23:59:59.7654321+00:00",
+            "coverage": "Partial",
+            "sha256": null
+          }
+        ]
+      }
+    },
+    {
+      "id": "verification-success-with-unknown-evidence",
+      "valid": false,
+      "result": {
+        "schemaVersion": 1,
+        "operationId": "synthetic.change",
+        "runId": "11111111-1111-4111-8111-111111111111",
+        "operationKind": "Change",
+        "source": {
+          "component": "Synthetic.DeviceCare",
+          "version": "0.0.0-fixture",
+          "revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        "startedAtUtc": "2026-01-02T03:04:05.1234567Z",
+        "completedAtUtc": "2026-01-02T03:04:06.1234567Z",
+        "changesAttempted": true,
+        "effects": "Observed",
+        "restartRequired": false,
+        "observation": {
+          "status": "Succeeded",
+          "reasonCode": "CollectionComplete",
+          "evidenceIds": [
+            "snapshot"
+          ]
+        },
+        "action": {
+          "status": "Succeeded",
+          "reasonCode": "ActionReportedComplete",
+          "evidenceIds": [
+            "action-log"
+          ]
+        },
+        "verification": {
+          "status": "Succeeded",
+          "reasonCode": "PostconditionObserved",
+          "evidenceIds": [
+            "verification"
+          ]
+        },
+        "evidence": [
+          {
+            "id": "snapshot",
+            "type": "Synthetic.DeviceCare.Snapshot",
+            "schemaVersion": 1,
+            "collectedAtUtc": "2025-12-31T23:59:59.7654321+00:00",
+            "coverage": "Complete",
+            "sha256": null
+          },
+          {
+            "id": "action-log",
+            "type": "Synthetic.Change.Action",
+            "schemaVersion": 1,
+            "collectedAtUtc": "2026-01-02T03:04:05.9999999Z",
+            "coverage": "Complete",
+            "sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+          },
+          {
+            "id": "verification",
+            "type": "Synthetic.Change.Verification",
+            "schemaVersion": 2,
+            "collectedAtUtc": "2026-01-02T03:04:06Z",
+            "coverage": "Unknown",
+            "sha256": null
+          }
+        ]
+      }
+    },
+    {
+      "id": "restart-status-on-observation",
+      "valid": false,
+      "result": {
+        "schemaVersion": 1,
+        "operationId": "synthetic.devicecare.snapshot",
+        "runId": "11111111-1111-4111-8111-111111111111",
+        "operationKind": "Observation",
+        "source": {
+          "component": "Synthetic.DeviceCare",
+          "version": "0.0.0-fixture",
+          "revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        "startedAtUtc": "2026-01-02T03:04:05.1234567Z",
+        "completedAtUtc": "2026-01-02T03:04:06.1234567Z",
+        "changesAttempted": false,
+        "effects": "None",
+        "restartRequired": false,
+        "observation": {
+          "status": "RestartRequired",
+          "reasonCode": "CollectionComplete",
+          "evidenceIds": [
+            "snapshot"
+          ]
+        },
+        "action": {
+          "status": "Skipped",
+          "reasonCode": "NotRequested",
+          "evidenceIds": []
+        },
+        "verification": {
+          "status": "Skipped",
+          "reasonCode": "NotRequested",
+          "evidenceIds": []
+        },
+        "evidence": [
+          {
+            "id": "snapshot",
+            "type": "Synthetic.DeviceCare.Snapshot",
+            "schemaVersion": 1,
+            "collectedAtUtc": "2025-12-31T23:59:59.7654321+00:00",
+            "coverage": "Complete",
+            "sha256": null
+          }
+        ]
+      }
+    },
+    {
+      "id": "readonly-action-success",
+      "valid": false,
+      "result": {
+        "schemaVersion": 1,
+        "operationId": "synthetic.devicecare.snapshot",
+        "runId": "11111111-1111-4111-8111-111111111111",
+        "operationKind": "Observation",
+        "source": {
+          "component": "Synthetic.DeviceCare",
+          "version": "0.0.0-fixture",
+          "revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        "startedAtUtc": "2026-01-02T03:04:05.1234567Z",
+        "completedAtUtc": "2026-01-02T03:04:06.1234567Z",
+        "changesAttempted": false,
+        "effects": "None",
+        "restartRequired": false,
+        "observation": {
+          "status": "Succeeded",
+          "reasonCode": "CollectionComplete",
+          "evidenceIds": [
+            "snapshot"
+          ]
+        },
+        "action": {
+          "status": "Succeeded",
+          "reasonCode": "NotRequested",
+          "evidenceIds": []
+        },
+        "verification": {
+          "status": "Skipped",
+          "reasonCode": "NotRequested",
+          "evidenceIds": []
+        },
+        "evidence": [
+          {
+            "id": "snapshot",
+            "type": "Synthetic.DeviceCare.Snapshot",
+            "schemaVersion": 1,
+            "collectedAtUtc": "2025-12-31T23:59:59.7654321+00:00",
+            "coverage": "Complete",
+            "sha256": null
+          }
+        ]
+      }
+    },
+    {
+      "id": "readonly-change-attempt",
+      "valid": false,
+      "result": {
+        "schemaVersion": 1,
+        "operationId": "synthetic.devicecare.snapshot",
+        "runId": "11111111-1111-4111-8111-111111111111",
+        "operationKind": "Observation",
+        "source": {
+          "component": "Synthetic.DeviceCare",
+          "version": "0.0.0-fixture",
+          "revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        "startedAtUtc": "2026-01-02T03:04:05.1234567Z",
+        "completedAtUtc": "2026-01-02T03:04:06.1234567Z",
+        "changesAttempted": true,
+        "effects": "None",
+        "restartRequired": false,
+        "observation": {
+          "status": "Succeeded",
+          "reasonCode": "CollectionComplete",
+          "evidenceIds": [
+            "snapshot"
+          ]
+        },
+        "action": {
+          "status": "Skipped",
+          "reasonCode": "NotRequested",
+          "evidenceIds": []
+        },
+        "verification": {
+          "status": "Skipped",
+          "reasonCode": "NotRequested",
+          "evidenceIds": []
+        },
+        "evidence": [
+          {
+            "id": "snapshot",
+            "type": "Synthetic.DeviceCare.Snapshot",
+            "schemaVersion": 1,
+            "collectedAtUtc": "2025-12-31T23:59:59.7654321+00:00",
+            "coverage": "Complete",
+            "sha256": null
+          }
+        ]
+      }
+    },
+    {
+      "id": "unattempted-change-with-effects",
+      "valid": false,
+      "result": {
+        "schemaVersion": 1,
+        "operationId": "synthetic.devicecare.snapshot",
+        "runId": "11111111-1111-4111-8111-111111111111",
+        "operationKind": "Change",
+        "source": {
+          "component": "Synthetic.DeviceCare",
+          "version": "0.0.0-fixture",
+          "revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        "startedAtUtc": "2026-01-02T03:04:05.1234567Z",
+        "completedAtUtc": "2026-01-02T03:04:06.1234567Z",
+        "changesAttempted": false,
+        "effects": "Observed",
+        "restartRequired": false,
+        "observation": {
+          "status": "Succeeded",
+          "reasonCode": "CollectionComplete",
+          "evidenceIds": [
+            "snapshot"
+          ]
+        },
+        "action": {
+          "status": "Skipped",
+          "reasonCode": "NotRequested",
+          "evidenceIds": []
+        },
+        "verification": {
+          "status": "Skipped",
+          "reasonCode": "NotRequested",
+          "evidenceIds": []
+        },
+        "evidence": [
+          {
+            "id": "snapshot",
+            "type": "Synthetic.DeviceCare.Snapshot",
+            "schemaVersion": 1,
+            "collectedAtUtc": "2025-12-31T23:59:59.7654321+00:00",
+            "coverage": "Complete",
+            "sha256": null
+          }
+        ]
+      }
+    },
+    {
+      "id": "unattempted-change-requires-restart",
+      "valid": false,
+      "result": {
+        "schemaVersion": 1,
+        "operationId": "synthetic.devicecare.snapshot",
+        "runId": "11111111-1111-4111-8111-111111111111",
+        "operationKind": "Change",
+        "source": {
+          "component": "Synthetic.DeviceCare",
+          "version": "0.0.0-fixture",
+          "revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        "startedAtUtc": "2026-01-02T03:04:05.1234567Z",
+        "completedAtUtc": "2026-01-02T03:04:06.1234567Z",
+        "changesAttempted": false,
+        "effects": "None",
+        "restartRequired": true,
+        "observation": {
+          "status": "Succeeded",
+          "reasonCode": "CollectionComplete",
+          "evidenceIds": [
+            "snapshot"
+          ]
+        },
+        "action": {
+          "status": "Skipped",
+          "reasonCode": "NotRequested",
+          "evidenceIds": []
+        },
+        "verification": {
+          "status": "Skipped",
+          "reasonCode": "NotRequested",
+          "evidenceIds": []
+        },
+        "evidence": [
+          {
+            "id": "snapshot",
+            "type": "Synthetic.DeviceCare.Snapshot",
+            "schemaVersion": 1,
+            "collectedAtUtc": "2025-12-31T23:59:59.7654321+00:00",
+            "coverage": "Complete",
+            "sha256": null
+          }
+        ]
+      }
+    },
+    {
+      "id": "attempted-change-marked-skipped",
+      "valid": false,
+      "result": {
+        "schemaVersion": 1,
+        "operationId": "synthetic.change",
+        "runId": "11111111-1111-4111-8111-111111111111",
+        "operationKind": "Change",
+        "source": {
+          "component": "Synthetic.DeviceCare",
+          "version": "0.0.0-fixture",
+          "revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        "startedAtUtc": "2026-01-02T03:04:05.1234567Z",
+        "completedAtUtc": "2026-01-02T03:04:06.1234567Z",
+        "changesAttempted": true,
+        "effects": "Observed",
+        "restartRequired": false,
+        "observation": {
+          "status": "Succeeded",
+          "reasonCode": "CollectionComplete",
+          "evidenceIds": [
+            "snapshot"
+          ]
+        },
+        "action": {
+          "status": "Skipped",
+          "reasonCode": "IncorrectlySkipped",
+          "evidenceIds": []
+        },
+        "verification": {
+          "status": "Succeeded",
+          "reasonCode": "PostconditionObserved",
+          "evidenceIds": [
+            "verification"
+          ]
+        },
+        "evidence": [
+          {
+            "id": "snapshot",
+            "type": "Synthetic.DeviceCare.Snapshot",
+            "schemaVersion": 1,
+            "collectedAtUtc": "2025-12-31T23:59:59.7654321+00:00",
+            "coverage": "Complete",
+            "sha256": null
+          },
+          {
+            "id": "action-log",
+            "type": "Synthetic.Change.Action",
+            "schemaVersion": 1,
+            "collectedAtUtc": "2026-01-02T03:04:05.9999999Z",
+            "coverage": "Complete",
+            "sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+          },
+          {
+            "id": "verification",
+            "type": "Synthetic.Change.Verification",
+            "schemaVersion": 2,
+            "collectedAtUtc": "2026-01-02T03:04:06Z",
+            "coverage": "Complete",
+            "sha256": null
+          }
+        ]
+      }
+    },
+    {
+      "id": "restart-status-with-false-flag",
+      "valid": false,
+      "result": {
+        "schemaVersion": 1,
+        "operationId": "synthetic.change",
+        "runId": "11111111-1111-4111-8111-111111111111",
+        "operationKind": "Change",
+        "source": {
+          "component": "Synthetic.DeviceCare",
+          "version": "0.0.0-fixture",
+          "revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        "startedAtUtc": "2026-01-02T03:04:05.1234567Z",
+        "completedAtUtc": "2026-01-02T03:04:06.1234567Z",
+        "changesAttempted": true,
+        "effects": "Observed",
+        "restartRequired": false,
+        "observation": {
+          "status": "Succeeded",
+          "reasonCode": "CollectionComplete",
+          "evidenceIds": [
+            "snapshot"
+          ]
+        },
+        "action": {
+          "status": "RestartRequired",
+          "reasonCode": "RestartPending",
+          "evidenceIds": []
+        },
+        "verification": {
+          "status": "Unknown",
+          "reasonCode": "Pending",
+          "evidenceIds": []
+        },
+        "evidence": [
+          {
+            "id": "snapshot",
+            "type": "Synthetic.DeviceCare.Snapshot",
+            "schemaVersion": 1,
+            "collectedAtUtc": "2025-12-31T23:59:59.7654321+00:00",
+            "coverage": "Complete",
+            "sha256": null
+          },
+          {
+            "id": "action-log",
+            "type": "Synthetic.Change.Action",
+            "schemaVersion": 1,
+            "collectedAtUtc": "2026-01-02T03:04:05.9999999Z",
+            "coverage": "Complete",
+            "sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+          },
+          {
+            "id": "verification",
+            "type": "Synthetic.Change.Verification",
+            "schemaVersion": 2,
+            "collectedAtUtc": "2026-01-02T03:04:06Z",
+            "coverage": "Complete",
+            "sha256": null
+          }
+        ]
+      }
+    },
+    {
+      "id": "restart-status-with-completed-verification",
+      "valid": false,
+      "result": {
+        "schemaVersion": 1,
+        "operationId": "synthetic.change",
+        "runId": "11111111-1111-4111-8111-111111111111",
+        "operationKind": "Change",
+        "source": {
+          "component": "Synthetic.DeviceCare",
+          "version": "0.0.0-fixture",
+          "revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        "startedAtUtc": "2026-01-02T03:04:05.1234567Z",
+        "completedAtUtc": "2026-01-02T03:04:06.1234567Z",
+        "changesAttempted": true,
+        "effects": "Observed",
+        "restartRequired": true,
+        "observation": {
+          "status": "Succeeded",
+          "reasonCode": "CollectionComplete",
+          "evidenceIds": [
+            "snapshot"
+          ]
+        },
+        "action": {
+          "status": "RestartRequired",
+          "reasonCode": "RestartPending",
+          "evidenceIds": []
+        },
+        "verification": {
+          "status": "Succeeded",
+          "reasonCode": "PostconditionObserved",
+          "evidenceIds": [
+            "verification"
+          ]
+        },
+        "evidence": [
+          {
+            "id": "snapshot",
+            "type": "Synthetic.DeviceCare.Snapshot",
+            "schemaVersion": 1,
+            "collectedAtUtc": "2025-12-31T23:59:59.7654321+00:00",
+            "coverage": "Complete",
+            "sha256": null
+          },
+          {
+            "id": "action-log",
+            "type": "Synthetic.Change.Action",
+            "schemaVersion": 1,
+            "collectedAtUtc": "2026-01-02T03:04:05.9999999Z",
+            "coverage": "Complete",
+            "sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+          },
+          {
+            "id": "verification",
+            "type": "Synthetic.Change.Verification",
+            "schemaVersion": 2,
+            "collectedAtUtc": "2026-01-02T03:04:06Z",
+            "coverage": "Complete",
+            "sha256": null
+          }
+        ]
+      }
+    },
+    {
+      "id": "boolean-evidence-version",
+      "valid": false,
+      "result": {
+        "schemaVersion": 1,
+        "operationId": "synthetic.devicecare.snapshot",
+        "runId": "11111111-1111-4111-8111-111111111111",
+        "operationKind": "Observation",
+        "source": {
+          "component": "Synthetic.DeviceCare",
+          "version": "0.0.0-fixture",
+          "revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        "startedAtUtc": "2026-01-02T03:04:05.1234567Z",
+        "completedAtUtc": "2026-01-02T03:04:06.1234567Z",
+        "changesAttempted": false,
+        "effects": "None",
+        "restartRequired": false,
+        "observation": {
+          "status": "Succeeded",
+          "reasonCode": "CollectionComplete",
+          "evidenceIds": [
+            "snapshot"
+          ]
+        },
+        "action": {
+          "status": "Skipped",
+          "reasonCode": "NotRequested",
+          "evidenceIds": []
+        },
+        "verification": {
+          "status": "Skipped",
+          "reasonCode": "NotRequested",
+          "evidenceIds": []
+        },
+        "evidence": [
+          {
+            "id": "snapshot",
+            "type": "Synthetic.DeviceCare.Snapshot",
+            "schemaVersion": true,
+            "collectedAtUtc": "2025-12-31T23:59:59.7654321+00:00",
+            "coverage": "Complete",
+            "sha256": null
+          }
+        ]
+      }
+    },
+    {
+      "id": "fractional-evidence-version",
+      "valid": false,
+      "result": {
+        "schemaVersion": 1,
+        "operationId": "synthetic.devicecare.snapshot",
+        "runId": "11111111-1111-4111-8111-111111111111",
+        "operationKind": "Observation",
+        "source": {
+          "component": "Synthetic.DeviceCare",
+          "version": "0.0.0-fixture",
+          "revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        "startedAtUtc": "2026-01-02T03:04:05.1234567Z",
+        "completedAtUtc": "2026-01-02T03:04:06.1234567Z",
+        "changesAttempted": false,
+        "effects": "None",
+        "restartRequired": false,
+        "observation": {
+          "status": "Succeeded",
+          "reasonCode": "CollectionComplete",
+          "evidenceIds": [
+            "snapshot"
+          ]
+        },
+        "action": {
+          "status": "Skipped",
+          "reasonCode": "NotRequested",
+          "evidenceIds": []
+        },
+        "verification": {
+          "status": "Skipped",
+          "reasonCode": "NotRequested",
+          "evidenceIds": []
+        },
+        "evidence": [
+          {
+            "id": "snapshot",
+            "type": "Synthetic.DeviceCare.Snapshot",
+            "schemaVersion": 1.0,
+            "collectedAtUtc": "2025-12-31T23:59:59.7654321+00:00",
+            "coverage": "Complete",
+            "sha256": null
+          }
+        ]
+      }
+    },
+    {
+      "id": "invalid-evidence-digest",
+      "valid": false,
+      "result": {
+        "schemaVersion": 1,
+        "operationId": "synthetic.devicecare.snapshot",
+        "runId": "11111111-1111-4111-8111-111111111111",
+        "operationKind": "Observation",
+        "source": {
+          "component": "Synthetic.DeviceCare",
+          "version": "0.0.0-fixture",
+          "revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        "startedAtUtc": "2026-01-02T03:04:05.1234567Z",
+        "completedAtUtc": "2026-01-02T03:04:06.1234567Z",
+        "changesAttempted": false,
+        "effects": "None",
+        "restartRequired": false,
+        "observation": {
+          "status": "Succeeded",
+          "reasonCode": "CollectionComplete",
+          "evidenceIds": [
+            "snapshot"
+          ]
+        },
+        "action": {
+          "status": "Skipped",
+          "reasonCode": "NotRequested",
+          "evidenceIds": []
+        },
+        "verification": {
+          "status": "Skipped",
+          "reasonCode": "NotRequested",
+          "evidenceIds": []
+        },
+        "evidence": [
+          {
+            "id": "snapshot",
+            "type": "Synthetic.DeviceCare.Snapshot",
+            "schemaVersion": 1,
+            "collectedAtUtc": "2025-12-31T23:59:59.7654321+00:00",
+            "coverage": "Complete",
+            "sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+          }
+        ]
+      }
+    },
+    {
+      "id": "too-long-reason-code",
+      "valid": false,
+      "result": {
+        "schemaVersion": 1,
+        "operationId": "synthetic.devicecare.snapshot",
+        "runId": "11111111-1111-4111-8111-111111111111",
+        "operationKind": "Observation",
+        "source": {
+          "component": "Synthetic.DeviceCare",
+          "version": "0.0.0-fixture",
+          "revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        "startedAtUtc": "2026-01-02T03:04:05.1234567Z",
+        "completedAtUtc": "2026-01-02T03:04:06.1234567Z",
+        "changesAttempted": false,
+        "effects": "None",
+        "restartRequired": false,
+        "observation": {
+          "status": "Succeeded",
+          "reasonCode": "CollectionComplete",
+          "evidenceIds": [
+            "snapshot"
+          ]
+        },
+        "action": {
+          "status": "Skipped",
+          "reasonCode": "rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr",
+          "evidenceIds": []
+        },
+        "verification": {
+          "status": "Skipped",
+          "reasonCode": "NotRequested",
+          "evidenceIds": []
+        },
+        "evidence": [
+          {
+            "id": "snapshot",
+            "type": "Synthetic.DeviceCare.Snapshot",
+            "schemaVersion": 1,
+            "collectedAtUtc": "2025-12-31T23:59:59.7654321+00:00",
+            "coverage": "Complete",
+            "sha256": null
+          }
+        ]
+      }
+    },
+    {
+      "id": "unicode-source-at-scalar-boundary",
+      "valid": true,
+      "result": {
+        "schemaVersion": 1,
+        "operationId": "synthetic.devicecare.snapshot",
+        "runId": "11111111-1111-4111-8111-111111111111",
+        "operationKind": "Observation",
+        "source": {
+          "component": "\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea",
+          "version": "0.0.0-fixture",
+          "revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        "startedAtUtc": "2026-01-02T03:04:05.1234567Z",
+        "completedAtUtc": "2026-01-02T03:04:06.1234567Z",
+        "changesAttempted": false,
+        "effects": "None",
+        "restartRequired": false,
+        "observation": {
+          "status": "Succeeded",
+          "reasonCode": "CollectionComplete",
+          "evidenceIds": [
+            "snapshot"
+          ]
+        },
+        "action": {
+          "status": "Skipped",
+          "reasonCode": "NotRequested",
+          "evidenceIds": []
+        },
+        "verification": {
+          "status": "Skipped",
+          "reasonCode": "NotRequested",
+          "evidenceIds": []
+        },
+        "evidence": [
+          {
+            "id": "snapshot",
+            "type": "Synthetic.DeviceCare.Snapshot",
+            "schemaVersion": 1,
+            "collectedAtUtc": "2025-12-31T23:59:59.7654321+00:00",
+            "coverage": "Complete",
+            "sha256": null
+          }
+        ]
+      }
+    },
+    {
+      "id": "unicode-source-over-scalar-boundary",
+      "valid": false,
+      "result": {
+        "schemaVersion": 1,
+        "operationId": "synthetic.devicecare.snapshot",
+        "runId": "11111111-1111-4111-8111-111111111111",
+        "operationKind": "Observation",
+        "source": {
+          "component": "\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea\ud83e\uddea",
+          "version": "0.0.0-fixture",
+          "revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        "startedAtUtc": "2026-01-02T03:04:05.1234567Z",
+        "completedAtUtc": "2026-01-02T03:04:06.1234567Z",
+        "changesAttempted": false,
+        "effects": "None",
+        "restartRequired": false,
+        "observation": {
+          "status": "Succeeded",
+          "reasonCode": "CollectionComplete",
+          "evidenceIds": [
+            "snapshot"
+          ]
+        },
+        "action": {
+          "status": "Skipped",
+          "reasonCode": "NotRequested",
+          "evidenceIds": []
+        },
+        "verification": {
+          "status": "Skipped",
+          "reasonCode": "NotRequested",
+          "evidenceIds": []
+        },
+        "evidence": [
+          {
+            "id": "snapshot",
+            "type": "Synthetic.DeviceCare.Snapshot",
+            "schemaVersion": 1,
+            "collectedAtUtc": "2025-12-31T23:59:59.7654321+00:00",
+            "coverage": "Complete",
+            "sha256": null
+          }
+        ]
+      }
+    },
+    {
+      "id": "leap-second-timestamp-refused",
+      "valid": false,
+      "result": {
+        "schemaVersion": 1,
+        "operationId": "synthetic.devicecare.snapshot",
+        "runId": "11111111-1111-4111-8111-111111111111",
+        "operationKind": "Observation",
+        "source": {
+          "component": "Synthetic.DeviceCare",
+          "version": "0.0.0-fixture",
+          "revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        "startedAtUtc": "2026-01-02T03:04:05.1234567Z",
+        "completedAtUtc": "2026-01-02T03:04:06.1234567Z",
+        "changesAttempted": false,
+        "effects": "None",
+        "restartRequired": false,
+        "observation": {
+          "status": "Succeeded",
+          "reasonCode": "CollectionComplete",
+          "evidenceIds": [
+            "snapshot"
+          ]
+        },
+        "action": {
+          "status": "Skipped",
+          "reasonCode": "NotRequested",
+          "evidenceIds": []
+        },
+        "verification": {
+          "status": "Skipped",
+          "reasonCode": "NotRequested",
+          "evidenceIds": []
+        },
+        "evidence": [
+          {
+            "id": "snapshot",
+            "type": "Synthetic.DeviceCare.Snapshot",
+            "schemaVersion": 1,
+            "collectedAtUtc": "2032-06-30T23:59:60Z",
+            "coverage": "Complete",
+            "sha256": null
+          }
+        ]
+      }
+    }
+  ]
+}
