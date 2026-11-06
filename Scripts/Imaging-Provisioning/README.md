@@ -33,6 +33,8 @@ DTO navy, off-white, pale blue and restrained decorative gold are applied to the
 
 ## Checks and packaging
 
+The optional packaging tool requires Python 3.9 or newer. The Windows observation scripts do not require Python.
+
 ```powershell
 .\tests\Run-Checks.ps1
 # Disposable Windows lab only: creates and removes a tiny synthetic test WIM.
