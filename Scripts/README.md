@@ -1,20 +1,35 @@
-# Scripts — Developer Foundation
+# Windows scripts
 
-**Status:** Conventions and planned categories. This staging draft does not contain new executable scripts.
+**Current status:** DeviceCare and Imaging & Provisioning are executable PowerShell development previews on `main`. Both collect local observations and produce offline reports. Review the component's implemented scope, permissions and validation limits before running it.
 
-## Organization
+## Current components
+
+| Component | Implemented scope | Source and review |
+|---|---|---|
+| DeviceCare 0.2.0 | OS, memory and system-drive observations; two configurable threshold findings; offline DTO HTML report | [README](DeviceCare/README.md) · [Source](DeviceCare/src/) · [Checks](DeviceCare/tests/) · [TODO](DeviceCare/TODO.md) |
+| Imaging & Provisioning 0.2.0 | Workstation and bounded service observations; local WIM metadata/index review, optional SHA-256 and offline report | [README](Imaging-Provisioning/README.md) · [Source](Imaging-Provisioning/src/) · [Checks](Imaging-Provisioning/tests/) · [TODO](Imaging-Provisioning/TODO.md) |
+
+These previews do not implement general maintenance/repair, OS image application, partitioning or installer execution. Automated Windows Server checks do not establish attended Windows 11 acceptance. The [review guide](../Docs/REVIEWER-GUIDE.md) identifies source revisions and recorded runs. The separate [Launchpad](../Launchpad/README.md) remains a non-executable planning catalog.
+
+[Current task authorities](../Docs/DTO-WINDOWS-ADMIN-TODO.md) · [Permission notice](../LICENSE.md) · [Repository home](../README.md)
+
+## Development conventions
+
+The guidance below retains the earlier foundation design. It describes conventions and proposed categories, not additional implemented components. The two current component folders above are the active entry points; the [architecture blueprint](../Docs/Repository-Blueprint.md) preserves the broader design.
+
+### Organization
 
 Use task-oriented folders: `Deployment`, `Validation`, `Maintenance`, `Configuration`, `Management`, `Remote-Actions`, `Troubleshooting`, and `Decommissioning`. Put reusable helpers in `Common`. Optional cloud and identity adapters belong under `Management/Autopilot`, `Management/Intune`, and `Management/Identity`.
 
 Do not create separate `Technician`, `Developer`, `Local`, and `Cloud` copies of the same implementation. The guide and launchpad identify the audience; task parameters and explicit integration entry points identify the context.
 
-## Naming and responsibility
+### Naming and responsibility
 
 Use descriptive PowerShell verb-noun names. `Get`, `Test`, and `Export` tasks should make their scope clear; `Install`, `Update`, `Repair`, `Rename`, and removal tasks explicitly change state. Export tasks write evidence but should not silently register or enroll devices.
 
 `Common.psm1` should begin with shared logging, prerequisite checks, configuration loading, and result formatting. Add helpers when actual reuse appears. Keep task-specific implementation in the corresponding task script rather than growing one all-purpose module.
 
-## Contract for each maintained script
+### Contract for each maintained script
 
 Document:
 
@@ -40,8 +55,8 @@ Implementation expectations:
 
 Do not solve dependency or execution-policy failures through a blanket bypass. Choose and document supported deployment, signing, and permission requirements.
 
-## Verification and release
+### Verification and release
 
-When runnable tools are imported, validate both intended behavior and failure handling. Use mocked service calls or synthetic data for unit tests and controlled lab devices for installation, enrollment, restart, and removal scenarios. State which PowerShell runtime each entry point requires; Windows PowerShell 5.1 and PowerShell 7 are not interchangeable for every module.
+For each new or changed tool, validate both intended behavior and failure handling. Use mocked service calls or synthetic data for unit tests and controlled lab devices for installation, enrollment, restart, and removal scenarios. State which PowerShell runtime each entry point requires; Windows PowerShell 5.1 and PowerShell 7 are not interchangeable for every module.
 
 Release the script, BAT wrapper, task metadata, guide, and relevant test evidence together. A validation failure must remain visible to the technician. A successful script exit alone does not mean the workstation meets every baseline requirement.
