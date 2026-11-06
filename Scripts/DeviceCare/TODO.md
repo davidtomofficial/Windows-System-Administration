@@ -26,7 +26,7 @@
 
 | ID | Status | Acceptance and next action |
 |---|---|---|
-| DTO-DC-016 | Implemented candidate | Compare raw disk/memory values before display rounding. Just-under regressions pass; effective thresholds recorded. Extend exact-equality and just-over fixtures in the next test increment. |
+| DTO-DC-016 | Complete (boundary regression scope) | Compare raw disk/memory values before display rounding. Twelve isolated below/equal/above cases cover default and configured thresholds, identical rounded displays and recorded effective thresholds. November 6 Windows run 42281513012 passed 98 WinPS 5.1/native and 93 PowerShell 7 checks; [exact source, cases and limits](docs/VALIDATION.md#dto-dc-016-boundary-regression-verification). Runtime bytes are unchanged; Windows 11 and operational acceptance remain separate. |
 | DTO-DC-017 | Implemented candidate | Reject non-Boolean mutation flags; project only known report fields; encode text; refuse malformed or duplicate findings and tampered artwork. Treat this as in-process presentation, not an authenticated saved-report parser. |
 | DTO-DC-018 | Planned | Shared action/result interface for launchpad and DeviceCare without duplicating maintenance logic; keep diagnostics, planning and authorized changes distinct. |
 | DTO-DC-019 | Planned | Native DTO dashboard: original logo/icon variants, assessment worker, cancellation, keyboard/focus, high contrast and 100–200% DPI. Preserve incomplete evidence and test real user actions. |
