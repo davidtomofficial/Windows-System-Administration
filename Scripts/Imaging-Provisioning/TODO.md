@@ -8,6 +8,8 @@ Revision: 2026-11-05 audit / 0.2.0 development preview. This is the active proje
 
 **Comparison implementation and regression scope verified:** 73 comparison checks passed in each of Windows PowerShell 5.1 and PowerShell 7 in [run 42285281367](https://github.com/davidtomofficial/Windows-System-Administration/actions/runs/42285281367). [Exact tested source and limits](docs/VALIDATION.md#selected-observation-comparison). Preservation readback belongs in the separate dated receipt. The full DTO-WSA-010 handoff remains open for required/optional policy checks, peripherals, user workflows and human signoff. DTO-IMG-010 dashboard/profile migration and DTO-IMG-011 attended Windows 11 acceptance remain open. Comparison does not establish same-device identity, a successful action or deployment readiness.
 
+**Native integration verification complete, November 6:** [PR 23](https://github.com/davidtomofficial/Windows-System-Administration/pull/23) adds six checks connecting the real Windows collector to the canonical comparator and existing HTML renderer. [Run 42287053182](https://github.com/davidtomofficial/Windows-System-Administration/actions/runs/42287053182) passed 98 Imaging Windows PowerShell 5.1/native checks, 82 PowerShell 7 checks and all 73 canonical synthetic comparison checks in each version. [Exact source, scope and limitations](docs/VALIDATION.md#native-comparison-integration---november-6-2026). DTO-WSA-010 remains open for the broader handoff; DTO-IMG-010 and DTO-IMG-011 remain open.
+
 The original audit rows below remain the historical source record except where a dated continuation supplies newer evidence.
 
 | ID | State | Scope and next acceptance |

@@ -141,6 +141,32 @@ try {
             Check ($nativeSnapshot.Sections.Count -eq 4) 'native projected sections'
             Check (-not $nativeSnapshot.ComputerNameIncluded) 'native identifiers omitted'
             Check (@($nativeSnapshot.Sections|Where-Object {$_.RecordLimit -gt 0}).Count -eq 4) 'native limits retained'
+            # Exercise the real collector/comparator/renderer boundary in memory.
+            # Partial native observations may be Unknown; no hardware values are logged.
+            Import-Module (Join-Path $root 'src/DTOSnapshotComparison.psm1') -Force
+            $nativeSnapshotBefore=$nativeSnapshot | ConvertTo-Json -Depth 16 -Compress
+            $nativeComparison=Compare-DTOWorkstationSnapshot -Before $nativeSnapshot -After $nativeSnapshot
+            Check ($nativeComparison.Rows.Count -eq 7 -and $nativeComparison.ChangedCount -eq 0 -and
+                ($nativeComparison.UnchangedCount+$nativeComparison.UnknownCount) -eq 7 -and
+                $nativeComparison.ComparisonComplete -eq ($nativeComparison.UnknownCount -eq 0)) 'native comparison coverage and self-comparison counts'
+            Check ($nativeComparison.BeforeCollectedAtUtc -ceq $nativeSnapshot.CollectedAtUtc -and
+                $nativeComparison.AfterCollectedAtUtc -ceq $nativeSnapshot.CollectedAtUtc -and
+                $nativeComparison.Chronology -ceq 'SameTimestamp' -and
+                $nativeComparison.BeforeSnapshotReportedComplete -eq $nativeSnapshot.CollectionComplete -and
+                $nativeComparison.AfterSnapshotReportedComplete -eq $nativeSnapshot.CollectionComplete) 'native comparison observation time and reported completeness'
+            Check ($nativeComparison.SameDeviceVerified -is [bool] -and -not $nativeComparison.SameDeviceVerified -and
+                $nativeComparison.DeploymentAccepted -is [bool] -and -not $nativeComparison.DeploymentAccepted -and
+                $nativeComparison.ChangesAllowed -is [bool] -and -not $nativeComparison.ChangesAllowed) 'native comparison grants no identity or action authority'
+            $nativeComparisonHtml=ConvertTo-DTOReviewHtml $nativeComparison
+            $nativeComparisonPre=[regex]::Match($nativeComparisonHtml,'(?s)<pre>(.*?)</pre>')
+            Check ($nativeComparisonPre.Success -and $nativeComparisonHtml.Contains("default-src 'none'")) 'native comparison HTML evidence and resource policy'
+            $nativeComparisonRoundtrip=[Net.WebUtility]::HtmlDecode($nativeComparisonPre.Groups[1].Value) | ConvertFrom-Json
+            Check (($nativeComparisonRoundtrip.Rows | ConvertTo-Json -Depth 16 -Compress) -ceq
+                ($nativeComparison.Rows | ConvertTo-Json -Depth 16 -Compress) -and
+                $nativeComparisonRoundtrip.ChangedCount -eq $nativeComparison.ChangedCount -and
+                $nativeComparisonRoundtrip.UnchangedCount -eq $nativeComparison.UnchangedCount -and
+                $nativeComparisonRoundtrip.UnknownCount -eq $nativeComparison.UnknownCount) 'native comparison HTML roundtrip preserves rows and counts'
+            Check (($nativeSnapshot | ConvertTo-Json -Depth 16 -Compress) -ceq $nativeSnapshotBefore) 'native comparison and HTML leave source snapshot unchanged'
             $services=Get-DTOServiceSnapshot
             Check ($services.Section.Records.Count -gt 0) 'native service rows'
             Check (-not $services.HealthAssessed) 'native service no health claim'

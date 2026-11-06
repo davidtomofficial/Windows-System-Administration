@@ -1,5 +1,24 @@
 # DTO 0.2.0 validation scope
 
+## Native comparison integration - November 6, 2026
+
+**DTO-WSA-010: native collector/comparison/HTML integration verified within CI scope.** [PR 23](https://github.com/davidtomofficial/Windows-System-Administration/pull/23) adds six assertions to the existing native test block. It reuses the real workstation snapshot already collected by the harness, compares that snapshot with itself, and passes the result through the existing HTML renderer. Values remain in memory; the assertions log no workstation observations.
+
+[Windows integration run 42287053182](https://github.com/davidtomofficial/Windows-System-Administration/actions/runs/42287053182), job 128130474503, passed head `c39d97d565be771f2553d60191abdfd873166a5d`, checked out as synthetic merge `466d7612f96dd1ad132b8d6e4318da86965b6a92` against base `1284be142ce12f3ef6713f925b7a34df364b2478`. Host: Windows Server 2022. This includes the concurrent profile inventory and shared result-contract changes.
+
+| Suite | Observed result |
+|---|---|
+| Imaging, Windows PowerShell 5.1.20348.5773 | 98 checks passed, including the six new native assertions |
+| Imaging, PowerShell 7.6.9 | 82 existing/parser checks passed; native mode false |
+| Canonical comparison suite | 73 synthetic checks passed in each PowerShell version |
+| Imaging packaging | 8 tests passed |
+| Concurrent regression gates | DeviceCare 98 native / 93 PowerShell 7; profile inventory 183 native / 152 PowerShell 7; shared result contract 85 in each PowerShell version |
+| Other Python gates | 12 DeviceCare packaging; 12 Launchpad planning; 12 result-contract consumer; 13 repository contracts |
+
+The new assertions check seven comparison rows, zero changes for self-comparison with Unknown permitted for incomplete evidence, retained timestamps and reported completeness, false identity/deployment/change authority, the HTML evidence region and resource policy, decoded rows/counts, and input immutability. The existing comparator, collectors and 73-case synthetic suite are unchanged. This evidence documentation follow-up retains the tested harness bytes; later changes require their own source/run evidence. Counts describe separate suites, not unique acceptance cases.
+
+This closes the native integration verification gap, not the full DTO-WSA-010 handoff. Required/optional policy checks, peripherals, user workflows, human signoff, attended Windows 11 and accessibility remain open. Self-comparison proves interoperability with the runner's observation shape; it does not prove before/after action success or same-device identity. [PR 22](https://github.com/davidtomofficial/Windows-System-Administration/pull/22) was closed as a duplicate after PR 21 independently delivered the comparison feature; its source branch is retained.
+
 ## DTO-WSA-015 profile inventory continuation
 
 The additive profile inventory module has its own `tests/Run-ProfileChecks.ps1` suite. It exercises field projection, identifiers omitted by default, explicit identifier inclusion, strict Boolean evidence, missing/invalid/future/timezone-unknown dates, elapsed-time thresholds, current-process and special/loaded/roaming observations, uncertain status bits, duplicate identities, record/UTF-8 byte limits and partial provider failures. Every row remains unselected and ineligible for removal.
