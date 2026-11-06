@@ -1,8 +1,8 @@
 # DTO Technician Launchpad — active TODO
 
-Updated 2026-11-05. Personal development only. This extends the existing README design; it does not replace its execution architecture.
+Updated 2026-11-06. Personal development only. This extends the existing README design; it does not replace its execution architecture.
 
-**Implemented now:** offline planning-catalog validator and 26 named candidates. **Not implemented:** GUI, BAT launchers, execution engine, live upgrades or cleanup. All catalog candidates remain Planned with null launchers and execution disabled.
+**Implemented now:** offline planning-catalog validator and 26 named candidates; verified shared result contract v1. **Not implemented:** component adapters, GUI, BAT launchers, execution engine, live upgrades or cleanup. All catalog candidates remain Planned with null launchers and execution disabled.
 
 ID abbreviations below refer to stable `DTO-LP-###` and `DTO-WSA-###` tasks. DeviceCare and Imaging keep their existing IDs and acceptance records.
 
@@ -10,7 +10,7 @@ ID abbreviations below refer to stable `DTO-LP-###` and `DTO-WSA-###` tasks. Dev
 |---|---|---|---|
 | DTO-LP-001 | P0 | Implemented, component checks passed | **Planning catalog and strict validation.** 26 non-executable candidates; duplicate keys/IDs, unexpected fields, non-null launchers and execution flags refused. Twelve planning checks and the 26-entry listing passed Windows CI run 42145612233 at deadfd6add0fb391dd3113e6fd9cfd501e8a7603. No action executed. |
 | DTO-LP-002 | P0 | Open | **Release catalog contract.** Separate planned catalog from actions.json; exact implementation/version/hash, input schema, runtime/architecture, impact, prerequisites and native evidence required. Depends on LP-003/004. |
-| DTO-LP-003 | P0 | Open | **One result and evidence contract.** Record observation/action/verification separately; success, failed, partial, skipped, unknown, cancellation and restart-required remain distinct. Version schema and preserve original timestamps. |
+| DTO-LP-003 | P0 | Complete (result-contract scope) | **One result and evidence contract.** Version 1 records observation/action/verification independently, with strict states, source identity, original timestamps and bounded evidence references. Python saved-input validator and PowerShell in-memory producer verified by 50 shared cases, 85 checks on each of Windows PowerShell 5.1 and PowerShell 7, 15 actual serialized-result parity matches per runtime and 12 Python test methods. [Exact source, CI and completion limits](../Docs/TASK-RESULT-CONTRACT.md#validation-on-november-6-2026). Component adapters, dispatch, recovery and Windows 11 acceptance remain separate. |
 | DTO-LP-004 | P0 | Open | **Fixed dispatch and safe parameters.** Known task IDs and owned relative paths only; no arbitrary shell, eval, URL execution or PATH-shadowed tools. Validate every entry point, including direct BAT/PowerShell. |
 | DTO-LP-005 | P1 | Open | **Python interface with BAT fallback.** Retain original architecture. Search/category/details/Run/status/report; no blanket elevation; absent dependencies disable actions with guidance. Package runtime only after decision. |
 | DTO-LP-006 | P0 | Open | **Privilege and target confirmation.** Show local vs remote and affected user; standard-user GUI, task-only elevation, exact resolved target confirmation for disruptive work. No stored credentials. |
