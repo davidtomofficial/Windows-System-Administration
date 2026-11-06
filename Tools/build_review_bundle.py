@@ -16,16 +16,8 @@ EXACT=(
 )
 PRODUCTS={
  'Scripts/DeviceCare':('.gitignore','README.md','TODO.md','LICENSE.md','brand/product.json','brand/report.html','brand/dto-header-monogram.svg','brand/ASSET-PROVENANCE.md','docs/MIGRATION.md','docs/VALIDATION.md','src/DeviceCare.psm1','src/Presentation.ps1','src/Invoke-DTODeviceCare.ps1','tests/Run-Checks.ps1','tests/test_package.py','tools/package.py'),
-<<<<<<< /workspace/scratch/3fcca5c73abc/task-work/working/Tools/build_review_bundle.py
  'Scripts/Imaging-Provisioning':('.gitignore','README.md','TODO.md','LICENSE.md','brand/product.json','docs/MIGRATION.md','docs/VALIDATION.md','src/DTOImaging.psm1','src/Get-DTOWorkstationSnapshot.ps1','src/Get-DTOImageReview.ps1','src/DTOSnapshotComparison.psm1','tests/Run-Checks.ps1','tests/Run-ComparisonChecks.ps1','tests/test_package.py','tools/package.py'),
- 'Launchpad':('README.md','DESIGN.md','TODO.md','catalog.plan.json','plan.py','test_plan.py'),
-||||||| /workspace/scratch/3fcca5c73abc/task-work/baseline/Tools/build_review_bundle.py
- 'Scripts/Imaging-Provisioning':('.gitignore','README.md','TODO.md','LICENSE.md','brand/product.json','docs/MIGRATION.md','docs/VALIDATION.md','src/DTOImaging.psm1','src/Get-DTOWorkstationSnapshot.ps1','src/Get-DTOImageReview.ps1','tests/Run-Checks.ps1','tests/test_package.py','tools/package.py'),
- 'Launchpad':('README.md','DESIGN.md','TODO.md','catalog.plan.json','plan.py','test_plan.py'),
-=======
- 'Scripts/Imaging-Provisioning':('.gitignore','README.md','TODO.md','LICENSE.md','brand/product.json','docs/MIGRATION.md','docs/VALIDATION.md','src/DTOImaging.psm1','src/Get-DTOWorkstationSnapshot.ps1','src/Get-DTOImageReview.ps1','tests/Run-Checks.ps1','tests/test_package.py','tools/package.py'),
  'Launchpad':('README.md','DESIGN.md','TODO.md','catalog.plan.json','plan.py','test_plan.py','result_contract.py','test_result_contract.py'),
->>>>>>> /workspace/scratch/3fcca5c73abc/task-work/main-incoming/Tools/build_review_bundle.py
 }
 FILES=tuple(sorted(EXACT+tuple(f'{prefix}/{name}' for prefix,names in PRODUCTS.items() for name in names)))
 def digest(data):return hashlib.sha256(data).hexdigest()
