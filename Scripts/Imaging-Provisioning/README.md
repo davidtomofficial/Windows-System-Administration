@@ -8,7 +8,7 @@ Covered original software requires explicit written permission unless an applica
 
 ## Implemented scope
 
-Privacy-conscious workstation observations, bounded service inventory, read-only local WIM metadata/index review, optional SHA-256 hashing and a DTO offline HTML report. The original full desktop workflow has not been migrated.
+Privacy-conscious workstation observations, bounded service inventory, read-only local WIM metadata/index review, optional SHA-256 hashing and a DTO offline HTML report. A separate comparison module compares selected before/after workstation observations. The original full desktop workflow has not been migrated.
 
 ## Authorized development use
 
@@ -32,6 +32,24 @@ WIM inspection accepts nonempty local `.wim` files on fixed/removable drives wit
 
 The HTML is returned as a string; no automatic save, upload or email. Hardware, service and image names can still be sensitive. Review before sharing.
 
+## Compare selected workstation observations
+
+DTO-WSA-010 / DTO-IMG-004 and DTO-IMG-007 now have a bounded comparison implementation. Keep both original observations and choose the intended pair yourself. The comparison never establishes that the records came from the same device, that a change was successful, or that the workstation is ready for handoff.
+
+```powershell
+Import-Module .\src\DTOImaging.psm1 -Force
+Import-Module .\src\DTOSnapshotComparison.psm1 -Force
+# $before and $after are separately retained Get-DTOWorkstationSnapshot results.
+# For a selected saved JSON observation, use Get-Content -LiteralPath ... -Raw | ConvertFrom-Json.
+$comparison = Compare-DTOWorkstationSnapshot -Before $before -After $after
+$comparison.Rows | Select-Object Source, Field, State, BeforeValues, AfterValues
+$html = ConvertTo-DTOReviewHtml -Review $comparison
+```
+
+Seven known OS, hardware, BIOS and processor-name fields have `Changed`, `Unchanged` or `Unknown` results. Missing, partial, duplicate or contradictory source evidence stays unknown; available valid values remain visible for review. CPU names form a case-sensitive multiset: order is ignored, repeated names still count, and no socket mapping is inferred. Other text values are compared exactly. Both original UTC timestamps are retained; reversed time order is refused and equal times are labeled. This is an in-process data contract for trusted local objects, not a parser for arbitrary untrusted PowerShell objects.
+
+Computer names, serials, paths and unrecognized fields are omitted. Hardware and OS values may still be sensitive. `ComparisonComplete` describes the seven compared fields only; `SameDeviceVerified`, `DeploymentAccepted` and `ChangesAllowed` remain false. Required/optional workflow checks, peripheral validation and human signoff remain open. See the [worked example and contract](https://github.com/davidtomofficial/Windows-System-Administration/blob/main/Docs/WORKSTATION-COMPARISON.md).
+
 ## Checks and packaging
 
 ```powershell
@@ -43,7 +61,7 @@ python .\tools\package.py --output DTO-Imaging-0.2.0.zip
 python .\tools\package.py --verify DTO-Imaging-0.2.0.zip
 ```
 
-Thirteen allowlisted source files, including LICENSE.md, plus MANIFEST.json are packaged. Python 3.9+ is for packaging; it is not required by the Windows observation scripts. A package checksum is not publisher trust or deployment acceptance.
+Fifteen allowlisted source files, including LICENSE.md, plus MANIFEST.json are packaged. Python 3.9+ is for packaging; it is not required by the Windows observation scripts. A package checksum is not publisher trust or deployment acceptance.
 
 ## Identity and future check-ins
 

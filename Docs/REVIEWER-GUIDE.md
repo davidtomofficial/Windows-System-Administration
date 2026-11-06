@@ -14,6 +14,8 @@ The active source is the integrated `main` tree. [Scripts](../Scripts/README.md)
 
 ## Preserved component evidence
 
+The November 6 [selected-observation comparison](WORKSTATION-COMPARISON.md) adds a bounded DTO-WSA-010 / DTO-IMG-004 and DTO-IMG-007 workflow. Its [dated component evidence](../Scripts/Imaging-Provisioning/docs/VALIDATION.md#selected-observation-comparison) is separate from the historical runs below. The original collector modules are preserved; full handoff and same-device verification remain open.
+
 | Scope | Source identity | Recorded evidence |
 |---|---|---|
 | DeviceCare + Launchpad | tested `deadfd6add0fb391dd3113e6fd9cfd501e8a7603`; documentation follow-up `3ce2a915c20a2d6bb504280b2171cf7a3d5ce9b9` | [Run 42145612233](https://github.com/davidtomofficial/Windows-System-Administration/actions/runs/42145612233): 65 Windows PowerShell 5.1 checks; 60 PowerShell 7; 12 DeviceCare Python; 12 Launchpad Python; 26 planned entries listed |

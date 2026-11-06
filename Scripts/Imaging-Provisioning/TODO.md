@@ -2,6 +2,14 @@
 
 Revision: 2026-11-05 audit / 0.2.0 development preview. This is the active project tracker, mirrored to the DTO SharePoint folder. Historical source records remain preserved and do not imply DTO completion.
 
+## November 6 continuation: selected observation comparison
+
+**DTO-WSA-010 with DTO-IMG-004 / DTO-IMG-007:** a separate read-only comparison module now projects seven known fields from two selected schema 2 workstation snapshots, preserving observation times and Changed/Unchanged/Unknown states. It retains partial evidence without treating it as absence, compares CPU name multisets without socket claims, and omits identifiers and extra fields. The original collectors are unchanged. See [usage and limits](README.md#compare-selected-workstation-observations) and [dated validation](docs/VALIDATION.md#selected-observation-comparison).
+
+**Comparison implementation and regression scope verified:** 73 comparison checks passed in each of Windows PowerShell 5.1 and PowerShell 7 in [run 42285281367](https://github.com/davidtomofficial/Windows-System-Administration/actions/runs/42285281367). [Exact tested source and limits](docs/VALIDATION.md#selected-observation-comparison). Preservation readback belongs in the separate dated receipt. The full DTO-WSA-010 handoff remains open for required/optional policy checks, peripherals, user workflows and human signoff. DTO-IMG-010 dashboard/profile migration and DTO-IMG-011 attended Windows 11 acceptance remain open. Comparison does not establish same-device identity, a successful action or deployment readiness.
+
+The original audit rows below remain the historical source record except where a dated continuation supplies newer evidence.
+
 | ID | State | Scope and next acceptance |
 |---|---|---|
 | DTO-IMG-001 | Complete | Reconcile legacy Imaging TODO, current joint master scope and Phase 1 source/archive. Phase 1 ZIP differs from GitHub in README/script and document membership; retain both, do not call them equivalent. |
