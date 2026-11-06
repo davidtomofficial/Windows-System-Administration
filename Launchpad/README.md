@@ -1,52 +1,33 @@
-[README.md](https://github.com/user-attachments/files/32687179/README.md)
-# Technician Launchpad — Design Outline
+# Technician Launchpad
 
-**Status:** Planned. No GUI, BAT launchers, or task catalog has been implemented by this foundation draft.
+**David Tom Official · Planning implementation, not an executable toolbox**
 
-## Purpose
+The launchpad is intended to make reviewed technician jobs easy to find: preparation, validation, maintenance, management, troubleshooting, computer groups and device return. The current implementation only validates and lists a 26-entry planning catalog. It cannot launch a script, upgrade Windows, remove profiles or delete data.
 
-Provide a small Python window with clearly labeled buttons for reviewed support tasks. The user selects a task, sees its prerequisites and effects, runs it, and receives a readable result. Plain labels and reliable behavior are the priority.
+[Permission and licensing](../LICENSE.md) · [Active TODO](TODO.md) · [Windows administration master](../Docs/DTO-WINDOWS-ADMIN-TODO.md)
 
-The execution chain will be:
+## Review now
+
+For an authorized development review:
 
 ```text
-app.py → actions.json → a known BAT launcher → a known PowerShell task → results
+python Launchpad/plan.py
+python Launchpad/test_plan.py
 ```
 
-BAT files also work directly when Python is unavailable. A future packaged GUI can improve distribution, but the underlying tasks remain independent of the interface.
+Every catalog entry must remain `Planned`, with `launcher: null` and `executionEnabled: false`. The validator refuses executable mappings and malformed catalog fields.
 
-## Proposed first screen
+## Intended architecture
 
-Use categories from the [repository blueprint](../Docs/Repository-Blueprint.md): Prepare a device; Validate and hand off; Update and maintain; Connect to management; Troubleshoot and support; Manage a computer group; Return or remove a device.
+```text
+Technician chooses a reviewed job
+  -> Python interface or known BAT wrapper
+  -> one canonical PowerShell operation
+  -> scoped result, evidence and human handoff
+```
 
-Start with only reviewed tasks. A task that is not ready should be absent or clearly disabled with an explanation, not presented as a working button.
+No free-form command executor. Direct PowerShell/BAT use must preserve the same prerequisites, target selection, authorization and recovery boundaries as the eventual GUI. Diagnostics, plan generation and state-changing operations remain separate.
 
-Each button's task details should include:
+Read [migration and cleanup requirements](../Docs/Technician-Migration-and-Cleanup.md) for Windows 10-to-11 and profile/data handling. Read [future check-in requirements](../Docs/USAGE-CHECK-IN.md) for the newly requested licensing/usage work. Neither document enables those features.
 
-- A plain-language label and one-sentence purpose.
-- Whether it inspects or changes the device.
-- Local-device or remote-target scope, prerequisites, and management dependencies.
-- Administrator or service permissions required.
-- Expected restart or interruption behavior.
-- A link to the guide and the result/report location.
-
-For a first release, use a simple task selection, Run button, status area, and Open report button. Confirm disruptive operations using the exact device or resolved target list. Display success, failure, partial completion, skipped work, and restart required distinctly.
-
-## Responsibilities
-
-| Component | Responsibility |
-| --- | --- |
-| Python GUI | Display tasks, validate inputs, start a fixed launcher, show process status and results. |
-| `actions.json` | Map a stable task ID to its label, category, relative launcher path, guide, prerequisites, and release status. |
-| BAT launcher | Resolve paths from its own location, start the intended PowerShell entry point, and propagate the result/exit code. |
-| PowerShell task | Perform its checks and changes, enforce prerequisites, and write consistent results. |
-
-Launch the GUI without blanket elevation. Request additional privilege for the selected task as needed. BAT and direct PowerShell use must preserve task safeguards rather than depending on a GUI-only confirmation.
-
-During execution, disable conflicting operations and show that work is still running. Cancellation must reflect what the underlying installer or operation actually supports. Never display “completed” simply because a terminal window opened.
-
-The GUI should contain neither tenant credentials nor a free-form command executor. Do not duplicate package installation, enrollment, or device-removal logic in Python or BAT files.
-
-## Definition of a released action
-
-A released button has a reviewed PowerShell implementation, a portable wrapper, a technician guide, documented prerequisites and results, and evidence of successful and failed runs on representative systems. Python/runtime packaging and script-signing policy will be selected during implementation.
+The earlier [design outline](DESIGN.md) is retained for provenance. It is not evidence that its proposed buttons exist.

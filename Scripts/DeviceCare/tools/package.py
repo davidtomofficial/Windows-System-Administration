@@ -1,7 +1,7 @@
 """Offline, deterministic DTO DeviceCare source package with explicit membership."""
 import argparse, hashlib, io, json, zipfile
 from pathlib import Path
-FILES = ('README.md','TODO.md','.gitignore','brand/product.json','docs/MIGRATION.md',
+FILES = ('README.md','TODO.md','.gitignore','LICENSE.md','brand/product.json','docs/MIGRATION.md',
          'docs/VALIDATION.md','src/DeviceCare.psm1','src/Invoke-DTODeviceCare.ps1',
          'tests/Run-Checks.ps1','tests/test_package.py','tools/package.py',
          'src/Presentation.ps1','brand/report.html','brand/dto-header-monogram.svg','brand/ASSET-PROVENANCE.md')

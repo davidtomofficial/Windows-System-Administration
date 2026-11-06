@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 1,
+  "kind": "DesignExampleNotRuntimeConfiguration",
+  "requiredForFuturePermissionLicensedBuilds": true,
+  "implementationStatus": "NotImplemented",
+  "runtimeEnabled": false,
+  "endpoint": null,
+  "products": ["dto-devicecare", "dto-imaging-provisioning", "dto-technician-launchpad"],
+  "proposedActiveUseIntervalHours": 24,
+  "proposedEntitlementRenewalDays": 7,
+  "proposedOfflineGraceDays": 14,
+  "cadenceAndRetentionApproved": false,
+  "approvedRetentionDays": null,
+  "requiresDisclosedEnrollment": true,
+  "collectHardwareIdentifiers": false,
+  "uploadDiagnosticReports": false,
+  "allowRemoteCommands": false,
+  "interruptActiveMaintenanceOnExpiry": false,
+  "credentials": null
+}

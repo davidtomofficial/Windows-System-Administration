@@ -1,0 +1,78 @@
+name: DTO repository integration review
+on:
+  push:
+    branches: [integration/dto-repository-review-20261105]
+  pull_request:
+    paths:
+      - 'Scripts/DeviceCare/**'
+      - 'Scripts/Imaging-Provisioning/**'
+      - 'Launchpad/**'
+      - 'Docs/**'
+      - 'Tools/**'
+      - 'Tests/**'
+      - 'LICENSE.md'
+      - 'README.md'
+      - 'Config/check-in.policy.example.json'
+      - '.github/workflows/dto-integration-review.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  review:
+    runs-on: windows-2022
+    timeout-minutes: 20
+    steps:
+      - name: Checkout exact source and preserved parents
+        shell: pwsh
+        run: |
+          git init .
+          git config core.autocrlf false
+          git remote add origin "https://github.com/$env:GITHUB_REPOSITORY.git"
+          git fetch --depth=1 origin $env:GITHUB_SHA
+          if ($LASTEXITCODE -ne 0) { throw 'Source fetch failed' }
+          git checkout --detach FETCH_HEAD
+          if ($LASTEXITCODE -ne 0) { throw 'Source checkout failed' }
+          git fetch --depth=1 origin 3ce2a915c20a2d6bb504280b2171cf7a3d5ce9b9 173cda83ef639f16a7a5acf641f350bca79c7cca
+          if ($LASTEXITCODE -ne 0) { throw 'Preserved source fetch failed' }
+      - name: DeviceCare Windows PowerShell 5.1 native and contracts
+        shell: powershell
+        run: '& ./Scripts/DeviceCare/tests/Run-Checks.ps1 -Native'
+      - name: Imaging Windows PowerShell 5.1 native and contracts
+        shell: powershell
+        run: '& ./Scripts/Imaging-Provisioning/tests/Run-Checks.ps1 -Native'
+      - name: PowerShell 7 component contracts
+        shell: pwsh
+        run: |
+          & ./Scripts/DeviceCare/tests/Run-Checks.ps1
+          & ./Scripts/Imaging-Provisioning/tests/Run-Checks.ps1
+      - name: Package and launchpad checks
+        shell: pwsh
+        run: |
+          python ./Scripts/DeviceCare/tests/test_package.py
+          if ($LASTEXITCODE -ne 0) { throw 'DeviceCare packaging failed' }
+          python ./Scripts/Imaging-Provisioning/tests/test_package.py
+          if ($LASTEXITCODE -ne 0) { throw 'Imaging packaging failed' }
+          python ./Launchpad/test_plan.py
+          if ($LASTEXITCODE -ne 0) { throw 'Launchpad planning failed' }
+      - name: Repository contracts and source preservation
+        shell: pwsh
+        run: |
+          python ./Tests/test_repository_review.py
+          if ($LASTEXITCODE -ne 0) { throw 'Repository review failed' }
+      - name: Build source-only review archive and preimages
+        shell: pwsh
+        run: |
+          New-Item -ItemType Directory -Path dist -Force | Out-Null
+          python ./Tools/build_review_bundle.py --output dist/DTO-Repository-Review.zip --commit $env:GITHUB_SHA
+          if ($LASTEXITCODE -ne 0) { throw 'Review archive failed' }
+          git archive --format=zip --output=dist/DTO-DeviceCare-Prework.zip 3ce2a915c20a2d6bb504280b2171cf7a3d5ce9b9 Scripts/DeviceCare Launchpad Docs/DTO-WINDOWS-ADMIN-TODO.md
+          if ($LASTEXITCODE -ne 0) { throw 'DeviceCare preimage failed' }
+          git archive --format=zip --output=dist/DTO-Imaging-Prework.zip 173cda83ef639f16a7a5acf641f350bca79c7cca Scripts/Imaging-Provisioning
+          if ($LASTEXITCODE -ne 0) { throw 'Imaging preimage failed' }
+      - name: Preserve source review artifacts
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: dto-repository-review-${{ github.sha }}
+          path: dist/*.zip
+          if-no-files-found: error
+          retention-days: 30

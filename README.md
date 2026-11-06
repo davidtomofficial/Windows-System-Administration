@@ -1,34 +1,38 @@
 # Windows System Administration
 
-A planned Windows workstation toolkit for preparing, assigning, maintaining, troubleshooting, and retiring devices. The foundation supports a workstation that can be deployed without Intune or Autopilot, with optional Active Directory, Microsoft Entra ID, Intune, and Autopilot integrations.
+**David Tom Official · Systems, Automation & Software**
 
-**Status: foundation draft — September 26, 2026.** This local staging copy contains documentation and a proposed structure. The launchpad, launchers, script catalog, and new scripts described here are planned, not implemented or validated. Existing GitHub scripts will be reviewed before migration.
+A reviewable collection of Windows technician tools, development previews and operational designs. Start with the implemented scope below, then follow its source, tests and limitations. This is a personal portfolio and development repository—not a production deployment kit.
 
-## Start here
+> **Permission required:** public source is not an unrestricted use license. Read the [rights and permission notice](LICENSE.md) before running, deploying, modifying or redistributing covered original work. Existing licenses, third-party rights and lawful exceptions remain intact. [Request permission](https://davidtomofficial.com/#contact).
 
-| Audience | Start with | Purpose |
-| --- | --- | --- |
-| Field technician | [Task guides](Guides/README.md) | Find the procedure for an assigned job. |
-| Field technician | [Launchpad design](Launchpad/README.md) | Understand the proposed simple interface and task buttons. |
-| Deployment technician | [Current workstation baseline](Apps-Programs/workstation-environment.md) | Review the proposed Windows 11 25H2 environment. |
-| Assignment or asset-management staff | [Checklist outlines](Checklists/README.md) | See where existing assignment and return checklists will fit. |
-| Developer or maintainer | [Repository blueprint](Docs/Repository-Blueprint.md) | Review the complete proposed hierarchy and responsibilities. |
-| Developer or maintainer | [Script conventions](Scripts/README.md) | Keep scripts, wrappers, outputs, and validation consistent. |
-| Maintainer importing existing tools | [Migration map](Docs/Migration-Map.md) | Review the known repository content and screenshot inventory. |
+## Review the repository
 
-## Two ways into the same tools
+| You want to… | Start here |
+|---|---|
+| Understand what works today | [Current capabilities and evidence](Docs/REVIEWER-GUIDE.md) |
+| Review DeviceCare | [DeviceCare source and usage](Scripts/DeviceCare/README.md) · [TODO](Scripts/DeviceCare/TODO.md) |
+| Review Imaging & Provisioning | [Imaging source and usage](Scripts/Imaging-Provisioning/README.md) · [TODO](Scripts/Imaging-Provisioning/TODO.md) |
+| See the technician launchpad plan | [Launchpad](Launchpad/README.md) · [26 planning entries](Launchpad/catalog.plan.json) |
+| Find priorities and continuation work | [Windows administration master](Docs/DTO-WINDOWS-ADMIN-TODO.md) · [Repository review TODO](Docs/REPOSITORY-REVIEW-TODO.md) |
+| Review licensing or usage check-ins | [Permission notice](LICENSE.md) · [License scope](Docs/LICENSING.md) · [Check-in requirements](Docs/USAGE-CHECK-IN.md) |
+| Finish this migration as a work agent | [Bounded continuation prompt](Docs/WORK-AGENT-HANDOFF.md) |
 
-```text
-Field technician: assigned job → guide/checklist → launchpad button or BAT launcher → result
-Developer:       task definition → PowerShell implementation → verification → release
-```
+## Implemented versus planned
 
-The Python launchpad will provide a simple interface. BAT files will provide direct access to the same tasks. PowerShell will hold the actual device-management logic.
+| Component | Current implemented scope | Not yet established |
+|---|---|---|
+| DeviceCare 0.2.0 development preview | Local OS/memory/system-drive observations; two threshold findings; offline DTO report with original DT artwork | Full desktop application, maintenance/repair, installed-device acceptance |
+| Imaging 0.2.0 development preview | Workstation and bounded service observations; local WIM metadata/index review and optional hash; offline report | Bootable image, OS deployment, installer/recovery qualification |
+| Technician Launchpad | Offline planning catalog, validator and tests | GUI, BAT wrappers, task dispatch; all 26 candidates remain non-executable |
+| Periodic check-ins | Required future licensed-build design and acceptance backlog | Collector endpoint, client integration, real usage counts or enforcement |
 
-The workstation baseline defines the desired environment; validation reports whether a device meets the selected requirements. A baseline or successful tool run does not guarantee that a device is completely secure.
+Automated component tests are not a full-product or physical Windows 11 acceptance. See the [review guide](Docs/REVIEWER-GUIDE.md) for exact source/run references. No A+ grade has been awarded; the [quality contract](Docs/REPOSITORY-A-PLUS.md) keeps unverified criteria open.
 
-## Staging and implementation
+## For authorized developers
 
-This repository is an early design and documentation staging area, not a completed or validated software release. New script names in the blueprint are proposed names; they must not be presented as working commands until implemented and tested.
+Read the selected component README before running anything. Use its documented Windows PowerShell 5.1 entry points and normal organizational execution policy. Python is used for package and planning checks; it is not required for the observation scripts. No policy bypass, automatic installation, cleanup, reboot or remote management is enabled by this repository review.
 
-See [CHANGELOG.md](CHANGELOG.md) for documentation changes and [the blueprint](Docs/Repository-Blueprint.md) for implementation phases.
+The existing [architecture blueprint](Docs/Repository-Blueprint.md), [task guides](Guides/README.md), [baseline](Apps-Programs/workstation-environment.md) and [checklists](Checklists/README.md) remain design/reference material unless a component explicitly establishes implementation. Historical drafts are preserved rather than silently relabeled as current software.
+
+[Portfolio](https://davidtomofficial.com/) · [Migration map](Docs/REPOSITORY-MIGRATION.md) · [Contribution rules](CONTRIBUTING.md)

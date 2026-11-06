@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "productId": "dto-imaging-provisioning",
+  "productName": "DTO Imaging & Provisioning",
+  "publisher": "David Tom Official",
+  "version": "0.2.0",
+  "channel": "Development preview",
+  "websiteUrl": "https://davidtomofficial.com/",
+  "contactUrl": "https://davidtomofficial.com/#contact",
+  "supportEmail": "david.tom@davidtomofficial.com",
+  "releaseStatus": "Not qualified for deployment",
+  "brandingStatus": "DTO palette and contact verified; logo and desktop UI pending",
+  "colors": {
+    "navy": "#0F2747",
+    "offWhite": "#F8F9FB",
+    "goldDecorationOnly": "#D4A574",
+    "paleBlue": "#E6ECF2"
+  }
+}
