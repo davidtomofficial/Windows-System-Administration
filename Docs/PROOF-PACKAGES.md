@@ -35,6 +35,8 @@ The scripts compare actual component results against checked-in expected JSON an
 
 The [integration workflow](../.github/workflows/dto-integration-review.yml) retains a `dto-portfolio-proofs-<source SHA>` artifact containing both runtimes' fictional output and `environment.json` records. Those records identify the exact checked-out source, runtime and host operating system. Its source archive separately preserves the allowlisted scripts, fixtures, expected outputs and guides. Download retention is finite; the dated verification record below identifies the retained checkpoint.
 
+The repository evidence runner requires the requested source SHA to match Git HEAD and refuses tracked local changes before creating output. Generated, untracked proof directories can remain outside the source record. The component commands above also work from an extracted component ZIP; use its verified package manifest and the dated source receipt when identifying that source.
+
 | Evidence level | Meaning |
 |---|---|
 | Static review | The source, fixture provenance, links, public suitability and stated limits were inspected. |

@@ -22,7 +22,11 @@ function Assert-ProofRefusal([scriptblock]$Action, [string]$Message, [switch]$Th
     try { & $Action | Out-Null } catch { $failure = $_ }
     Assert-Proof ($null -ne $failure) ('expected refusal ' + $Message)
     if ($Threshold) {
-        Assert-Proof ($failure.Exception -is [System.Management.Automation.ParameterBindingValidationException]) 'threshold validation refusal'
+        $errorId = [string]$failure.FullyQualifiedErrorId
+        $exceptionType = $failure.Exception.GetType().FullName
+        Assert-Proof ($errorId -ceq 'ParameterArgumentValidationError,Get-DTODeviceCareFindings' -and
+            $exceptionType -ceq 'System.Management.Automation.ParameterBindingValidationException') (
+            'threshold validation refusal; FullyQualifiedErrorId=' + $errorId + '; ExceptionType=' + $exceptionType)
     } else {
         Assert-Proof ($failure.Exception.Message -ceq $Message) ('specific refusal ' + $Message)
     }

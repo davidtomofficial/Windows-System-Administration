@@ -12,6 +12,8 @@ $actualCommit = (& git -C $repo rev-parse HEAD | Out-String).Trim()
 if ($LASTEXITCODE -ne 0 -or $actualCommit -cne $SourceCommit) {
     throw 'Proof source must match the checked-out Git commit.'
 }
+& git -C $repo diff --quiet HEAD --
+if ($LASTEXITCODE -ne 0) { throw 'Proof source must have no tracked changes from the recorded commit.' }
 $provider = $null
 $drive = $null
 $destination = $ExecutionContext.SessionState.Path.GetUnresolvedProviderPathFromPSPath($OutputRoot, [ref]$provider, [ref]$drive)
