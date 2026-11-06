@@ -8,7 +8,7 @@
 | DTO-DC-002 | Prior checkpoint verified | 0.1.0 source commit 3f62035b67293e937eb1b693433e1cec16b8f710 and archive parity verified. Current changes require their own readback. |
 | DTO-DC-003 | Implemented | Standalone read-only Windows OS, memory and system-drive observations; missing/failed evidence stays Unknown; no computer name by default. |
 | DTO-DC-004 | Implemented | Deterministic Review/Observed/Unknown threshold interpretation, with no false health verdict, authorization or repair claim. |
-| DTO-DC-005 | Implemented candidate | Approved original DT vector, readable findings/counts, responsive layout and field-projected structured evidence. Native UI and attended accessibility remain pending. |
+| DTO-DC-005 | Implemented candidate | Approved original DT vector, readable findings/counts, responsive layout and field-projected evidence. Native UI and attended accessibility remain pending. |
 | DTO-DC-006 | Current component checks passed | 0.2.0 at deadfd6add0fb391dd3113e6fd9cfd501e8a7603: 65 WinPS 5.1 checks including native observations, 60 PowerShell 7 contracts and 12 Python tests. Run 42145612233 succeeded on Windows Server 2022. Actual Windows 11 acceptance remains open. |
 | DTO-DC-007 | Per-checkpoint | Prior 0.1.0 archive readback/parity verified. Preserve it and verify a new immutable 0.2.0 archive, GitHub blobs and evidence after publication. |
 | DTO-DC-008 | Pending | File-by-file review of the full historical Windows PowerShell/WPF application, settings, logos, vendor artifacts, entitlement model and source ownership. Do not copy private runtime unreviewed. |
@@ -35,3 +35,9 @@
 Original DTO-DC-001–015 IDs remain. Refer to the dated continuation receipt for actual native and remote-publication outcomes; a checklist edit does not accept a release.
 
 Latest verified source/test and limitation summary: [continuation progress](../../Docs/DTO-WINDOWS-ADMIN-PROGRESS.md). Remote archive parity is recorded in the dated delivery receipt, not inferred from this checklist.
+
+## Required check-in continuation — November 5, 2026
+
+- [ ] **DTO-DC-021 / P1 — Required periodic check-in for future permission-licensed builds.** Implement the shared DTO-WSA-042–046 requirements with disclosed authorized enrollment, minimal aggregate usage, a verified owner-controlled receiver, receipt/retention controls and safe offline behavior. Current code has no check-in or usage telemetry. Existing license grants remain unaffected.
+
+[Shared implementation contract](../../Docs/USAGE-CHECK-IN.md) · [Repository continuation TODO](../../Docs/REPOSITORY-REVIEW-TODO.md)

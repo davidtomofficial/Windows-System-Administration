@@ -1,12 +1,12 @@
 # DTO migration - reconciled scope
 
-The owner authorized a separate DTO copy while preserving the original Imaging project. Work stays on `dto/imaging-migration-20261105` in Windows-System-Administration; `main` and the pre-work branch are not changed by this increment.
+The owner authorized a separate DTO copy while preserving the original Imaging project. The initial migration was maintained on `dto/imaging-migration-20261105`. The current source-preserving integration is recorded in the repository's `Docs/REPOSITORY-MIGRATION.md`; original branches and prior source checkpoints remain intact. Current branch/publication status belongs to the dated receipt, not this historical description.
 
 ## Findings resolved in source
 
 The first SharePoint migration ZIP was not the same four-file tree as GitHub: its README and script differed, and its backup receipt replaced GitHub's migration document. Both are preserved. The new build is packaged from one explicit source allowlist and independently compared after upload.
 
-The original SharePoint Imaging TODO stopped at the older application-observation milestone and did not establish the DTO backup claims. The active TODO now separates each implemented subset, pending validation and future full-feature migration. The newer joint-master owner scope takes precedence over October 31 audit assumptions: DTO's domain/brand rollout is already documented; DTS commercial work stays held. Signing is explicitly deferred for controlled development, not a new blocker.
+The original SharePoint Imaging TODO stopped at the older application-observation milestone and did not establish the DTO backup claims. The active TODO now separates each implemented subset, pending validation and future full-feature migration. The newer joint-master owner scope takes precedence over October 31 audit assumptions: DTO's domain/brand rollout is already documented; commercial work stays held. Signing is explicitly deferred for controlled development, not a new blocker.
 
 ## Port status
 

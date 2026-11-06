@@ -32,7 +32,7 @@ def build(root,commit):
  out=io.BytesIO()
  with zipfile.ZipFile(out,'w',zipfile.ZIP_DEFLATED,compresslevel=9) as archive:
   for name,data in sorted(items.items()):
-   info=zipfile.ZipInfo(name,(2026,11,5,0,0,0));info.compress_type=zipfile.ZIP_DEFLATED;info.external_attr=0o100644<<16
+   info=zipfile.ZipInfo(name,(2026,11,5,0,0,0));info.create_system=3;info.compress_type=zipfile.ZIP_DEFLATED;info.external_attr=0o100644<<16
    archive.writestr(info,data)
  raw=out.getvalue();verify(raw);return raw
 

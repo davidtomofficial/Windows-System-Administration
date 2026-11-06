@@ -1,6 +1,6 @@
 # DTO Imaging - active TODO
 
-Revision: 2026-11-05 audit / 0.2.0 development preview. This is the active project tracker, mirrored to the DTO SharePoint folder. Historic DTS records remain preserved and do not imply DTO completion.
+Revision: 2026-11-05 audit / 0.2.0 development preview. This is the active project tracker, mirrored to the DTO SharePoint folder. Historical source records remain preserved and do not imply DTO completion.
 
 | ID | State | Scope and next acceptance |
 |---|---|---|
@@ -18,4 +18,10 @@ Revision: 2026-11-05 audit / 0.2.0 development preview. This is the active proje
 | DTO-IMG-012 | Deferred | Code signing and commercial staff identity are not blockers for owner-approved controlled development. Approved operational distribution/trust remains a later gate. |
 | DTO-IMG-013 | Not implemented here | OS apply, partitioning, disk erase, app installer execution, domain/enrollment changes and protected restoration. Do not enable before separate review and acceptance. |
 
-DTS commercial work remains on hold. No public release promotion, service changes, paid launch or employer/private source publication is implied by this source branch.
+No public release promotion, service changes, paid launch or employer/private source publication is implied by this source branch.
+
+## Required check-in continuation — November 5, 2026
+
+- [ ] **DTO-IMG-014 / P1 — Required periodic check-in for future permission-licensed builds.** Implement the shared DTO-WSA-042–046 requirements with disclosed authorized enrollment, minimal aggregate usage, a verified owner-controlled receiver, receipt/retention controls and safe offline behavior. Current code has no check-in or usage telemetry. Existing license grants remain unaffected.
+
+[Shared implementation contract](../../Docs/USAGE-CHECK-IN.md) · [Repository continuation TODO](../../Docs/REPOSITORY-REVIEW-TODO.md)

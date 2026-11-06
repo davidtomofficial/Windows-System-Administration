@@ -34,6 +34,7 @@ def build(root):
     with zipfile.ZipFile(output, 'w', zipfile.ZIP_DEFLATED, compresslevel=9) as z:
         for name, data in sorted(payloads.items()):
             info = zipfile.ZipInfo(name, STAMP)
+            info.create_system = 3
             info.compress_type = zipfile.ZIP_DEFLATED
             info.external_attr = 0o100644 << 16
             z.writestr(info, data)

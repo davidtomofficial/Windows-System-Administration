@@ -21,7 +21,7 @@ class ReviewTests(unittest.TestCase):
   p=json.loads((ROOT/'Config/check-in.policy.example.json').read_text())
   for key in ('collectHardwareIdentifiers','uploadDiagnosticReports','allowRemoteCommands','interruptActiveMaintenanceOnExpiry'):self.assertIs(p[key],False)
  def test_core_links(self):
-  owned=('README.md','Launchpad/README.md','CONTRIBUTING.md','Docs/REVIEWER-GUIDE.md','Docs/REPOSITORY-MIGRATION.md','Docs/LICENSING.md','Docs/USAGE-CHECK-IN.md','Docs/DTO-WINDOWS-ADMIN-TODO.md','Docs/REPOSITORY-REVIEW-TODO.md','Docs/WORK-AGENT-HANDOFF.md')
+  owned=('Scripts/DeviceCare/README.md','Scripts/Imaging-Provisioning/README.md','README.md','Launchpad/README.md','CONTRIBUTING.md','Docs/REVIEWER-GUIDE.md','Docs/REPOSITORY-MIGRATION.md','Docs/LICENSING.md','Docs/USAGE-CHECK-IN.md','Docs/DTO-WINDOWS-ADMIN-TODO.md','Docs/REPOSITORY-REVIEW-TODO.md','Docs/WORK-AGENT-HANDOFF.md')
   for name in owned:
    for target in re.findall(r'\[[^\]]*\]\(([^)]+)\)',(ROOT/name).read_text()):
     if target.startswith(('https:','http:','mailto:','#')):continue
@@ -47,6 +47,12 @@ class ReviewTests(unittest.TestCase):
   for commit,prefix in (('3ce2a915c20a2d6bb504280b2171cf7a3d5ce9b9','Scripts/DeviceCare/src/'),('173cda83ef639f16a7a5acf641f350bca79c7cca','Scripts/Imaging-Provisioning/src/')):
    names=subprocess.check_output(['git','ls-tree','-r','--name-only',commit,'--',prefix],cwd=ROOT,text=True).splitlines();self.assertTrue(names)
    for name in names:self.assertEqual(subprocess.check_output(['git','show',commit+':'+name],cwd=ROOT),(ROOT/name).read_bytes(),name)
+ def test_platform_stable_zip_headers(self):
+  with zipfile.ZipFile(io.BytesIO(bundle.build(ROOT,'0'*40))) as z:
+   self.assertTrue(all(info.create_system==3 for info in z.infolist()))
+  for component in ('DeviceCare','Imaging-Provisioning'):
+   path=ROOT/f'Scripts/{component}/tools/package.py';s=importlib.util.spec_from_file_location('header_'+component,path);m=importlib.util.module_from_spec(s);s.loader.exec_module(m)
+   with zipfile.ZipFile(io.BytesIO(m.build(path.parents[1]))) as z:self.assertTrue(all(info.create_system==3 for info in z.infolist()))
  def test_no_grade_awarded(self):
   text=(ROOT/'Docs/REPOSITORY-A-PLUS.md').read_text();self.assertIn('Not graded',text);self.assertIn('97.00/100',text)
 if __name__=='__main__':unittest.main(verbosity=2)

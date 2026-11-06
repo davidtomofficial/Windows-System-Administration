@@ -43,3 +43,9 @@ python Launchpad/test_plan.py
 ```
 
 The validator lists metadata only; it cannot run a command. See [Windows administration master](../Docs/DTO-WINDOWS-ADMIN-TODO.md) and [migration/cleanup design](../Docs/Technician-Migration-and-Cleanup.md).
+
+## Required check-in continuation — November 5, 2026
+
+- [ ] **DTO-LP-023 / P1 — Required periodic check-in for future permission-licensed builds.** Implement the shared DTO-WSA-042–046 requirements with disclosed authorized enrollment, minimal aggregate usage, a verified owner-controlled receiver, receipt/retention controls and safe offline behavior. Current code has no check-in or usage telemetry. Existing license grants remain unaffected.
+
+[Shared implementation contract](../Docs/USAGE-CHECK-IN.md) · [Repository continuation TODO](../Docs/REPOSITORY-REVIEW-TODO.md)
