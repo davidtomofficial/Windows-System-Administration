@@ -9,6 +9,8 @@ on:
       - 'Scripts/DeviceCare/**'
       - 'Scripts/Imaging-Provisioning/**'
       - 'Launchpad/**'
+      - 'Contracts/**'
+      - 'Shared/**'
       - 'Docs/**'
       - 'Tools/**'
       - 'Tests/**'
@@ -53,6 +55,12 @@ jobs:
           & ./Scripts/DeviceCare/tests/Run-Checks.ps1
           & ./Scripts/Imaging-Provisioning/tests/Run-Checks.ps1
           & ./Scripts/Imaging-Provisioning/tests/Run-ProfileChecks.ps1
+      - name: Shared result contract on Windows PowerShell 5.1
+        shell: powershell
+        run: '& ./Tests/Run-ResultContractChecks.ps1'
+      - name: Shared result contract on PowerShell 7
+        shell: pwsh
+        run: '& ./Tests/Run-ResultContractChecks.ps1'
       - name: Package and launchpad checks
         shell: pwsh
         run: |
@@ -62,6 +70,8 @@ jobs:
           if ($LASTEXITCODE -ne 0) { throw 'Imaging packaging failed' }
           python ./Launchpad/test_plan.py
           if ($LASTEXITCODE -ne 0) { throw 'Launchpad planning failed' }
+          python ./Launchpad/test_result_contract.py
+          if ($LASTEXITCODE -ne 0) { throw 'Shared result contract failed' }
       - name: Repository contracts and source preservation
         shell: pwsh
         run: |

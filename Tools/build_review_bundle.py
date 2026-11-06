@@ -10,11 +10,13 @@ EXACT=(
  'Docs/DTO-WINDOWS-ADMIN-WORKSTREAMS.md','Docs/DTO-WINDOWS-ADMIN-PROGRESS.md',
  'Docs/Technician-Migration-and-Cleanup.md','Tools/build_review_bundle.py',
  'Tests/test_repository_review.py','.github/workflows/dto-integration-review.yml',
+ 'Docs/TASK-RESULT-CONTRACT.md','Contracts/fixtures/task-result-cases.json',
+ 'Shared/ResultContract.psm1','Tests/Run-ResultContractChecks.ps1','Tests/check_result_parity.py',
 )
 PRODUCTS={
  'Scripts/DeviceCare':('.gitignore','README.md','TODO.md','LICENSE.md','brand/product.json','brand/report.html','brand/dto-header-monogram.svg','brand/ASSET-PROVENANCE.md','docs/MIGRATION.md','docs/VALIDATION.md','src/DeviceCare.psm1','src/Presentation.ps1','src/Invoke-DTODeviceCare.ps1','tests/Run-Checks.ps1','tests/test_package.py','tools/package.py'),
  'Scripts/Imaging-Provisioning':('.gitignore','README.md','TODO.md','LICENSE.md','brand/product.json','docs/MIGRATION.md','docs/VALIDATION.md','docs/PROFILE-INVENTORY.md','src/DTOImaging.psm1','src/Get-DTOWorkstationSnapshot.ps1','src/Get-DTOImageReview.ps1','src/ProfileInventory.psm1','src/Get-DTOProfileInventory.ps1','tests/Run-Checks.ps1','tests/Run-ProfileChecks.ps1','tests/test_package.py','tools/package.py'),
- 'Launchpad':('README.md','DESIGN.md','TODO.md','catalog.plan.json','plan.py','test_plan.py'),
+ 'Launchpad':('README.md','DESIGN.md','TODO.md','catalog.plan.json','plan.py','test_plan.py','result_contract.py','test_result_contract.py'),
 }
 FILES=tuple(sorted(EXACT+tuple(f'{prefix}/{name}' for prefix,names in PRODUCTS.items() for name in names)))
 def digest(data):return hashlib.sha256(data).hexdigest()
