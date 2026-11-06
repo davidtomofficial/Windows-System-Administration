@@ -14,3 +14,9 @@ Navigation refreshed November 6, 2026. Use the integrated `main` tree and the co
 [Before/after migration map](REPOSITORY-MIGRATION.md) · [Reviewer guide](REVIEWER-GUIDE.md) · [Work-agent continuation](WORK-AGENT-HANDOFF.md).
 
 The shared check-in requirement is now recorded for all three programs. It is not a deployed collector or an implemented runtime requirement. Do not close it from a policy file or a source archive alone.
+
+## Current implementation continuation: November 6, 2026
+
+**DTO-WSA-010 / DTO-IMG-004 and DTO-IMG-007: selected workstation observation comparison implemented as a bounded candidate.** A separate module compares seven known fields from two selected schema 2 snapshots, preserves original observation times and distinguishes Changed, Unchanged and Unknown with per-side coverage. The existing collector source remains unchanged. [Contract and reproducible fictional example](WORKSTATION-COMPARISON.md) | [Component test evidence](../Scripts/Imaging-Provisioning/docs/VALIDATION.md#selected-observation-comparison).
+
+The full DTO-WSA-010 handoff remains open for required/optional policy checks, peripherals, user workflows and human signoff. The comparison does not prove same-device identity, action success, deployment readiness or Windows 11 acceptance. This dated continuation adds implementation evidence to the preserved workstream record; it does not rewrite that record's historical branch observations or close unrelated tasks.
