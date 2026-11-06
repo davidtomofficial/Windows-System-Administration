@@ -4,6 +4,10 @@
 
 Continue the user-authorized DTO-GH-001 repository review and reversible migration. Make current Windows work easy to inspect, apply the repository A+ evidence standard, preserve existing licenses and add the requested required periodic check-in capability only through a disclosed, tested implementation. Do real work in the current run; do not claim background completion.
 
+## Verified milestone before resuming
+
+Main source `bc80d476327bcb072e57c38a4cb97c18220865b9` passed Windows Server integration CI run `42149193243`. Its 144,730-byte source/prework archive was independently read back from restricted SharePoint and matched the GitHub Actions artifact. Fifteen SharePoint tracker/guide readbacks matched intended bytes. This does **not** establish an installed product, actual usage tracking, a final A+ rating or an independent device restore. Refresh these facts and branch HEADs before any additional changes.
+
 ## Start from current authoritative sources
 
 Repository: davidtomofficial/Windows-System-Administration. Integration branch: integration/dto-repository-review-20261105. Refresh all branch heads and latest CI before editing; this branch may have progressed. Read README.md, LICENSE.md, Docs/REVIEWER-GUIDE.md, Docs/DTO-WINDOWS-ADMIN-TODO.md, Docs/REPOSITORY-REVIEW-TODO.md, Docs/REPOSITORY-A-PLUS.md, Docs/REPOSITORY-MIGRATION.md and Docs/USAGE-CHECK-IN.md. Then read component TODOs and current implementation, not just the historical snapshots.
