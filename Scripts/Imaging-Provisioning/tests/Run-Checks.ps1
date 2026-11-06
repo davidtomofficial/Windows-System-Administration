@@ -137,10 +137,10 @@ try {
         if($Native) {
             Remove-Module DTOImaging -Force
             Import-Module (Join-Path $root 'src/DTOImaging.psm1') -Force
-            $native=Get-DTOWorkstationSnapshot
-            Check ($native.Sections.Count -eq 4) 'native projected sections'
-            Check (-not $native.ComputerNameIncluded) 'native identifiers omitted'
-            Check (@($native.Sections|Where-Object {$_.RecordLimit -gt 0}).Count -eq 4) 'native limits retained'
+            $nativeSnapshot=Get-DTOWorkstationSnapshot
+            Check ($nativeSnapshot.Sections.Count -eq 4) 'native projected sections'
+            Check (-not $nativeSnapshot.ComputerNameIncluded) 'native identifiers omitted'
+            Check (@($nativeSnapshot.Sections|Where-Object {$_.RecordLimit -gt 0}).Count -eq 4) 'native limits retained'
             $services=Get-DTOServiceSnapshot
             Check ($services.Section.Records.Count -gt 0) 'native service rows'
             Check (-not $services.HealthAssessed) 'native service no health claim'
