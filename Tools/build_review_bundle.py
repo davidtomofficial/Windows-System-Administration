@@ -13,6 +13,13 @@ EXACT=(
  'Tests/test_repository_review.py','.github/workflows/dto-integration-review.yml',
  'Docs/TASK-RESULT-CONTRACT.md','Contracts/fixtures/task-result-cases.json',
  'Shared/ResultContract.psm1','Tests/Run-ResultContractChecks.ps1','Tests/check_result_parity.py',
+ 'Docs/PROOF-PACKAGES.md','Tests/Run-PortfolioProofs.ps1','Tests/check_portfolio_proof_parity.py',
+ 'Scripts/DeviceCare/docs/PROOF-PACKAGE.md','Scripts/DeviceCare/examples/Invoke-SyntheticProof.ps1',
+ 'Scripts/DeviceCare/examples/synthetic-snapshots.json','Scripts/DeviceCare/examples/expected-summary.json',
+ 'Scripts/Imaging-Provisioning/docs/PROOF-PACKAGE.md','Scripts/Imaging-Provisioning/examples/Invoke-SyntheticProof.ps1',
+ 'Scripts/Imaging-Provisioning/examples/fixtures/workstation-before.json',
+ 'Scripts/Imaging-Provisioning/examples/fixtures/workstation-after.json',
+ 'Scripts/Imaging-Provisioning/examples/expected/workstation-summary.json',
 )
 PRODUCTS={
  'Scripts/DeviceCare':('.gitignore','README.md','TODO.md','LICENSE.md','brand/product.json','brand/report.html','brand/dto-header-monogram.svg','brand/ASSET-PROVENANCE.md','docs/MIGRATION.md','docs/VALIDATION.md','src/DeviceCare.psm1','src/Presentation.ps1','src/Invoke-DTODeviceCare.ps1','tests/Run-Checks.ps1','tests/test_package.py','tools/package.py'),

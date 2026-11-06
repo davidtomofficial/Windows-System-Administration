@@ -22,6 +22,7 @@ class ReviewTests(unittest.TestCase):
   for key in ('collectHardwareIdentifiers','uploadDiagnosticReports','allowRemoteCommands','interruptActiveMaintenanceOnExpiry'):self.assertIs(p[key],False)
  def test_core_links(self):
   owned=('Scripts/DeviceCare/README.md','Scripts/Imaging-Provisioning/README.md','README.md','Launchpad/README.md','CONTRIBUTING.md','Docs/REVIEWER-GUIDE.md','Docs/REPOSITORY-MIGRATION.md','Docs/LICENSING.md','Docs/USAGE-CHECK-IN.md','Docs/DTO-WINDOWS-ADMIN-TODO.md','Docs/REPOSITORY-REVIEW-TODO.md','Docs/WORK-AGENT-HANDOFF.md')
+  owned+=('Docs/PROOF-PACKAGES.md','Scripts/DeviceCare/docs/PROOF-PACKAGE.md','Scripts/Imaging-Provisioning/docs/PROOF-PACKAGE.md')
   for name in owned:
    for target in re.findall(r'\[[^\]]*\]\(([^)]+)\)',(ROOT/name).read_text()):
     if target.startswith(('https:','http:','mailto:','#')):continue

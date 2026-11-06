@@ -1,0 +1,66 @@
+{
+  "FixtureSet": "DTO-DeviceCare-synthetic-v1",
+  "Cases": [
+    {
+      "Id": "observed",
+      "Thresholds": null,
+      "Snapshot": {
+        "SchemaVersion": 1, "Product": "DeviceCare", "AssessmentType": "LocalReadOnly",
+        "CollectedAtUtc": "2026-01-01T12:00:00.0000000Z", "ChangesAllowed": false,
+        "FictionalExtra": "DTO-FICTIONAL-OMIT",
+        "OS": { "Status": "Observed", "Data": { "TotalVisibleMemorySize": 100000, "FreePhysicalMemory": 60000 } },
+        "SystemDisk": { "Status": "Observed", "Data": { "Size": 107374182400, "FreeSpace": 42949672960 } }
+      }
+    },
+    {
+      "Id": "review",
+      "Thresholds": null,
+      "Snapshot": {
+        "SchemaVersion": 1, "Product": "DeviceCare", "AssessmentType": "LocalReadOnly",
+        "CollectedAtUtc": "2026-01-01T12:00:00.0000000Z", "ChangesAllowed": false,
+        "OS": { "Status": "Observed", "Data": { "TotalVisibleMemorySize": 100000, "FreePhysicalMemory": 10000 } },
+        "SystemDisk": { "Status": "Observed", "Data": { "Size": 107374182400, "FreeSpace": 6442450944 } }
+      }
+    },
+    {
+      "Id": "unknown",
+      "Thresholds": null,
+      "Snapshot": {
+        "SchemaVersion": 1, "Product": "DeviceCare", "AssessmentType": "LocalReadOnly",
+        "CollectedAtUtc": "2026-01-01T12:00:00.0000000Z", "ChangesAllowed": false,
+        "OS": { "Status": "Unknown", "Reason": "FictionalUnavailableEvidence", "Data": null },
+        "SystemDisk": { "Status": "Observed", "Data": { "Size": 107374182400, "FreeSpace": 161061273600 } }
+      }
+    },
+    {
+      "Id": "threshold-equality",
+      "Thresholds": null,
+      "Snapshot": {
+        "SchemaVersion": 1, "Product": "DeviceCare", "AssessmentType": "LocalReadOnly",
+        "CollectedAtUtc": "2026-01-01T12:00:00.0000000Z", "ChangesAllowed": false,
+        "OS": { "Status": "Observed", "Data": { "TotalVisibleMemorySize": 100000, "FreePhysicalMemory": 15000 } },
+        "SystemDisk": { "Status": "Observed", "Data": { "Size": 107374182400, "FreeSpace": 16106127360 } }
+      }
+    },
+    {
+      "Id": "rounding-edge",
+      "Thresholds": null,
+      "Snapshot": {
+        "SchemaVersion": 1, "Product": "DeviceCare", "AssessmentType": "LocalReadOnly",
+        "CollectedAtUtc": "2026-01-01T12:00:00.0000000Z", "ChangesAllowed": false,
+        "OS": { "Status": "Observed", "Data": { "TotalVisibleMemorySize": 100000, "FreePhysicalMemory": 15040 } },
+        "SystemDisk": { "Status": "Observed", "Data": { "Size": 107374182400, "FreeSpace": 16106127359 } }
+      }
+    },
+    {
+      "Id": "configured-thresholds",
+      "Thresholds": { "MinimumDiskFreeGiB": 50, "MaximumMemoryUsedPercent": 40 },
+      "Snapshot": {
+        "SchemaVersion": 1, "Product": "DeviceCare", "AssessmentType": "LocalReadOnly",
+        "CollectedAtUtc": "2026-01-01T12:00:00.0000000Z", "ChangesAllowed": false,
+        "OS": { "Status": "Observed", "Data": { "TotalVisibleMemorySize": 100000, "FreePhysicalMemory": 60000 } },
+        "SystemDisk": { "Status": "Observed", "Data": { "Size": 107374182400, "FreeSpace": 42949672960 } }
+      }
+    }
+  ]
+}

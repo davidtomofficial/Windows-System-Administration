@@ -1,0 +1,46 @@
+{
+  "ProofId": "DTO-GH-ORG-006-Imaging",
+  "DataOrigin": "HandAuthoredSynthetic",
+  "ComparedFieldCount": 7,
+  "ChangedCount": 1,
+  "UnchangedCount": 5,
+  "UnknownCount": 1,
+  "ChangedFields": [
+    "Win32_OperatingSystem.Version"
+  ],
+  "UnchangedFields": [
+    "Win32_OperatingSystem.Caption",
+    "Win32_OperatingSystem.OSArchitecture",
+    "Win32_ComputerSystem.Manufacturer",
+    "Win32_ComputerSystem.Model",
+    "Win32_Processor.Name"
+  ],
+  "UnknownFields": [
+    "Win32_BIOS.SMBIOSBIOSVersion"
+  ],
+  "VersionBefore": "Fixture version A",
+  "VersionAfter": "Fixture version B",
+  "CpuNamesBefore": [
+    "Fixture CPU A",
+    "Fixture CPU B"
+  ],
+  "CpuNamesAfter": [
+    "Fixture CPU A",
+    "Fixture CPU B"
+  ],
+  "BiosAfterCoverage": {
+    "Status": "Unavailable",
+    "Complete": false,
+    "Reason": "IncompleteSource"
+  },
+  "Chronology": "Forward",
+  "ComparisonComplete": false,
+  "SameDeviceVerified": false,
+  "DeploymentAccepted": false,
+  "ChangesAllowed": false,
+  "MalformedEnvelopeRefusal": "DTO.InvalidWorkstationSnapshot",
+  "ReversedOrderRefusal": "DTO.InvalidObservationOrder",
+  "ObservationTimesPreserved": true,
+  "InputsUnchanged": true,
+  "HtmlEvidencePreserved": true
+}
