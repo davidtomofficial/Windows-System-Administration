@@ -3,14 +3,16 @@
 ## A five-minute route through the work
 
 1. Read the root scope and [permission notice](../LICENSE.md).
-2. Select [DeviceCare](../Scripts/DeviceCare/README.md), [Imaging](../Scripts/Imaging-Provisioning/README.md), or [Launchpad](../Launchpad/README.md).
+2. Select [Imaging & Provisioning](../Scripts/Imaging-Provisioning/README.md) or [DeviceCare](../Scripts/DeviceCare/README.md). The [Launchpad](../Launchpad/README.md) remains a separate planning catalog.
 3. Run or inspect the [fictional workflow proof packages](PROOF-PACKAGES.md), then compare the selected implementation with its TODO and test source. A named future capability is not evidence of implementation.
 4. Check the source/run identity below and the current Actions results. Read failures and limitations, not just a badge.
 5. Use [repository review tasks](REPOSITORY-REVIEW-TODO.md) and the [handoff](WORK-AGENT-HANDOFF.md) for remaining work.
 
 ## Current source and validation
 
-The active source is the integrated `main` tree. [Scripts](../Scripts/README.md) links to both executable previews and their current task authorities. Before the November 6 navigation correction, exact main checkpoint `e0ceff7ed5e3b79d1b864ec91f94c2d58d2730cd` passed [integration run 42151225226](https://github.com/davidtomofficial/Windows-System-Administration/actions/runs/42151225226) on the retained integration branch. Check the [current integration runs](https://github.com/davidtomofficial/Windows-System-Administration/actions/workflows/dto-integration-review.yml) for later revisions and their actual event, source SHA and conclusion.
+The active source is the integrated `main` tree. [Scripts](../Scripts/README.md) links to both executable previews and their current task authorities. Start with the [flagship proof verification checkpoint](PROOF-PACKAGES.md#verification-checkpoint) for both example workflows, their expected outputs, exact executed source and runtime records. Later documentation changes do not change which revision that evidence covers.
+
+**Earlier integration record:** Before the November 6 navigation correction, exact main checkpoint `e0ceff7ed5e3b79d1b864ec91f94c2d58d2730cd` passed [integration run 42151225226](https://github.com/davidtomofficial/Windows-System-Administration/actions/runs/42151225226) on the retained integration branch. Check the [current integration runs](https://github.com/davidtomofficial/Windows-System-Administration/actions/workflows/dto-integration-review.yml) for later revisions and their actual event, source SHA and conclusion.
 
 ## Preserved component evidence
 
@@ -31,4 +33,4 @@ What does the component actually do? What can it change? What permissions are re
 
 Full native desktop migration, attended keyboard/Narrator/high-contrast/DPI checks, production installers, actual maintenance, protected recovery and management-policy authority remain incomplete. Historical full-application results are separate and do not become passes for these smaller previews. Existing draft PRs #1, #2, #3, #12 and #16 are not merged by this integration. The historical website scaffolds are not a hosting authorization.
 
-Current code remains local/read-only. Periodic usage check-ins are a new requirement, not a live service. See [status and implementation gates](USAGE-CHECK-IN.md).
+Observation workflows read local evidence without changing device settings; explicitly requested report/proof exports write local output files. Periodic usage check-ins are a new requirement, not a live service. See [status and implementation gates](USAGE-CHECK-IN.md).
