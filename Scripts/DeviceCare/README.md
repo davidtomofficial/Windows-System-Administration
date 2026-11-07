@@ -32,8 +32,10 @@ The [developer proof package](docs/PROOF-PACKAGE.md) provides six fictional
 snapshots, independently specified expected results and a no-collection example.
 From this component directory, run `.\examples\Invoke-SyntheticProof.ps1` to
 check the findings and report behavior and emit one JSON summary. No files are
-written unless a fresh `-OutputDirectory` is selected. Execution evidence for
-this new example is pending; see the proof package's verification table.
+written unless a fresh `-OutputDirectory` is selected. The proof passed on
+Windows Server 2022 with Windows PowerShell 5.1 and PowerShell 7; see the
+[verification checkpoint](docs/PROOF-PACKAGE.md#verification-status) for the
+exact source, run and remaining acceptance limits.
 
 ```powershell
 .\tests\Run-Checks.ps1
