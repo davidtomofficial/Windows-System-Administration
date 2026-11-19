@@ -10,13 +10,13 @@ Covered original software requires explicit written permission unless an applica
 
 ## Technician download and setup
 
-Get the Windows technician package from the DTO website. The private page lists the package version and SHA-256. Sign in to WordPress to open that page, then use the Microsoft account authorized to download the ZIP. Only the project owner currently has file access. Staff enrollment and sign-in when the launcher runs are planned. [Go to technician downloads](https://davidtomofficial.com/windows-imaging-provisioning/#technician-download)
+Get the Windows technician package from the DTO website. The private page lists the package version and SHA-256. Sign in to WordPress to open that page, then use the Microsoft account authorized to download the ZIP. Only the project owner currently has file access. The downloaded launcher currently runs without a second DTO sign-in. Staff enrollment and launcher authentication are planned. [Go to technician downloads](https://davidtomofficial.com/windows-imaging-provisioning/#technician-download)
 
 To start an authorized copy on Windows 11 Pro x64:
 
 1. At the Windows desktop after reset and initial setup, download the ZIP through the DTO website. Compare its SHA-256 with the value listed for that release. You can calculate it in PowerShell with `Get-FileHash -Algorithm SHA256 -LiteralPath 'C:\Downloads\your-package.zip'`, substituting the path to your file.
 2. In File Explorer, choose **Extract All** and keep the extracted folders together. Open **technician** and run **Start-Imaging.cmd**. The current preview is unsigned. If Windows policy blocks it, contact DTO for an approved release.
-3. Select **Standard standalone** and **Check this PC**. Review the findings, then choose **Check and prepare files**. If DTO saves a Google Chrome installer, choose **Verify prepared Chrome MSI** to check that same file. Review the result before approving an installation.
+3. Select **Standard standalone → Check this PC**, review the findings, then choose **Check and prepare files**. In preview 0.9.50, choose **Set up prepared apps** for Chrome or VLC and run the application’s installation check. If it’s ready, choose **Open Windows Installer** within 15 minutes and follow the prompts. If the check stops, open its report in **Activity** to see why.
 4. Open **Activity** for the readable device report. Keep that report on the PC. Use **Save status summary** when you need a limited copy for an approved private reporting folder.
 
 ## Implemented scope
