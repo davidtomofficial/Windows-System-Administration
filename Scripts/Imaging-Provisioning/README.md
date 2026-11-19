@@ -16,9 +16,10 @@ To start an authorized copy on Windows 11 Pro x64:
 
 1. At the Windows desktop after reset and initial setup, download the ZIP through the DTO website. Compare its SHA-256 with the value listed for that release. You can calculate it in PowerShell with `Get-FileHash -Algorithm SHA256 -LiteralPath 'C:\Downloads\your-package.zip'`, substituting the path to your file.
 2. In File Explorer, choose **Extract All** and keep the extracted folders together. Open **technician** and run **Start-Imaging.cmd**. The current preview is unsigned. If Windows policy blocks it, contact DTO for an approved release.
-3. Select **Standard standalone → Check this PC**, review the findings, then choose **Check and prepare files**. Choose **Set up prepared apps** for Chrome or VLC and run the application’s installation check. If it’s ready, choose **Open Windows Installer** within 15 minutes and follow the prompts. Return to **Continue setup** for the next app or handoff. If a check stops, open its report in **Activity** to see why.
-4. In **Verify before handoff**, choose **Check handoff readiness**. Select that check in **Activity → Record handoff review**. Review the findings and confirm only the items you verified. When all requirements are met, choose **Record completed handoff review**.
-5. Keep the full device report on the PC. Use **Save status summary** for an approved private reporting folder. After downloading a copy from SharePoint, use **Verify received summary** to check which saved version it matches.
+3. Choose **Standard standalone → Check this PC**, review the findings, then choose **Check and prepare files**. If a download mirror fails, DTO tries the reviewed publisher when available. If you close the dashboard during setup, reopen it to follow the running task in **Activity**.
+4. Choose **Set up prepared apps** to check Chrome or VLC. When the check is ready, select **Open Windows Installer** within 15 minutes. Follow its prompts, then return to **Continue setup**. Open the run’s report in **Activity** if a step stops.
+5. Choose **Verify before handoff → Check handoff readiness**. Open that check in **Activity → Record handoff review** and confirm the items you verified. When all requirements are met, choose **Record completed handoff review**.
+6. Keep the full device report on the PC. To share a limited summary, choose **Save status summary**. After downloading the file from the approved SharePoint folder, use **Verify received summary** to compare it with the saved version.
 
 ## Implemented scope
 
