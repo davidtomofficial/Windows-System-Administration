@@ -16,8 +16,8 @@ To start an authorized copy on Windows 11 Pro x64:
 
 1. At the Windows desktop after reset and initial setup, download the ZIP through the DTO website. Compare its SHA-256 with the value listed for that release. You can calculate it in PowerShell with `Get-FileHash -Algorithm SHA256 -LiteralPath 'C:\Downloads\your-package.zip'`, substituting the path to your file.
 2. In File Explorer, choose **Extract All** and keep the extracted folders together. Open **technician** and run **Start-Imaging.cmd**. The current preview is unsigned. If Windows policy blocks it, contact DTO for an approved release.
-3. Select **Standard standalone → Check this PC**, review the findings, then choose **Check and prepare files**. In preview 0.9.50, choose **Set up prepared apps** for Chrome or VLC and run the application’s installation check. If it’s ready, choose **Open Windows Installer** within 15 minutes and follow the prompts. If the check stops, open its report in **Activity** to see why.
-4. Open **Activity** for the readable device report. Keep that report on the PC. Use **Save status summary** when you need a limited copy for an approved private reporting folder.
+3. Select **Standard standalone → Check this PC**, review the findings, then choose **Check and prepare files**. Choose **Set up prepared apps** for Chrome or VLC and run the application’s installation check. If it’s ready, choose **Open Windows Installer** within 15 minutes and follow the prompts. Return to **Continue setup** for the next app or handoff. If a check stops, open its report in **Activity** to see why.
+4. In **Activity**, open the readable report for the findings and dated device inventory. Keep it on the PC. For an approved private reporting folder, choose **Save status summary**. Reopen the run to see where it was saved. If you download a copy from SharePoint, choose **Verify received summary** to compare it with the original.
 
 ## Implemented scope
 
