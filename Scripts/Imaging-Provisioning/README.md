@@ -10,16 +10,18 @@ Covered original software requires explicit written permission unless an applica
 
 ## Technician download and setup
 
-Get the Windows technician package from the DTO website. The private page lists the package version and SHA-256. Sign in to WordPress to open that page, then use the Microsoft account authorized to download the ZIP. Only the project owner currently has file access. The downloaded launcher currently runs without a second DTO sign-in. Staff enrollment and launcher authentication are planned. [Go to technician downloads](https://davidtomofficial.com/windows-imaging-provisioning/#technician-download)
+**[Download DTO Imaging & Provisioning for Windows](https://davidtomofficial.com/windows-imaging-provisioning/#technician-download)**
 
-To start an authorized copy on Windows 11 Pro x64:
+On the DTO site, choose **Sign in to the DTO website** with a WordPress account authorized to open the private technician page. SharePoint checks your Microsoft account before delivering the ZIP. Only the project owner currently has download access. The downloaded launcher runs without a second sign-in. Staff enrollment and a DTO-managed email/password check at launch are planned.
 
-1. At the Windows desktop after reset and initial setup, download the ZIP through the DTO website. Compare its SHA-256 with the value listed for that release. You can calculate it in PowerShell with `Get-FileHash -Algorithm SHA256 -LiteralPath 'C:\Downloads\your-package.zip'`, substituting the path to your file.
-2. In File Explorer, choose **Extract All** and keep the extracted folders together. Open **technician** and run **Start-Imaging.cmd**. The current preview is unsigned. If Windows policy blocks it, contact DTO for an approved release.
-3. Choose **Standard standalone → Check this PC**, review the findings, then choose **Check and prepare files**. If a download mirror fails, DTO tries the reviewed publisher when available. If you close the dashboard during setup, reopen it to follow the running task in **Activity**.
-4. Choose **Set up prepared apps** to check Chrome or VLC. When the check is ready, select **Open Windows Installer** within 15 minutes. Follow its prompts, then return to **Continue setup**. Open the run’s report in **Activity** if a step stops.
-5. Choose **Verify before handoff → Check handoff readiness**. Open that check in **Activity → Record handoff review** and confirm the items you verified. When all requirements are met, choose **Record completed handoff review**.
-6. Keep the full device report on the PC. To share a limited summary, choose **Save status summary**. After downloading the file from the approved SharePoint folder, use **Verify received summary** to compare it with the saved version.
+1. After reset and initial Windows setup, open the DTO download page on the Windows 11 Pro x64 PC. Download the ZIP and compare its SHA-256 with the value on the private page. In PowerShell, run `Get-FileHash -Algorithm SHA256 -LiteralPath 'C:\Downloads\your-package.zip'` using the path to your download.
+2. In File Explorer, choose **Extract All**. Keep the extracted folders together, open **technician** and run **Start-Imaging.cmd**. The preview is unsigned while Azure Artifact Signing awaits approval. If Windows policy blocks the launcher, contact DTO for an approved release.
+3. Choose **Standard standalone → Check this PC**, review the findings, then choose **Check and prepare files**. If a download mirror fails, DTO tries the reviewed publisher source when available. Reopen **Activity** to follow a running task if you close the dashboard.
+4. Choose **Set up prepared apps** to check Chrome or VLC. When the check is ready, select **Open Windows Installer** within 15 minutes. Follow its prompts, then return to **Continue setup**. If a step stops, open the run’s report in **Activity**.
+5. Choose **Verify before handoff → Check handoff readiness**. Select that check in **Activity → Record handoff review** and confirm the items you verified. When all requirements are met, choose **Record completed handoff review**.
+6. Keep the full device report on the PC. To share a limited summary, select the finished run in **Activity** and choose **Save status summary**. For a manual upload, choose **Copy saved summary path**, then paste the path into **Upload → Files** in the approved private SharePoint folder. Download the uploaded JSON, select the original run and choose **Verify received summary**.
+
+In packages labeled **0.9.54** or later, **Open readable report** can show the saved device inventory even if later checks stop. **Copy saved summary path** also checks the saved JSON before copying its path. If the file is missing or has changed, choose **Save status summary** again.
 
 ## Implemented scope
 
