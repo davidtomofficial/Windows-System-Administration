@@ -2,6 +2,10 @@
 
 Revision: 2026-11-05 audit / 0.2.0 development preview. This is the active project tracker, mirrored to the DTO SharePoint folder. Historical source records remain preserved and do not imply DTO completion.
 
+## Technician sign-in before staff release
+
+- [ ] Require a DTO-managed staff account to start provisioning from a downloaded copy. Use the identity provider’s email and password sign-in and check current technician group membership. Test an authorized technician, a user outside the group and a technician whose access was revoked after download. Keep credentials out of device logs. The owner preview currently checks access at download only.
+
 ## November 6 continuation: selected observation comparison
 
 **DTO-WSA-010 with DTO-IMG-004 / DTO-IMG-007:** a separate read-only comparison module now projects seven known fields from two selected schema 2 workstation snapshots, preserving observation times and Changed/Unchanged/Unknown states. It retains partial evidence without treating it as absence, compares CPU name multisets without socket claims, and omits identifiers and extra fields. The original collectors are unchanged. See [usage and limits](README.md#compare-selected-workstation-observations) and [dated validation](docs/VALIDATION.md#selected-observation-comparison).
