@@ -1,6 +1,6 @@
 # DTO Imaging & Provisioning
 
-**David Tom Official · 0.2.0 development preview · Not a deployment image**
+**David Tom Official · Public source preview 0.2.0**
 
 [Permission and license notice](LICENSE.md) · [Component TODO](TODO.md) · [Validation](docs/VALIDATION.md)
 
@@ -10,7 +10,7 @@ Covered original software requires explicit written permission unless an applica
 
 ## Technician download and setup
 
-Start at the technician download section on the David Tom Official website. The private WordPress download page and the SharePoint ZIP each require existing access. The current preview is restricted to the project owner. Access for additional DTO technicians is pending. [Go to technician downloads](https://davidtomofficial.com/windows-imaging-provisioning/#technician-download)
+Get the Windows technician package from the DTO website. The private page lists the package version and SHA-256. Sign in to WordPress to open that page, then use the Microsoft account authorized to download the ZIP. Only the project owner currently has file access. Staff enrollment and sign-in when the launcher runs are planned. [Go to technician downloads](https://davidtomofficial.com/windows-imaging-provisioning/#technician-download)
 
 To start an authorized copy on Windows 11 Pro x64:
 
