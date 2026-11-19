@@ -21,6 +21,8 @@ This preview is unsigned while Azure Artifact Signing awaits approval. On a PC u
 3. **Start setup.** Open `technician\Start-Imaging.cmd`. Choose **Standard standalone → Check this PC**, review the findings, then choose **Check and prepare files**. If Windows blocks the unsigned preview, contact DTO for an approved build.
 4. **Install and review.** On Standard, check a prepared Chrome or VLC MSI. A saved client profile containing VLC also offers **Check VLC installation**. Keep that profile revision active and review the other selected apps in **Software plan**. If it reports ready, choose **Open Windows Installer** within 15 minutes and follow its prompts. **Activity → Open readable report** shows the device inventory, file locations and any steps that need attention. For Standard, finish with **Verify before handoff → Check handoff readiness** and record the checks you completed.
 
+If a pinned installer is stored in private SharePoint, sign in there, download it to a local folder with its original filename, then choose **Prepare local files**. DTO verifies the file against the catalog. An offline profile asks for that folder when you start preparation.
+
 Keep the full report on the PC. To share download totals or the result of an installation check, use **Activity → Save status summary**. The private download page and included `technician\USER-GUIDE.txt` cover retrying downloads, reviewing interrupted installations and verifying a summary copied to SharePoint.
 
 ## Implemented scope
