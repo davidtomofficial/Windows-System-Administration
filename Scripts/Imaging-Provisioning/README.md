@@ -10,7 +10,7 @@ Covered original software requires explicit written permission unless an applica
 
 ## Technician download and setup
 
-The DTO Imaging & Provisioning page on the David Tom Official website is the starting point for technician downloads and access information. The portable Windows preview is currently restricted to the project owner. Access for additional DTO technicians is pending. [Visit the DTO imaging page](https://davidtomofficial.com/windows-imaging-provisioning/)
+Start at the technician download section on the David Tom Official website. The private WordPress download page and the SharePoint ZIP each require existing access. The current preview is restricted to the project owner. Access for additional DTO technicians is pending. [Go to technician downloads](https://davidtomofficial.com/windows-imaging-provisioning/#technician-download)
 
 To start an authorized copy on Windows 11 Pro x64:
 
