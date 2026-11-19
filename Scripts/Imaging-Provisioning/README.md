@@ -14,7 +14,7 @@ Covered original software requires explicit written permission unless an applica
 
 The owner preview runs from the Windows 11 Pro x64 desktop after reset and initial Windows setup. Use the ZIP on the DTO website. GitHub hosts this guide.
 
-This preview is unsigned while Azure Artifact Signing awaits approval. On a PC using `RemoteSigned`, Windows PowerShell blocks the startup script if it retains the browser download’s internet mark. Use the DTO signed release on those PCs when it becomes available.
+This preview is unsigned while Azure Artifact Signing awaits approval. If the launcher is blocked, open **Windows PowerShell** and run `Get-ExecutionPolicy`. With `RemoteSigned`, a downloaded script that retains the internet mark needs a trusted signature. With `Restricted`, ask DTO for an approved deployment method. Windows clients default to `Restricted` when all policy scopes are undefined, and it blocks even signed scripts. [Microsoft’s Windows PowerShell execution policy reference](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_execution_policies?view=powershell-5.1)
 
 1. **Download.** Choose **Sign in to the DTO website**, open the private technician page, then download the ZIP using the Microsoft account that has SharePoint access. Access is currently limited to the project owner. Staff enrollment and a managed sign-in at launch are pending. A downloaded copy currently runs without a second sign-in.
 2. **Verify and extract.** In PowerShell, run `Get-FileHash -Algorithm SHA256 -LiteralPath 'C:\Downloads\your-package.zip'` with your ZIP’s actual path. Compare the result with the private page. If it matches, use **Extract All** and keep the folders together.
