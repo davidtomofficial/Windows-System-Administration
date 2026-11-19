@@ -8,6 +8,16 @@
 
 Covered original software requires explicit written permission unless an applicable existing license or law already permits use. This source preview is not an installer, a bootable Windows image, or a production release.
 
+## Technician download and setup
+
+The DTO Imaging & Provisioning page on the David Tom Official website is the starting point for technician downloads and access information. The portable Windows preview is currently restricted to the project owner. Access for additional DTO technicians is pending. [Visit the DTO imaging page](https://davidtomofficial.com/windows-imaging-provisioning/)
+
+To start an authorized copy on Windows 11 Pro x64:
+
+1. At the Windows desktop after reset and initial setup, download the ZIP through the DTO website. Compare its SHA-256 with the value listed for that release. You can calculate it in PowerShell with `Get-FileHash -Algorithm SHA256 -LiteralPath 'C:\Downloads\your-package.zip'`, substituting the path to your file.
+2. In File Explorer, choose **Extract All** and keep the extracted folders together. Open **technician** and run **Start-Imaging.cmd**. The current preview is unsigned. If Windows policy blocks it, contact DTO for an approved release.
+3. Select **Standard standalone** and **Check this PC**. Review the findings before preparing files or applying changes. In **Activity**, open the readable report and keep the detailed device information on the PC.
+
 ## Implemented scope
 
 Privacy-conscious workstation observations, bounded service inventory, read-only local WIM metadata/index review, optional SHA-256 hashing and a DTO offline HTML report. A separate comparison module compares selected before/after workstation observations. An additional [profile inventory command](docs/PROFILE-INVENTORY.md) provides read-only profile observations for DTO-WSA-015. The original full desktop workflow has not been migrated.
