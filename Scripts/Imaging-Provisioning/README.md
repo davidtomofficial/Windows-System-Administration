@@ -25,6 +25,17 @@ Azure Artifact Signing awaits approval. Staff enrollment and sign-in at launch a
 
 For installers in a synced SharePoint or OneDrive folder, choose **Always keep on this device** in File Explorer. Once the files are available, choose **Prepare local files** in DTO and select the folder. The progress line shows the active installer, its phase and the bytes copied. The private download page and `technician\USER-GUIDE.txt` cover publisher downloads, retries and handoff review.
 
+### Which software can I set up?
+
+**Standard standalone** selects Google Chrome Enterprise and VLC. Use **Set up prepared apps** to check whether an attended installation is available for this PC. The Enterprise plan lists 16 applications and nine capability, dependency and hardware checks. Select a client profile in **Software plan** to see what applies.
+
+| Enterprise selection | How to finish setup |
+|---|---|
+| Chrome Enterprise and VLC | Prepare verifies the catalog installers. Review the saved installation actions for the active profile. |
+| Firefox ESR, 7-Zip, Teams, OneDrive, LibreOffice, Zoom Workplace, Notepad++, Audacity, OBS Studio, Visual Studio Code, Bitwarden and TeamViewer | Online preparation can retrieve publisher files. Open the preparation report for their locations and follow the publisher’s deployment instructions. For a portable per-user 7-Zip command line, use **Tools**. |
+| Microsoft 365 Apps and Adobe Creative Cloud | Open the publisher page and use the client’s authorized account and deployment package. |
+| Edge PDF reader, five runtime dependencies and three manufacturer tools | Check the existing PDF capability, application dependencies and device manufacturer before deciding what the PC needs. |
+
 ## Implemented scope
 
 Privacy-conscious workstation observations, bounded service inventory, read-only local WIM metadata/index review, optional SHA-256 hashing and a DTO offline HTML report. A separate comparison module compares selected before/after workstation observations. An additional [profile inventory command](docs/PROFILE-INVENTORY.md) provides read-only profile observations for DTO-WSA-015. The original full desktop workflow has not been migrated.
