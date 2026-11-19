@@ -14,6 +14,8 @@ Covered original software requires explicit written permission unless an applica
 
 The owner preview runs from the Windows 11 Pro x64 desktop after reset and initial Windows setup. Use the ZIP on the DTO website. GitHub hosts this guide.
 
+This preview is unsigned while Azure Artifact Signing awaits approval. On a PC using `RemoteSigned`, Windows PowerShell blocks the startup script if it retains the browser download’s internet mark. Use the DTO signed release on those PCs when it becomes available.
+
 1. **Download.** Choose **Sign in to the DTO website**, open the private technician page, then download the ZIP using the Microsoft account that has SharePoint access. Access is currently limited to the project owner. Staff enrollment and a managed sign-in at launch are pending. A downloaded copy currently runs without a second sign-in.
 2. **Verify and extract.** In PowerShell, run `Get-FileHash -Algorithm SHA256 -LiteralPath 'C:\Downloads\your-package.zip'` with your ZIP’s actual path. Compare the result with the private page. If it matches, use **Extract All** and keep the folders together.
 3. **Start setup.** Open `technician\Start-Imaging.cmd`. Choose **Standard standalone → Check this PC**, review the findings, then choose **Check and prepare files**. If Windows blocks the unsigned preview, contact DTO for an approved build.
