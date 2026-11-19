@@ -12,16 +12,14 @@ Covered original software requires explicit written permission unless an applica
 
 **[Download DTO Imaging & Provisioning for Windows](https://davidtomofficial.com/windows-imaging-provisioning/#technician-download)**
 
-On the DTO site, choose **Sign in to the DTO website** with a WordPress account authorized to open the private technician page. SharePoint checks your Microsoft account before delivering the ZIP. Only the project owner currently has download access. The downloaded launcher runs without a second sign-in. Staff enrollment and a DTO-managed email/password check at launch are planned.
+The owner preview runs from the Windows 11 Pro x64 desktop after reset and initial Windows setup. Use the ZIP on the DTO website. GitHub hosts this guide.
 
-1. After reset and initial Windows setup, open the DTO download page on the Windows 11 Pro x64 PC. Download the ZIP and compare its SHA-256 with the value on the private page. In PowerShell, run `Get-FileHash -Algorithm SHA256 -LiteralPath 'C:\Downloads\your-package.zip'` using the path to your download.
-2. In File Explorer, choose **Extract All**. Keep the extracted folders together, open **technician** and run **Start-Imaging.cmd**. The preview is unsigned while Azure Artifact Signing awaits approval. If Windows policy blocks the launcher, contact DTO for an approved release.
-3. Choose **Standard standalone → Check this PC**, review the findings, then choose **Check and prepare files**. If a mirror fails, DTO tries the reviewed publisher when available. In 0.9.55, other selected files continue if one fails. Open **Activity → Open readable report** and look under **Files from this preparation** for the results and the locations of saved files. Reopen **Activity** to follow a running task if you close the dashboard.
-4. Choose **Set up prepared apps** to check Chrome or VLC. When the check is ready, select **Open Windows Installer** within 15 minutes. Follow its prompts, then return to **Continue setup**. If a step stops, open the run’s report in **Activity**.
-5. Choose **Verify before handoff → Check handoff readiness**. Select that check in **Activity → Record handoff review** and confirm the items you verified. When all requirements are met, choose **Record completed handoff review**.
-6. Keep the full device report on the PC. To share a limited summary, select the finished run in **Activity** and choose **Save status summary**. For a manual upload, choose **Copy saved summary path**, then paste the path into **Upload → Files** in the approved private SharePoint folder. Download the uploaded JSON, select the original run and choose **Verify received summary**.
+1. **Download.** Choose **Sign in to the DTO website**, open the private technician page, then download the ZIP using the Microsoft account that has SharePoint access. Access is currently limited to the project owner. Staff enrollment and a managed sign-in at launch are pending. A downloaded copy currently runs without a second sign-in.
+2. **Verify and extract.** In PowerShell, run `Get-FileHash -Algorithm SHA256 -LiteralPath 'C:\Downloads\your-package.zip'` with your ZIP’s actual path. Compare the result with the private page. If it matches, use **Extract All** and keep the folders together.
+3. **Start setup.** Open `technician\Start-Imaging.cmd`. Choose **Standard standalone → Check this PC**, review the findings, then choose **Check and prepare files**. If Windows blocks the unsigned preview, contact DTO for an approved build.
+4. **Install and review.** For an eligible prepared Chrome or VLC MSI, open the installation check. If it reports ready, choose **Open Windows Installer** within 15 minutes and follow its prompts. **Activity → Open readable report** shows the device inventory, file locations and any steps that need attention. For Standard, finish with **Verify before handoff → Check handoff readiness** and record the checks you completed.
 
-In packages labeled **0.9.54** or later, **Open readable report** can show the saved device inventory even if later checks stop. **Copy saved summary path** also checks the saved JSON before copying its path. If the file is missing or has changed, choose **Save status summary** again.
+Keep the full report on the PC. When a limited summary is needed, use **Activity → Save status summary**. The private download page and included `technician\USER-GUIDE.txt` cover retrying downloads, reviewing interrupted installations and verifying a summary copied to SharePoint.
 
 ## Implemented scope
 
