@@ -10,20 +10,18 @@ Covered original software requires explicit written permission unless an applica
 
 ## Technician download and setup
 
-**[Download DTO Imaging & Provisioning for Windows](https://davidtomofficial.com/windows-imaging-provisioning/#technician-download)**
+[Open the DTO download page](https://davidtomofficial.com/windows-imaging-provisioning/#technician-download)
 
-The owner preview runs from the Windows 11 Pro x64 desktop after reset and initial Windows setup. Use the ZIP on the DTO website. GitHub hosts this guide.
+Start at the Windows 11 Pro x64 desktop after reset and initial Windows setup.
 
-This preview is unsigned while Azure Artifact Signing awaits approval. If the launcher is blocked, open **Windows PowerShell** and run `Get-ExecutionPolicy`. With `RemoteSigned`, a downloaded script that retains the internet mark needs a trusted signature. With `Restricted`, ask DTO for an approved deployment method. Windows clients default to `Restricted` when all policy scopes are undefined, and it blocks even signed scripts. [Microsoft’s Windows PowerShell execution policy reference](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_execution_policies?view=powershell-5.1)
+1. **Sign in and download.** On the DTO website, sign in and open the private technician page. Use the Microsoft account with SharePoint access. The current preview is available only to the project owner.
+2. **Check the file.** In Windows PowerShell, run `Get-FileHash -Algorithm SHA256 -LiteralPath 'C:\Downloads\your-package.zip'` using your actual download path. Continue only if the result matches the SHA-256 beside that file on the private page.
+3. **Open the dashboard.** Extract the entire ZIP and open `technician\Start-Imaging.cmd`. Choose **Standard standalone → Check this PC**, review the findings, then choose **Check and prepare files**.
+4. **Review the result.** Use **Set up prepared apps** for the attended Chrome or VLC check. Open **Activity → Open readable report** for the inventory and results. Finish with **Verify before handoff → Check handoff readiness**. Keep the detailed report on the PC. **Save status summary** creates a smaller file for approved sharing.
 
-1. **Download.** Choose **Sign in to the DTO website**, open the private technician page, then download the ZIP using the Microsoft account that has SharePoint access. Access is currently limited to the project owner. Staff enrollment and a managed sign-in at launch are pending. A downloaded copy currently runs without a second sign-in.
-2. **Verify and extract.** In PowerShell, run `Get-FileHash -Algorithm SHA256 -LiteralPath 'C:\Downloads\your-package.zip'` with your ZIP’s actual path. Compare the result with the private page. If it matches, use **Extract All** and keep the folders together.
-3. **Start setup.** Open `technician\Start-Imaging.cmd`. Choose **Standard standalone → Check this PC**, review the findings, then choose **Check and prepare files**. If Windows blocks the unsigned preview, contact DTO for an approved build.
-4. **Install and review.** On Standard, check a prepared Chrome or VLC MSI. A saved client profile containing VLC also offers **Check VLC installation**. Keep that profile revision active and review the other selected apps in **Software plan**. If it reports ready, choose **Open Windows Installer** within 15 minutes and follow its prompts. **Activity → Open readable report** shows the device inventory, file locations and any steps that need attention. For Standard, finish with **Verify before handoff → Check handoff readiness** and record the checks you completed.
+The preview is unsigned while Azure Artifact Signing awaits approval. If Windows or PowerShell blocks startup, contact DTO for an approved build. Staff enrollment and sign-in at launch are pending. Downloaded copies currently have no second sign-in. [Staff access TODO](TODO.md#technician-sign-in-before-staff-release)
 
-For private SharePoint files, sign in, save the approved installers in one local folder, then choose **Prepare local files**. DTO checks pinned files against the catalog. On Standard, you can also include Google’s Windows Stable x64 MSI as `googlechromestandaloneenterprise64.msi`. DTO verifies its Google signature and product identity. Select the preparation in **Activity → Verify prepared Chrome MSI** to recheck the saved copy. An offline profile asks for the folder when preparation starts.
-
-Keep the full report on the PC. To share download totals or the result of an installation check, use **Activity → Save status summary**. The private download page and included `technician\USER-GUIDE.txt` cover retrying downloads, reviewing interrupted installations and verifying a summary copied to SharePoint.
+The private download page and included `technician\USER-GUIDE.txt` cover offline files, approved publisher downloads, retries and handoff review.
 
 ## Implemented scope
 
