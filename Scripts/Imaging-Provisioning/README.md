@@ -12,7 +12,7 @@ Covered original software requires explicit written permission unless an applica
 
 [Open the DTO download page](https://davidtomofficial.com/windows-imaging-provisioning/#technician-download)
 
-Use the 0.9.61 owner preview from the Windows 11 Pro x64 desktop after reset and initial Windows setup. This owner preview is unsigned. On a PC using `RemoteSigned`, Windows PowerShell blocks the downloaded dashboard until DTO signs its scripts. If startup is blocked, contact DTO for an approved build.
+Use the 0.9.62 owner preview from the Windows 11 Pro x64 desktop after reset and initial Windows setup. This owner preview is unsigned. On a PC using `RemoteSigned`, Windows PowerShell blocks the downloaded dashboard until DTO signs its scripts. If startup is blocked, contact DTO for an approved build.
 
 1. **Sign in and download.** On the DTO website, sign in and open the private technician page. Use the Microsoft account with SharePoint access and choose the **Windows installer (MSI)** or the **portable ZIP**. The current preview is available only to the project owner.
 2. **Check the file.** In Windows PowerShell, run `Get-FileHash -Algorithm SHA256 -LiteralPath 'C:\Downloads\your-download.msi'` using the path to your MSI or ZIP. Continue only if the result matches the SHA-256 beside that file on the private page.
@@ -23,7 +23,7 @@ To replace an earlier MSI, close the dashboard and uninstall **DTO Imaging & Pro
 
 Azure Artifact Signing awaits approval. Staff enrollment and sign-in at launch are pending. Downloaded copies currently have no second sign-in. [Staff access TODO](TODO.md#technician-sign-in-before-staff-release)
 
-For installers in a synced SharePoint or OneDrive folder, choose **Always keep on this device** in File Explorer. Once the files are available, choose **Prepare local files** in DTO and select the folder. The private download page and `technician\USER-GUIDE.txt` cover publisher downloads, retries and handoff review.
+For installers in a synced SharePoint or OneDrive folder, choose **Always keep on this device** in File Explorer. Once the files are available, choose **Prepare local files** in DTO and select the folder. The progress line shows the active installer, its phase and the bytes copied. The private download page and `technician\USER-GUIDE.txt` cover publisher downloads, retries and handoff review.
 
 ## Implemented scope
 
