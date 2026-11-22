@@ -83,6 +83,15 @@ is a proposal, not evidence of a configured or approved spending limit.
 | DTO-DC-022.05 | Pending / agent | Evaluate real model outputs on reviewed fictional Observed, Review, Unknown, equality and rounding cases. Exercise authentication, malformed/stale output and unavailable-service paths. Record model identity, explanation quality, latency and metered usage. Run relevant Windows PowerShell/Python regressions against the exact source; do not accept schema validity as proof that prose is correct. |
 | DTO-DC-022.06 | Pending / agent and owner | Prepare a short attended personal Windows 11 test. Verify the assessment-to-explanation flow, readability, keyboard behavior and failure recovery. Record what was actually observed and retain separate broader UI/accessibility and installer acceptance tasks. |
 | DTO-DC-022.07 | Pending / agent | Deliver the working private pilot with setup/run instructions, a reproducible review build, exact source/test evidence and the required preservation receipt. Update this TODO, the repository master index and existing project records. List concrete owner-only blockers separately; keep public/production release acceptance open until its own gates pass. |
+| DTO-DC-022.08 | Accepted follow-up / agent; after text pilot | Add optional spoken explanations of the same reviewed assessment through a GPT-Live interface. Retain the visible source findings, exact payload preview, assessment binding, allowed next observations and local text fallback. Use DeviceCare Development's own backend/project configuration. Verify microphone consent, captions/text alternative, interruption and stop behavior, session limits, usage accounting and spoken faithfulness. Voice does not authorize repairs, imply screen/camera observation or add diagnostic collectors. |
+
+**API project separation, accepted November 21:** the owner will create a
+separate **DTO Chat** project for website assistants, briefing questions/audio,
+servicing guidance and learning experiences. The website may explain the
+published DeviceCare documentation; actual device-assessment and spoken
+explanation requests remain owned here and use **DeviceCare Development**.
+Shared components must retain separate credentials, access and usage accounting.
+DTO-DC-022.08 follows the working text pilot and the existing Work-renewal gate.
 
 **First working milestone:** one completed memory/system-drive assessment can
 be previewed and explicitly submitted to the authenticated backend, return a

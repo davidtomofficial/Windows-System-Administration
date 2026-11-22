@@ -34,10 +34,17 @@ the existing component TODO; this is separate from usage check-ins.
 API account setup complete with project **DeviceCare Development** and authorizes
 implementing the working explanation system and its TODO after ChatGPT Work
 usage renews. The [component continuation checklist](../Scripts/DeviceCare/TODO.md#working-system-continuation-authorized-november-21-2026)
-is the authority for DTO-DC-022.01–07: refresh source, verify account/hosting,
+is the authority for DTO-DC-022.01–08: refresh source, verify account/hosting,
 implement the authenticated backend, integrate the explicit explanation action,
 evaluate actual responses, perform an attended Windows 11 pilot, and deliver
 verified instructions/build/evidence. Do not create a parallel master backlog.
+
+The owner also accepted an optional spoken explanation follow-up under
+DTO-DC-022.08 after the text pilot. Actual diagnostic/voice requests keep the
+DeviceCare Development project configuration. The separately planned DTO Chat
+API project owns the website assistant, briefing, servicing-guide and learning
+features; public descriptions of DeviceCare do not grant access to its private
+assessment data or provider credential.
 
 Implementation is waiting for a current Work reset timestamp; no exact restart
 is scheduled from this record. Account/project creation does not independently
