@@ -1,0 +1,46 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "summary": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 600
+    },
+    "findings": {
+      "type": "array",
+      "minItems": 2,
+      "maxItems": 2,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "enum": ["memory", "system-disk"]
+          },
+          "state": {
+            "type": "string",
+            "enum": ["Observed", "Review", "Unknown"]
+          },
+          "explanation": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 900
+          },
+          "next_check_id": {
+            "type": "string",
+            "enum": [
+              "inspect_memory_workload",
+              "review_storage_usage",
+              "retry_observation",
+              "observe_if_symptoms"
+            ]
+          }
+        },
+        "required": ["id", "state", "explanation", "next_check_id"]
+      }
+    }
+  },
+  "required": ["summary", "findings"]
+}

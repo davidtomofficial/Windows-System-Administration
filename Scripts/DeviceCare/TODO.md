@@ -41,3 +41,13 @@ Latest verified source/test and limitation summary: [continuation progress](../.
 - [ ] **DTO-DC-021 / P1 — Required periodic check-in for future permission-licensed builds.** Implement the shared DTO-WSA-042–046 requirements with disclosed authorized enrollment, minimal aggregate usage, a verified owner-controlled receiver, receipt/retention controls and safe offline behavior. Current code has no check-in or usage telemetry. Existing license grants remain unaffected.
 
 [Shared implementation contract](../../Docs/USAGE-CHECK-IN.md) · [Repository continuation TODO](../../Docs/REPOSITORY-REVIEW-TODO.md)
+
+## Assessment explanations — November 21, 2026
+
+| ID | Status | Acceptance and next action |
+|---|---|---|
+| DTO-DC-022 | Development candidate; live AI integration open | Optional local explanation and offline report section for the two implemented findings; projected, inspectable input; offline Responses request builder; input-bound response validation and local fallback. Original collector and report source preserved. Verify source/test evidence for this candidate, then connect an explicitly selected authenticated backend, confirm API project/model/budget, test real model outputs on reviewed fictional cases and validate the application flow. No live AI request, telemetry, maintenance, deployment or production acceptance is established. |
+
+[Explanation scope, examples, contract and next steps](docs/EXPLANATIONS.md).
+This adds the user-selected API workstream without changing the ownership or status
+of the existing maintenance, native UI and check-in tasks.

@@ -6,7 +6,11 @@ FILES = ('README.md','TODO.md','.gitignore','LICENSE.md','brand/product.json','d
          'tests/Run-Checks.ps1','tests/test_package.py','tools/package.py',
          'src/Presentation.ps1','brand/report.html','brand/dto-header-monogram.svg','brand/ASSET-PROVENANCE.md',
          'docs/PROOF-PACKAGE.md','examples/Invoke-SyntheticProof.ps1',
-         'examples/synthetic-snapshots.json','examples/expected-summary.json')
+         'examples/synthetic-snapshots.json','examples/expected-summary.json',
+         'src/DeviceCare.Explanations.psm1','src/Explanation.ps1','src/ExplanationPresentation.ps1',
+         'docs/EXPLANATIONS.md','tests/Run-ExplanationChecks.ps1',
+         'ai/prepare_request.py','ai/explanation.schema.json','ai/instructions.txt',
+         'tests/test_explanation_request.py')
 STAMP=(2026,11,5,0,0,0)
 
 def digest(data):return hashlib.sha256(data).hexdigest()

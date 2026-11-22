@@ -12,6 +12,27 @@ Local OS, memory and system-drive observations; threshold-based `Observed`, `Rev
 
 No cleanup, repair, service change, app/Windows update, malware scan, enrollment, reboot or overall device-health certification is implemented. Full native desktop migration and actual Windows 11 acceptance remain open.
 
+## Explain the findings
+
+The optional [explanation module](docs/EXPLANATIONS.md) adds **What these results
+mean** to the offline report: a plain-language summary, an explanation of each
+memory/disk finding and a suggested next observation. Its local explanation works
+without an API account. A minimal model-input projection, offline OpenAI request
+builder and response validator prepare the separate AI integration. A live backend
+and actual model-quality testing remain open; this candidate makes no AI requests.
+
+```powershell
+Import-Module .\src\DeviceCare.psm1 -Force
+Import-Module .\src\DeviceCare.Explanations.psm1 -Force
+$assessment = Get-DTODeviceCareFindings -Snapshot (Get-DTODeviceCareSnapshot)
+Get-DTODeviceCareExplanation -Assessment $assessment
+$html = ConvertTo-DTODeviceCareExplainedHtml -Assessment $assessment
+```
+
+The original collector, finding rules and report commands remain available. The
+explanation preserves original states, including threshold-rounding boundaries
+and Unknown evidence. [Contract, fictional example and remaining work](docs/EXPLANATIONS.md).
+
 ## Authorized development use
 
 Use Windows PowerShell 5.1 under normal organizational script policy:
@@ -39,14 +60,16 @@ exact source, run and remaining acceptance limits.
 
 ```powershell
 .\tests\Run-Checks.ps1
+.\tests\Run-ExplanationChecks.ps1
 # Disposable or expressly authorized Windows host only:
 .\tests\Run-Checks.ps1 -Native
 python .\tests\test_package.py
+python .\tests\test_explanation_request.py
 python .\tools\package.py --output DTO-DeviceCare-0.2.0.zip
 python .\tools\package.py --verify DTO-DeviceCare-0.2.0.zip
 ```
 
-Twenty allowlisted source files, including LICENSE.md and the developer proof package, plus MANIFEST.json are packaged. The source package is not an installer; hashes are not publisher signatures. Python is needed for packaging checks, not for the observation script.
+Only explicitly allowlisted source files, including LICENSE.md, the explanation candidate and the developer proof package, plus MANIFEST.json are packaged. The source package is not an installer; hashes are not publisher signatures. Python is needed for packaging and the optional offline API-request builder, not for the observation script or local explanation.
 
 ## Migration, branding and check-ins
 

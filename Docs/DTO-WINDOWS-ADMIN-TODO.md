@@ -10,7 +10,7 @@ Navigation refreshed November 6, 2026. Use the integrated `main` tree and the co
 |---|---|---|
 | Windows workstreams | [DTO-WSA-001–040](DTO-WINDOWS-ADMIN-WORKSTREAMS.md) | Original workstream record preserved byte-for-byte. Its pre-integration branch observations are superseded only by the migration record below. |
 | Repository migration, licenses and check-ins | [DTO-WSA-041–048 and DTO-GH review tasks](REPOSITORY-REVIEW-TODO.md) | Active continuation; distinguishes implemented source from unimplemented services. |
-| DeviceCare | [DTO-DC-001–020](../Scripts/DeviceCare/TODO.md) and DTO-DC-021 in the shared review TODO | Read-only 0.2.0 preview; full desktop, maintenance and check-ins remain unaccepted. |
+| DeviceCare | [DTO-DC-001–022](../Scripts/DeviceCare/TODO.md) and DTO-DC-021 in the shared review TODO | Read-only 0.2.0 preview; optional explanation candidate under DC-022. Full desktop, live AI integration, maintenance and check-ins remain unaccepted. |
 | Imaging | [DTO-IMG-001–013](../Scripts/Imaging-Provisioning/TODO.md) and DTO-IMG-014 in the shared review TODO | Read-only 0.2.0 preview now staged alongside DeviceCare; original branch retained. |
 | Technician Launchpad | [DTO-LP-001–022](../Launchpad/TODO.md) and DTO-LP-023 in the shared review TODO | Planning validator and shared result contract; no executable task buttons or live component adapters. |
 | A+ acceptance | [Repository quality contract](REPOSITORY-A-PLUS.md) | No grade awarded; manual and operational evidence remain open. |
@@ -18,6 +18,17 @@ Navigation refreshed November 6, 2026. Use the integrated `main` tree and the co
 [Before/after migration map](REPOSITORY-MIGRATION.md) · [Reviewer guide](REVIEWER-GUIDE.md) · [Work-agent continuation](WORK-AGENT-HANDOFF.md).
 
 The shared check-in requirement is now recorded for all three programs. It is not a deployed collector or an implemented runtime requirement. Do not close it from a policy file or a source archive alone.
+
+## DTO-DC-022 continuation: assessment explanations, November 21
+
+The user selected DeviceCare's scan explanation as the current API feature focus.
+The [bounded explanation candidate](../Scripts/DeviceCare/docs/EXPLANATIONS.md)
+adds locally generated explanations, an offline report section, minimal projected
+model input, a Responses request builder and validation for a supplied model
+result. Its first scope is the two existing memory/system-drive findings.
+Original observation/finding/report runtime bytes remain preserved. Live API
+connection, model-quality evaluation and application acceptance stay open under
+the existing component TODO; this is separate from usage check-ins.
 
 ## DTO-WSA-015 continuation: profile inventory, November 6
 

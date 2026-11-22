@@ -32,11 +32,19 @@ jobs:
       - name: PowerShell 7 contracts
         shell: pwsh
         run: '& ./Scripts/DeviceCare/tests/Run-Checks.ps1'
+      - name: Explanation contracts on Windows PowerShell 5.1
+        shell: powershell
+        run: '& ./Scripts/DeviceCare/tests/Run-ExplanationChecks.ps1'
+      - name: Explanation contracts on PowerShell 7
+        shell: pwsh
+        run: '& ./Scripts/DeviceCare/tests/Run-ExplanationChecks.ps1'
       - name: Python packaging and forbidden-file checks
         shell: pwsh
         run: |
           python ./Scripts/DeviceCare/tests/test_package.py
           if ($LASTEXITCODE -ne 0) { throw 'packaging tests failed' }
+          python ./Scripts/DeviceCare/tests/test_explanation_request.py
+          if ($LASTEXITCODE -ne 0) { throw 'explanation request tests failed' }
       - name: Launchpad planning contract only
         shell: pwsh
         run: |

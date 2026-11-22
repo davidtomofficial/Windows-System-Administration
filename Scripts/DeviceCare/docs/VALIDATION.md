@@ -1,5 +1,9 @@
 # Validation — DTO DeviceCare 0.2.0 continuation
 
+## DTO-DC-022 explanation candidate — November 21, 2026
+
+The optional explanation module has a separate [local verification checkpoint](EXPLANATIONS.md#local-verification-checkpoint): 140 explanation checks on Linux PowerShell 7.7.0, 20 Python API-request tests, the existing component/proof/package checks, and four actual PowerShell-to-Python input-envelope checks. Original collector, finding and report runtime bytes remain unchanged. These results establish local behavior and request preparation; live model output, backend operation, Windows PowerShell 5.1 and attended Windows 11 need their own results. Refer to the draft PR's actual Windows workflow result for any later runtime verification.
+
 ## Verified prior baseline
 
 Commit `3f62035b67293e937eb1b693433e1cec16b8f710`, Actions run `42141845609`: 49 Windows PowerShell 5.1 checks including native read-only observations, 44 PowerShell 7 checks, nine Python packaging tests. Those results belong to 0.1.0 only.
