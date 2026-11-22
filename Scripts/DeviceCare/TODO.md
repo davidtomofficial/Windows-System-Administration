@@ -46,8 +46,51 @@ Latest verified source/test and limitation summary: [continuation progress](../.
 
 | ID | Status | Acceptance and next action |
 |---|---|---|
-| DTO-DC-022 | Development candidate; live AI integration open | Optional local explanation and offline report section for the two implemented findings; projected, inspectable input; offline Responses request builder; input-bound response validation and local fallback. Original collector and report source preserved. Verify source/test evidence for this candidate, then connect an explicitly selected authenticated backend, confirm API project/model/budget, test real model outputs on reviewed fictional cases and validate the application flow. No live AI request, telemetry, maintenance, deployment or production acceptance is established. |
+| DTO-DC-022 | Development candidate; working-system continuation authorized after Work renewal | Optional local explanation and offline report section for the two implemented findings; projected, inspectable input; offline Responses request builder; input-bound response validation and local fallback. Owner reports API account setup complete with project **DeviceCare Development**. Complete the phased continuation below after the Work allowance renews. Original collector and report source remain preserved. Live API, hosted operation and attended acceptance are still open. |
 
 [Explanation scope, examples, contract and next steps](docs/EXPLANATIONS.md).
 This adds the user-selected API workstream without changing the ownership or status
 of the existing maintenance, native UI and check-in tasks.
+
+### Working-system continuation authorized November 21, 2026
+
+The owner reports that API account setup is complete and the **DeviceCare
+Development** project exists. The owner explicitly requested development and
+implementation of a working explanation system alongside DeviceCare, including
+this project's TODO, **once ChatGPT Work usage renews**. This reactivates the
+bounded DTO-DC-022 implementation after that condition; it does not restart
+unrelated deferred work. API credit renewal and Work allowance renewal are
+different conditions.
+
+**Current execution state: waiting for the Work reset time.** No current reset
+date/time or account-meter access has been verified. Record the owner's current
+reset timestamp, including timezone, before scheduling the implementation run;
+do not infer it from an older weekly reset or the API billing cycle. The run must
+perform the implementation, not merely remind the owner. Do not use purchased
+Work credits or a banked reset to bypass this waiting instruction.
+
+Account/project creation is owner-reported complete. The actual API grant,
+available model, effective usage limit, backend credentials and hosting
+configuration remain to be verified. The previously suggested $25 pilot limit
+is a proposal, not evidence of a configured or approved spending limit.
+
+| Subtask | State / owner | Work and acceptance |
+|---|---|---|
+| DTO-DC-022.01 | Ready after renewal / agent | Refresh main, PR #27, the explanation branch, current CI and active work claims. Preserve the tested candidate, resolve concurrent changes, and record exact starting revisions. Existing evidence: head `5f69695aff27214990466a66bb4e431a4eb00626` passed [Windows integration run 44969324995](https://github.com/davidtomofficial/Windows-System-Administration/actions/runs/44969324995); this is not evidence for later runtime changes. |
+| DTO-DC-022.02 | Prerequisites to verify / agent; owner for private settings | Verify DeviceCare Development, usable credits, model access and effective spending controls. Inspect the existing approved WordPress/backend delivery path and prepare protected server secret configuration. Establish owner-only pilot access and a known HTTPS destination. Ask for only an unresolved owner action after the configuration is concrete; never request a key in chat or commit it. |
+| DTO-DC-022.03 | Pending / agent | Implement the authenticated backend and Responses API integration. Validate the minimal input, bound request/output size, enforce quotas, preserve the originating input hash in application state, and validate completed responses. Handle timeout, cancellation, refusal, incomplete output and service errors. Unauthorized or malformed requests must fail safely without exposing secrets or raw provider errors. |
+| DTO-DC-022.04 | Pending / agent | Integrate an explicit **Explain these results** action with an exact data/destination preview, loading, cancellation, retry and current-assessment binding. Display labeled AI text beside the original evidence. Preserve the complete local explanation when the API is unavailable or its response is rejected; do not upload automatically or perform repairs. Keep the exported report's offline behavior. |
+| DTO-DC-022.05 | Pending / agent | Evaluate real model outputs on reviewed fictional Observed, Review, Unknown, equality and rounding cases. Exercise authentication, malformed/stale output and unavailable-service paths. Record model identity, explanation quality, latency and metered usage. Run relevant Windows PowerShell/Python regressions against the exact source; do not accept schema validity as proof that prose is correct. |
+| DTO-DC-022.06 | Pending / agent and owner | Prepare a short attended personal Windows 11 test. Verify the assessment-to-explanation flow, readability, keyboard behavior and failure recovery. Record what was actually observed and retain separate broader UI/accessibility and installer acceptance tasks. |
+| DTO-DC-022.07 | Pending / agent | Deliver the working private pilot with setup/run instructions, a reproducible review build, exact source/test evidence and the required preservation receipt. Update this TODO, the repository master index and existing project records. List concrete owner-only blockers separately; keep public/production release acceptance open until its own gates pass. |
+
+**First working milestone:** one completed memory/system-drive assessment can
+be previewed and explicitly submitted to the authenticated backend, return a
+validated explanation, and display it in DeviceCare while retaining the local
+fallback. Demonstrate both successful and failed requests with evidence.
+
+Additional diagnostics require their reviewed collectors and evidence contracts.
+DTO-DC-021 retains usage-check-in ownership; DTO-DC-010/019 retain the broader
+native UI scope; DTO-DC-013/015 retain installer, distribution and release
+acceptance. Use the existing protected preservation workflow and keep private
+account details, credentials and real diagnostic reports out of public records.
