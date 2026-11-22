@@ -71,13 +71,33 @@ Work credits or a banked reset to bypass this waiting instruction.
 
 Account/project creation is owner-reported complete. The actual API grant,
 available model, effective usage limit, backend credentials and hosting
-configuration remain to be verified. The previously suggested $25 pilot limit
-is a proposal, not evidence of a configured or approved spending limit.
+configuration remain to be verified.
+
+**Budget/access direction, November 22, 2026 (America/Los_Angeles):** the owner
+approved **USD 25 per month for DeviceCare Development** and separately
+**USD 25 per month for DTO Chat**, or **USD 50 per month allocated across the
+two projects**. These are usage ceilings, not spending targets or forecasts.
+Count pilot/evaluation requests and any later enabled voice usage against the
+relevant project's ceiling even when credits cover the charge; credits do not
+increase the allowance. The exact monthly reset boundary and timezone remain
+to be configured and verified. Approval of the amount does not establish
+configured enforcement: verify effective provider controls and a server-side
+monthly cutoff before enabling requests.
+
+The owner reports no customers and expects little website usage. Retain the
+small text-first pilot, separate project credentials/accounting and complete
+local fallback. The owner expects model access "as soon as possible, likely
+this week sometime" as of November 22; exact access timing remains unverified
+and is not a delivery deadline. Confirm access in DeviceCare Development when
+available. Model access does not establish ChatGPT Work renewal, which remains
+an independent prerequisite. This checkpoint allocates only the two existing
+projects and does not activate or allocate a DTP or Stephanie assistant.
+No runtime, API billing setting or live submission is changed by this update.
 
 | Subtask | State / owner | Work and acceptance |
 |---|---|---|
 | DTO-DC-022.01 | Ready after renewal / agent | Refresh main, PR #27, the explanation branch, current CI and active work claims. Preserve the tested candidate, resolve concurrent changes, and record exact starting revisions. Existing evidence: head `5f69695aff27214990466a66bb4e431a4eb00626` passed [Windows integration run 44969324995](https://github.com/davidtomofficial/Windows-System-Administration/actions/runs/44969324995); this is not evidence for later runtime changes. |
-| DTO-DC-022.02 | Prerequisites to verify / agent; owner for private settings | Verify DeviceCare Development, usable credits, model access and effective spending controls. Inspect the existing approved WordPress/backend delivery path and prepare protected server secret configuration. Establish owner-only pilot access and a known HTTPS destination. Ask for only an unresolved owner action after the configuration is concrete; never request a key in chat or commit it. |
+| DTO-DC-022.02 | Prerequisites to verify / agent; owner for private settings | Verify DeviceCare Development, usable credits, model access, the owner-approved USD 25/month usage ceiling, effective provider controls and server-side monthly cutoff. Record the reset boundary/timezone and verify enforcement before enablement. Inspect the existing approved WordPress/backend delivery path and prepare protected server secret configuration. Establish owner-only pilot access and a known HTTPS destination. Ask for only an unresolved owner action after the configuration is concrete; never request a key in chat or commit it. |
 | DTO-DC-022.03 | Pending / agent | Implement the authenticated backend and Responses API integration. Validate the minimal input, bound request/output size, enforce quotas, preserve the originating input hash in application state, and validate completed responses. Handle timeout, cancellation, refusal, incomplete output and service errors. Unauthorized or malformed requests must fail safely without exposing secrets or raw provider errors. |
 | DTO-DC-022.04 | Pending / agent | Integrate an explicit **Explain these results** action with an exact data/destination preview, loading, cancellation, retry and current-assessment binding. Display labeled AI text beside the original evidence. Preserve the complete local explanation when the API is unavailable or its response is rejected; do not upload automatically or perform repairs. Keep the exported report's offline behavior. |
 | DTO-DC-022.05 | Pending / agent | Evaluate real model outputs on reviewed fictional Observed, Review, Unknown, equality and rounding cases. Exercise authentication, malformed/stale output and unavailable-service paths. Record model identity, explanation quality, latency and metered usage. Run relevant Windows PowerShell/Python regressions against the exact source; do not accept schema validity as proof that prose is correct. |

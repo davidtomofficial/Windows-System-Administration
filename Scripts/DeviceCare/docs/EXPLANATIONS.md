@@ -239,7 +239,13 @@ inspect its actual source SHA and result before treating that scope as verified.
 
 ## Acceptance still open
 
-- Verify the receiving API project, available model and approved usage budget.
+- Verify the receiving API project, available model and enforcement of the
+  owner-approved USD 25/month usage ceiling recorded November 22, 2026 in
+  [the component TODO](../TODO.md). Credits do not increase that ceiling.
+  Configure and verify effective provider controls, a server-side monthly
+  cutoff and the reset boundary/timezone before live enablement. The owner's
+  expectation of model access "this week" is not verified availability and
+  does not satisfy the separate Work-renewal condition.
 - Select and configure the authenticated backend through the existing website
   delivery process; no destination is presumed by this candidate.
 - Evaluate actual model outputs on a small fixed set of reviewed fictional cases.
