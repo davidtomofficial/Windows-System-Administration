@@ -43,6 +43,34 @@ The offline report uses a normal readable section. The future application can
 provide an **Explain these results** control which previews the selected data and
 requests an explanation. The current HTML has no JavaScript or network control.
 
+## Communication style
+
+**Owner direction accepted November 21, 2026 (America/Los_Angeles):** DeviceCare
+retains a dry, factual, information-focused personality. DTO Chat's quicker,
+wittier website personality is a separate profile.
+
+Lead with the recorded observation, explain its meaning and uncertainty, then
+identify the supported next observation or maintenance option. Use concise,
+plain technical language. Omit banter, promotional wording, jokes and dramatic
+diagnoses. Explain unfamiliar terms when they matter to the next decision.
+
+For example, given a fictional memory Review finding above its threshold:
+
+> Memory use exceeded the configured review threshold at the observation time.
+> This result does not identify the cause. Review memory usage in Task Manager
+> while the symptoms are occurring.
+
+The same factual style should govern future log discussion, maintenance-option
+explanations and spoken follow-ups. Those subjects require their own implemented
+collectors, evidence and action permissions. The current explanation input still
+contains only memory use and system-drive free space; this profile does not add
+log collection, diagnose a cause or authorize maintenance.
+
+This update records the communication requirement. Applying and evaluating it
+in the live response flow remains part of DTO-DC-022.03 through DTO-DC-022.06;
+spoken delivery follows DTO-DC-022.08. Preserve the existing evidence contract,
+finding states, output schema and local fallback when refining the instructions.
+
 ## Use locally
 
 From the component directory, under the normal PowerShell execution policy:

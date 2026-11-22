@@ -93,6 +93,14 @@ explanation requests remain owned here and use **DeviceCare Development**.
 Shared components must retain separate credentials, access and usage accounting.
 DTO-DC-022.08 follows the working text pilot and the existing Work-renewal gate.
 
+**Communication style, accepted November 21:** DeviceCare remains dry, factual
+and information-focused. Lead with observations, explain uncertainty, then give
+supported next checks or maintenance options. Apply the
+[communication profile](docs/EXPLANATIONS.md#communication-style) to text and
+future voice; DTO Chat's recruiter-style wit stays in its own project. Future
+log discussion requires its own implemented evidence collection. This records
+the style requirement without expanding the current two-finding input scope.
+
 **First working milestone:** one completed memory/system-drive assessment can
 be previewed and explicitly submitted to the authenticated backend, return a
 validated explanation, and display it in DeviceCare while retaining the local
