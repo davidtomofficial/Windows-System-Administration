@@ -183,4 +183,40 @@ $response=Response $assessment; $response.InputSha256='0'*64
 $rejectedHtml=ConvertTo-DTODeviceCareExplainedHtml -Assessment $assessment -AiResponse $response
 Check ($rejectedHtml.Contains('Local') -and $rejectedHtml.Contains('Show structured evidence')) 'rejected response report retains local explanation and evidence'
 
+foreach ($id in @('observed','review','unknown','threshold-equality','rounding-edge','configured-thresholds')) {
+    $assessment=Assessment $id
+    $before=$assessment | ConvertTo-Json -Depth 8 -Compress
+    $originalHtml=ConvertTo-DTODeviceCareHtml -Assessment $assessment
+    $explainedHtml=ConvertTo-DTODeviceCareExplainedHtml -Assessment $assessment
+    $evidencePattern='(?s)<details><summary>Show structured evidence</summary>.*?</details>'
+    Check ([regex]::Match($explainedHtml,$evidencePattern).Value -ceq
+        [regex]::Match($originalHtml,$evidencePattern).Value) ($id + ' explained report preserves original evidence')
+    Check (($assessment | ConvertTo-Json -Depth 8 -Compress) -ceq $before) ($id + ' report leaves source unchanged')
+}
+
+# A script-valued field must be refused without evaluating its getter, including
+# finding prose that is not part of the smaller model-input projection.
+foreach ($field in @('SchemaVersion','Explanation','Observed','MaximumMemoryUsedPercent')) {
+    $assessment=Assessment 'review'
+    $target=if ($field -ceq 'SchemaVersion') { $assessment }
+        elseif ($field -ceq 'MaximumMemoryUsedPercent') { $assessment.Thresholds }
+        else { $assessment.Findings[0] }
+    $getterSentinel=@{Called=$false}
+    $getter={ $getterSentinel.Called=$true; throw 'Getter must not run' }.GetNewClosure()
+    $target.PSObject.Properties.Remove($field)
+    $target | Add-Member -MemberType ScriptProperty -Name $field -Value $getter
+    Refuses { ConvertTo-DTODeviceCareExplainedHtml -Assessment $assessment } 'DTO.InvalidExplanationInput.Record' ($field + ' report rejects script property')
+    Check (-not $getterSentinel.Called) ($field + ' rejected before getter executes')
+}
+
+$assessment=Assessment 'unknown'
+$getterSentinel=@{Called=$false}
+$getter={ $getterSentinel.Called=$true; throw 'Getter must not run' }.GetNewClosure()
+$assessment.Findings[0].PSObject.Properties.Remove('Observed')
+$assessment.Findings[0] | Add-Member -MemberType ScriptProperty -Name Observed -Value $getter
+$assessment | Add-Member -MemberType ScriptProperty -Name PrivateAccount -Value $getter
+$unknownHtml=ConvertTo-DTODeviceCareExplainedHtml -Assessment $assessment
+Check (-not $getterSentinel.Called) 'unknown measurements and unselected fields are never evaluated'
+Check ($unknownHtml.Contains('Not available') -and $unknownHtml.Contains('Local explanation')) 'unknown report still uses the local fallback'
+
 Write-Output ('DTO_DEVICECARE_EXPLANATION_CHECKS_PASSED=' + $script:passed + '; PS=' + $PSVersionTable.PSVersion.ToString())

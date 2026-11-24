@@ -4,9 +4,46 @@ function ConvertTo-DTODeviceCareExplainedHtml {
     [CmdletBinding()]
     param([Parameter(Mandatory)]$Assessment, $AiResponse)
 
-    # The original renderer validates and presents the original assessment.
-    $html = ConvertTo-DTODeviceCareHtml -Assessment $Assessment
-    $parameters = @{ Assessment = $Assessment }
+    # Validate before the legacy renderer reads caller-owned objects. Its property
+    # accessor predates this module's NoteProperty-only input contract.
+    $request = New-DTODeviceCareExplanationRequest -Assessment $Assessment
+    $record = $request.InputJson | ConvertFrom-Json
+    $sourceFindings = Get-DTOExplanationProperty $Assessment 'Findings'
+    $reportFindings = New-Object 'System.Collections.Generic.List[object]'
+    foreach ($finding in $record.findings) {
+        $source = @($sourceFindings | Where-Object {
+            (Get-DTOExplanationProperty $_ 'Id') -ceq $finding.id
+        })[0]
+        $reportFindings.Add([pscustomobject]@{
+            Id = $finding.id
+            State = $finding.state
+            # Original finding prose is local report evidence, never model input.
+            Explanation = Get-DTOExplanationProperty $source 'Explanation'
+            Observed = $finding.observed
+            Units = $finding.units
+        })
+    }
+    # Keep the accepted original string: newer ConvertFrom-Json versions may
+    # convert its parsed representation into a DateTime automatically.
+    $observedAt = if ($null -ne $record.observed_at_utc) {
+        Get-DTOExplanationProperty $Assessment 'CollectedAtUtc'
+    } else { $null }
+    $reportAssessment = [pscustomobject]@{
+        SchemaVersion = 1
+        Product = 'DeviceCare'
+        AssessmentType = 'ReadOnlyRecommendations'
+        RulesVersion = 'dto-0.2'
+        MaintenanceAuthorized = $false
+        CollectedAtUtc = $observedAt
+        Thresholds = [pscustomobject]@{
+            MaximumMemoryUsedPercent = $record.findings[0].threshold
+            MinimumDiskFreeGiB = $record.findings[1].threshold
+        }
+        Findings = @($reportFindings.ToArray())
+    }
+    # The original renderer sees only fresh, selected NoteProperty records.
+    $html = ConvertTo-DTODeviceCareHtml -Assessment $reportAssessment
+    $parameters = @{ Assessment = $reportAssessment }
     if ($PSBoundParameters.ContainsKey('AiResponse')) { $parameters.AiResponse = $AiResponse }
     $explanation = Get-DTODeviceCareExplanation @parameters
     $sourceLabel = if ($explanation.Source -ceq 'AI') { 'AI explanation' } else { 'Local explanation' }

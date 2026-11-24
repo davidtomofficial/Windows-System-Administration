@@ -10,7 +10,7 @@ Navigation refreshed November 6, 2026. Use the integrated `main` tree and the co
 |---|---|---|
 | Windows workstreams | [DTO-WSA-001–040](DTO-WINDOWS-ADMIN-WORKSTREAMS.md) | Original workstream record preserved byte-for-byte. Its pre-integration branch observations are superseded only by the migration record below. |
 | Repository migration, licenses and check-ins | [DTO-WSA-041–048 and DTO-GH review tasks](REPOSITORY-REVIEW-TODO.md) | Active continuation; distinguishes implemented source from unimplemented services. |
-| DeviceCare | [DTO-DC-001–022](../Scripts/DeviceCare/TODO.md) and DTO-DC-021 in the shared review TODO | Read-only 0.2.0 preview; optional explanation candidate under DC-022. Working-system continuation authorized after Work renewal; API project creation is owner-reported complete. Full desktop, live AI operation, maintenance and check-ins remain unaccepted. |
+| DeviceCare | [DTO-DC-001–022](../Scripts/DeviceCare/TODO.md) and DTO-DC-021 in the shared review TODO | Read-only 0.2.0 preview; optional explanation candidate under DC-022. Bounded improvements resumed at the owner's November 24 direction: safe explained rendering and strict package verification. Full desktop, live AI operation, maintenance and check-ins remain unaccepted. |
 | Imaging | [DTO-IMG-001–013](../Scripts/Imaging-Provisioning/TODO.md) and DTO-IMG-014 in the shared review TODO | Read-only 0.2.0 preview now staged alongside DeviceCare; original branch retained. |
 | Technician Launchpad | [DTO-LP-001–022](../Launchpad/TODO.md) and DTO-LP-023 in the shared review TODO | Planning validator and shared result contract; no executable task buttons or live component adapters. |
 | A+ acceptance | [Repository quality contract](REPOSITORY-A-PLUS.md) | No grade awarded; manual and operational evidence remain open. |
@@ -46,12 +46,17 @@ API project owns the website assistant, briefing, servicing-guide and learning
 features; public descriptions of DeviceCare do not grant access to its private
 assessment data or provider credential.
 
-Implementation is waiting for a current Work reset timestamp; no exact restart
-is scheduled from this record. Account/project creation does not independently
-verify credits, model access, spending controls or secure backend configuration.
-The requested outcome is a working private assessment-to-explanation flow with
-local fallback, not just a scheduled reminder. The authorization is specific to
-DTO-DC-022 and preserves unrelated priorities and acceptance states.
+**November 24 continuation:** the owner's newer instruction to identify,
+optimize and continue DeviceCare resumes the bounded development work. The
+explained renderer now validates and projects selected data before invoking the
+preserved original renderer. Source packages reject ambiguous manifest metadata
+and nonregular archive members, and avoid a redundant decompression pass.
+[Current validation](../Scripts/DeviceCare/docs/VALIDATION.md#november-24-report-and-package-hardening)
+records the actual source and tests. Private native performance/redaction work
+has a separate source-280 checkpoint; it is not imported into this public preview.
+Account/project creation does not verify credits, model access, the USD 25/month
+cutoff or secure backend configuration. The working private API flow and
+attended Windows 11 acceptance remain open.
 
 ## DTO-WSA-015 continuation: profile inventory, November 6
 

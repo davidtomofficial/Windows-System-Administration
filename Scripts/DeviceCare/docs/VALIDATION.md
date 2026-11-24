@@ -1,5 +1,34 @@
 # Validation — DTO DeviceCare 0.2.0 continuation
 
+## November 24 report and package hardening
+
+Based on draft PR #27 head `bfe5df1223b0bd93099c2961a174de8e96e32b69`.
+The explained renderer validates selected fields and passes fresh data-only
+records to the preserved original renderer. A selected ScriptProperty is refused
+without invoking its getter; unknown measurements and unselected fields remain
+unread. All six fictional assessment cases retain their original structured
+evidence and leave the source assessment unchanged.
+
+Package verification rejects duplicate JSON properties, Boolean/floating schema
+versions, invalid byte counts, unknown fields, malformed hashes and nonregular
+ZIP members. It reads each member once for CRC, size and hash verification rather
+than decompressing the archive twice. No elapsed-time improvement is claimed.
+
+Local verification on Linux with PowerShell 7.7.0 and Python:
+
+| Suite | Result |
+| --- | --- |
+| Explanation and report checks | 162 passed; previously 140 |
+| Original DeviceCare checks | 97 passed, native collection disabled |
+| Package checks | 21 Python tests passed; previously 12 |
+| API request checks | 20 unchanged Python tests passed |
+| Source preservation | `DeviceCare.psm1`, `Presentation.ps1` and the report template unchanged |
+
+These are suite totals, not additive counts of unique acceptance scenarios.
+Windows CI for this new source is recorded in draft PR #27 when completed.
+Attended Windows 11, native UI/accessibility, live model behavior, backend access,
+spending enforcement and installer acceptance remain open.
+
 ## DTO-DC-022 explanation candidate — November 21, 2026
 
 The optional explanation module has a separate [local verification checkpoint](EXPLANATIONS.md#local-verification-checkpoint): 140 explanation checks on Linux PowerShell 7.7.0, 20 Python API-request tests, the existing component/proof/package checks, and four actual PowerShell-to-Python input-envelope checks. Original collector, finding and report runtime bytes remain unchanged. These results establish local behavior and request preparation; live model output, backend operation, Windows PowerShell 5.1 and attended Windows 11 need their own results. Refer to the draft PR's actual Windows workflow result for any later runtime verification.

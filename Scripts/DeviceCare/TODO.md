@@ -27,7 +27,7 @@
 | ID | Status | Acceptance and next action |
 |---|---|---|
 | DTO-DC-016 | Complete (boundary regression scope) | Compare raw disk/memory values before display rounding. Twelve isolated below/equal/above cases cover default and configured thresholds, identical rounded displays and recorded effective thresholds. November 6 Windows run 42281513012 passed 98 WinPS 5.1/native and 93 PowerShell 7 checks; [exact source, cases and limits](docs/VALIDATION.md#dto-dc-016-boundary-regression-verification). Runtime bytes are unchanged; Windows 11 and operational acceptance remain separate. |
-| DTO-DC-017 | Implemented candidate | Reject non-Boolean mutation flags; project only known report fields; encode text; refuse malformed or duplicate findings and tampered artwork. Treat this as in-process presentation, not an authenticated saved-report parser. |
+| DTO-DC-017 | Implemented candidate; November 24 hardening verified locally | Reject non-Boolean mutation flags; project known report fields; encode text; refuse malformed findings and tampered artwork. The optional explained renderer now validates selected data before any legacy getter access. Package verification rejects ambiguous manifest types/duplicates and nonregular ZIP entries. [Dated verification](docs/VALIDATION.md#november-24-report-and-package-hardening). Treat this as in-process presentation, not an authenticated saved-report parser. |
 | DTO-DC-018 | Planned | Shared action/result interface for launchpad and DeviceCare without duplicating maintenance logic; keep diagnostics, planning and authorized changes distinct. |
 | DTO-DC-019 | Planned | Native DTO dashboard: original logo/icon variants, assessment worker, cancellation, keyboard/focus, high contrast and 100–200% DPI. Preserve incomplete evidence and test real user actions. |
 | DTO-DC-020 | Planned | Reconcile service/software observations and management authority before maintenance; retain missing, stale, unavailable and conflicting evidence separately. |
@@ -46,7 +46,7 @@ Latest verified source/test and limitation summary: [continuation progress](../.
 
 | ID | Status | Acceptance and next action |
 |---|---|---|
-| DTO-DC-022 | Development candidate; working-system continuation authorized after Work renewal | Optional local explanation and offline report section for the two implemented findings; projected, inspectable input; offline Responses request builder; input-bound response validation and local fallback. Owner reports API account setup complete with project **DeviceCare Development**. Complete the phased continuation below after the Work allowance renews. Original collector and report source remain preserved. Live API, hosted operation and attended acceptance are still open. |
+| DTO-DC-022 | Development candidate; bounded continuation resumed November 24 | Optional local explanation and offline report section for the two implemented findings; projected input; offline Responses request builder; input-bound response validation and local fallback. The owner's November 24 instruction resumes improvement work. Safe explained rendering and stricter package verification are implemented. Original collector and report source remain preserved. Live API, hosted operation and attended acceptance are still open. |
 
 [Explanation scope, examples, contract and next steps](docs/EXPLANATIONS.md).
 This adds the user-selected API workstream without changing the ownership or status
@@ -62,12 +62,12 @@ bounded DTO-DC-022 implementation after that condition; it does not restart
 unrelated deferred work. API credit renewal and Work allowance renewal are
 different conditions.
 
-**Current execution state: waiting for the Work reset time.** No current reset
-date/time or account-meter access has been verified. Record the owner's current
-reset timestamp, including timezone, before scheduling the implementation run;
-do not infer it from an older weekly reset or the API billing cycle. The run must
-perform the implementation, not merely remind the owner. Do not use purchased
-Work credits or a banked reset to bypass this waiting instruction.
+**Current execution state: bounded development resumed November 24, 2026.** The
+owner instructed: "Identify anything you can work on and optimize on the
+DeviceCare system then continue working on it." That newer direction authorizes
+the current code, tests and checkpoint work without waiting for an account reset
+timestamp. No Work reset, purchased credit use or account-meter state is inferred.
+Live API access, spending enforcement and attended acceptance remain separate.
 
 Account/project creation is owner-reported complete. The actual API grant,
 available model, effective usage limit, backend credentials and hosting
@@ -96,7 +96,7 @@ No runtime, API billing setting or live submission is changed by this update.
 
 | Subtask | State / owner | Work and acceptance |
 |---|---|---|
-| DTO-DC-022.01 | Ready after renewal / agent | Refresh main, PR #27, the explanation branch, current CI and active work claims. Preserve the tested candidate, resolve concurrent changes, and record exact starting revisions. Existing evidence: head `5f69695aff27214990466a66bb4e431a4eb00626` passed [Windows integration run 44969324995](https://github.com/davidtomofficial/Windows-System-Administration/actions/runs/44969324995); this is not evidence for later runtime changes. |
+| DTO-DC-022.01 | Source refresh completed for November 24 continuation / agent | Refreshed public main `8cd015fb7dbd9118f00393e35ae33e6adc96118e` and draft PR #27 head `bfe5df1223b0bd93099c2961a174de8e96e32b69`; forked an isolated checkout and preserved original runtime bytes. New validation is recorded in [the dated checkpoint](docs/VALIDATION.md#november-24-report-and-package-hardening). Earlier CI does not establish acceptance of later source. |
 | DTO-DC-022.02 | Prerequisites to verify / agent; owner for private settings | Verify DeviceCare Development, usable credits, model access, the owner-approved USD 25/month usage ceiling, effective provider controls and server-side monthly cutoff. Record the reset boundary/timezone and verify enforcement before enablement. Inspect the existing approved WordPress/backend delivery path and prepare protected server secret configuration. Establish owner-only pilot access and a known HTTPS destination. Ask for only an unresolved owner action after the configuration is concrete; never request a key in chat or commit it. |
 | DTO-DC-022.03 | Pending / agent | Implement the authenticated backend and Responses API integration. Validate the minimal input, bound request/output size, enforce quotas, preserve the originating input hash in application state, and validate completed responses. Handle timeout, cancellation, refusal, incomplete output and service errors. Unauthorized or malformed requests must fail safely without exposing secrets or raw provider errors. |
 | DTO-DC-022.04 | Pending / agent | Integrate an explicit **Explain these results** action with an exact data/destination preview, loading, cancellation, retry and current-assessment binding. Display labeled AI text beside the original evidence. Preserve the complete local explanation when the API is unavailable or its response is rejected; do not upload automatically or perform repairs. Keep the exported report's offline behavior. |
