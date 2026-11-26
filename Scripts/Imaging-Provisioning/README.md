@@ -12,18 +12,18 @@ Covered original software requires explicit written permission unless an applica
 
 [Open the DTO download page](https://davidtomofficial.com/windows-imaging-provisioning/#technician-download)
 
-Use the 0.9.70 owner preview from the Windows 11 Pro x64 desktop after reset and initial Windows setup. This owner preview is unsigned. On a PC using `RemoteSigned`, Windows PowerShell blocks the downloaded dashboard until DTO signs its scripts. If startup is blocked, contact DTO for an approved build.
+Start at the Windows 11 Pro x64 desktop after reset and initial Windows setup. The private DTO page lists the current Azure-signed build for owner testing, with a Windows installer and portable ZIP. Staff rollout still needs the live DTO access service, managed publisher trust and a full post-reset trial.
 
-1. **Sign in and download.** On the DTO website, sign in and open the private technician page. Use the Microsoft account with SharePoint access and choose the **Windows installer (MSI)** or the **portable ZIP**. The current preview is available only to the project owner.
-2. **Check the file.** In Windows PowerShell, run `Get-FileHash -Algorithm SHA256 -LiteralPath 'C:\Downloads\your-download.msi'` using the path to your MSI or ZIP. Continue only if the result matches the SHA-256 beside that file on the private page.
-3. **Install and open.** Open the verified MSI and choose **Install**. From Start, open **DTO Imaging & Provisioning (Owner Preview)**. For the portable ZIP, use **Extract All** and open `technician\Start-Imaging.cmd`. Choose **Standard standalone → Check this PC**, review the findings, then choose **Check and prepare files**.
-4. **Review the result.** For publisher downloads, the footer shows how many files passed verification. In a linked handoff, choose **Open original preparation** to find the saved installer in the readable report. Use **Set up prepared apps** for the attended Chrome or VLC check. Open **Activity → Open readable report** for the inventory and results. Finish with **Verify before handoff → Check handoff readiness**. Keep the detailed report on the PC. **Save status summary** creates a smaller file for approved sharing.
+1. **Sign in and download.** Sign in on the DTO website and open the private technician page. Use the Microsoft account authorized for the SharePoint library. Choose the signed **Windows installer (MSI)** or **portable ZIP**.
+2. **Verify the file.** In Windows PowerShell, run `Get-FileHash -Algorithm SHA256 -LiteralPath 'C:\Downloads\your-download.msi'` with your actual file path. Compare the result with the SHA-256 shown beside that download.
+3. **Open the signed build.** After installing the MSI, open **DTO Imaging & Provisioning (Staff)** from Start. For the ZIP, choose **Extract All** and open `Start-StaffImaging.cmd`. The launcher requires managed DTO access settings and a DTO work account. If startup is blocked, ask the DTO administrator to check the managed settings and publisher trust.
+4. **Check the PC and prepare files.** Select the released **Standard standalone** profile and choose **Check this PC**. Use **Check and prepare files** for online downloads. If you already have the approved installers, keep the same profile and catalog and choose **Prepare local files**.
+5. **Set up apps and check handoff.** Use **Set up prepared apps** to review each attended Chrome or VLC installation. When available, use **Check handoff from this preparation** to connect the review to the files you prepared. Resolve the required findings and verify the approved apps as the intended Windows user before recording signoff.
+6. **Keep the report and verify delivery.** Open the readable report in **Activity** and keep it on the PC. Use **Save status summary** for the limited JSON. If it says **Saved for sync**, check the approved private SharePoint folder. If sync stalls, use the copy-path action in Activity and upload the saved JSON to that folder. Download a separate copy and choose **Verify received summary**.
 
-Before replacing an earlier MSI, check **Activity**. Let any running task finish. To resume an interrupted file preparation, use its original package and profile before upgrading. If you have already upgraded, keep the earlier report and start a new preparation with the new package. To replace the MSI, close the dashboard and uninstall **DTO Imaging & Provisioning (Owner Preview)** from **Settings → Apps → Installed apps** before opening the new MSI. Existing run reports stay on the PC.
+To resume interrupted file preparation, use the package and profile that started it. The private page retains earlier signed downloads and the earlier unsigned owner preview for those runs. The unsigned preview uses **DTO Imaging & Provisioning (Owner Preview)** from Start or `technician\Start-Imaging.cmd` from its ZIP. Before replacing an MSI, let active tasks finish, close the dashboard, and remove the earlier version in **Settings → Apps → Installed apps**.
 
-Azure Artifact Signing awaits approval. Staff enrollment and sign-in at launch are pending. Downloaded copies currently have no second sign-in. [Staff access TODO](TODO.md#technician-sign-in-before-staff-release)
-
-For installers in a synced SharePoint or OneDrive folder, choose **Always keep on this device** in File Explorer. Once the files are available, choose **Prepare local files** in DTO and select the folder. The progress line shows the active installer, its phase and the bytes copied. The private download page and `technician\USER-GUIDE.txt` cover publisher downloads, retries and handoff review.
+For installers in a synced SharePoint or OneDrive folder, choose **Always keep on this device** in File Explorer. Once the files are available, choose **Prepare local files** in DTO and select the folder. The private download page and `technician\USER-GUIDE.txt` cover publisher downloads, retries and handoff review.
 
 ### Which software can I set up?
 
@@ -31,7 +31,8 @@ For installers in a synced SharePoint or OneDrive folder, choose **Always keep o
 
 | Enterprise selection | How to finish setup |
 |---|---|
-| Chrome Enterprise and VLC | Prepare verifies the catalog installers. Review the saved installation actions for the active profile. |
+| Google Chrome Enterprise | Keep an existing installation for review. If Chrome is missing, a new client profile uses Google’s verified Windows x64 publisher download. To adopt this source in an earlier profile, save a new revision. |
+| VLC | Prepare verifies the pinned installer. Use the saved readiness check before starting attended setup. |
 | Firefox ESR, 7-Zip, Teams, OneDrive, LibreOffice, Zoom Workplace, Notepad++, Audacity, OBS Studio, Visual Studio Code, Bitwarden and TeamViewer | Online preparation can retrieve publisher files. Open the preparation report for their locations and follow the publisher’s deployment instructions. For a portable per-user 7-Zip command line, use **Tools**. |
 | Microsoft 365 Apps and Adobe Creative Cloud | Open the publisher page and use the client’s authorized account and deployment package. |
 | Edge PDF reader, five runtime dependencies and three manufacturer tools | Check the existing PDF capability, application dependencies and device manufacturer before deciding what the PC needs. |
