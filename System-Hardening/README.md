@@ -7,3 +7,7 @@ The existing GitHub firewall text files require content review before classifica
 Proposed future folders are `Policies/` and `Exceptions/`. A policy should record its owner, applicable platform/profile, settings, deployment mechanism, validation method, and review date. An exception should record scope, justification, owner, compensating measures where needed, and review/expiration.
 
 Scripts that inspect or apply settings live in `Scripts/`. Test the combined effect of local policies, Group Policy, Intune, and application management before designating a configuration as ready for deployment.
+
+## Retained historical references
+
+The unchanged inbound and outbound firewall reference files retain their applicable historical GPLv3 grant. See the [scoped license notice](LICENSING.md) and [repository licensing record](../Docs/LICENSING.md).
