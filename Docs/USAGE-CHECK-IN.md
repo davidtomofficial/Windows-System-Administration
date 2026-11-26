@@ -1,6 +1,8 @@
-# Required periodic usage check-in — implementation contract
+# Required periodic usage check-in — draft technical requirements
 
 **Owner requirement recorded November 5, 2026. Current runtime status: NOT IMPLEMENTED.**
+
+This is a technical planning specification, not an adopted EULA, executed customer agreement or evidence of end-user assent. The owner-required future feature remains planned. Cadence, entitlement renewal, offline grace, retention and applicable agreement terms remain unapproved; the proposed values below and in the disabled example are not a binding schedule. See [agreement status](AGREEMENT-STATUS.md).
 
 The owner requests periodic check-ins so usage frequency of DeviceCare, Imaging and the eventual technician launchpad can be tracked. This is a new future-licensed-build requirement. Earlier local-only/no-telemetry descriptions accurately describe the existing previews; they are not evidence of a deployed check-in service. No endpoint, credentials, background service, scheduled task or network call is activated by this document.
 
@@ -20,7 +22,7 @@ Each approved offline/air-gapped arrangement needs a separately issued, scoped o
 
 Allow only product ID, version, random installation/enrollment ID, coarse UTC usage window, bounded aggregate counters, schema/terms version and receipt/deduplication identifiers. Do not use serials, MACs, hardware fingerprints, usernames, emails, domain/tenant names, paths, file contents, installed-app inventories, recovery keys or raw diagnostic logs. Counts may still be identifying when tied to enrollment. The receiving host sees transport metadata such as IP addresses; configure access-log minimization, access control and retention rather than claiming complete anonymity.
 
-Show the exact destination, purposes, required fields, frequency and applicable agreement before enrollment; authorized operators must be able to inspect the pending payload. Refusing required enrollment means no permission-licensed operational use, not silent collection. Any optional diagnostic submission needs its own explicit selection. Employer/customer systems require their own authorization; the owner's development request is not end-user or organizational consent.
+Show the exact destination, purposes, required fields, frequency and applicable agreement before enrollment; authorized operators must be able to inspect the pending payload. For a future build whose separately approved agreement requires enrollment, declining enrollment would prevent the operational use covered by that condition; this document imposes no current runtime gate or permission to collect silently. Any optional diagnostic submission needs its own explicit selection. Employer/customer systems require their own authorization; the owner's development request is not end-user or organizational consent.
 
 ## Collector/client requirements
 
@@ -34,4 +36,4 @@ Enrollment disclosure/assent; accepted and refused entitlement; fresh/stale rece
 
 ## Task cross-reference
 
-DTO-GH-001: repository license/discovery. DTO-WSA-041..048: implementation backlog in [repository review TODO](REPOSITORY-REVIEW-TODO.md). DTO-DC-021, DTO-IMG-014 and DTO-LP-023 link each product to the common check-in contract. No runtime gate is claimed by adding these rows.
+DTO-GH-001: repository license/discovery. DTO-WSA-041..048: implementation backlog in [repository review TODO](REPOSITORY-REVIEW-TODO.md). DTO-DC-021, DTO-IMG-014 and DTO-LP-023 link each product to the common check-in requirements. No runtime gate is claimed by adding these rows.
