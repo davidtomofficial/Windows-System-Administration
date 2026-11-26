@@ -5,7 +5,8 @@ ROOT=Path(__file__).resolve().parents[1]
 EXACT=(
  'README.md','LICENSE.md','CONTRIBUTING.md','Config/check-in.policy.example.json',
  'Docs/REVIEWER-GUIDE.md','Docs/REPOSITORY-MIGRATION.md','Docs/LICENSING.md',
- 'Docs/USAGE-CHECK-IN.md','Docs/REPOSITORY-A-PLUS.md','Docs/REPOSITORY-REVIEW-TODO.md',
+ 'Docs/USAGE-CHECK-IN.md','Docs/AGREEMENT-STATUS.md','LICENSES/GPL-3.0.txt',
+ 'System-Hardening/LICENSING.md','Docs/REPOSITORY-A-PLUS.md','Docs/REPOSITORY-REVIEW-TODO.md',
  'Docs/WORK-AGENT-HANDOFF.md','Docs/DTO-WINDOWS-ADMIN-TODO.md',
  'Docs/WORKSTATION-COMPARISON.md',
  'Docs/DTO-WINDOWS-ADMIN-WORKSTREAMS.md','Docs/DTO-WINDOWS-ADMIN-PROGRESS.md',
