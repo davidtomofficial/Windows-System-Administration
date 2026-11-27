@@ -23,7 +23,7 @@ Start at the Windows 11 Pro x64 desktop after reset and initial Windows setup. T
 
 To resume interrupted file preparation, use the package and profile that started it. The private page retains earlier signed downloads and the earlier unsigned owner preview for those runs. The unsigned preview uses **DTO Imaging & Provisioning (Owner Preview)** from Start or `technician\Start-Imaging.cmd` from its ZIP. Before replacing an MSI, let active tasks finish, close the dashboard, and remove the earlier version in **Settings → Apps → Installed apps**.
 
-In 0.9.194 and later, use **Activity → Open report by run ID** to reopen a supported interruption report after it drops out of recent tasks. You can also select **Open report from summary** and choose a verified local JSON copy. The full report stays on the PC.
+In 0.9.194 and later, use **Activity → Open report by run ID** to reopen a supported interruption report after it drops out of recent tasks. In 0.9.224 and later, **Activity → Open report from summary** verifies a separately downloaded JSON, saves the verification receipt and opens the original report on the same PC.
 
 For installers in a synced SharePoint or OneDrive folder, choose **Always keep on this device** in File Explorer. Once the files are available, choose **Prepare local files** in DTO and select the folder. If Activity says a staged installer lost its Windows security zone, keep the original report and start a new preparation with an approved copy. The private download page and `technician\USER-GUIDE.txt` cover publisher downloads, retries and handoff review.
 
