@@ -43,6 +43,9 @@ jobs:
       - name: DeviceCare Windows PowerShell 5.1 native and contracts
         shell: powershell
         run: '& ./Scripts/DeviceCare/tests/Run-Checks.ps1 -Native'
+      - name: DeviceCare explanation contracts on Windows PowerShell 5.1
+        shell: powershell
+        run: '& ./Scripts/DeviceCare/tests/Run-ExplanationChecks.ps1'
       - name: Imaging Windows PowerShell 5.1 native and contracts
         shell: powershell
         run: '& ./Scripts/Imaging-Provisioning/tests/Run-Checks.ps1 -Native'
@@ -53,6 +56,7 @@ jobs:
         shell: pwsh
         run: |
           & ./Scripts/DeviceCare/tests/Run-Checks.ps1
+          & ./Scripts/DeviceCare/tests/Run-ExplanationChecks.ps1
           & ./Scripts/Imaging-Provisioning/tests/Run-Checks.ps1
           & ./Scripts/Imaging-Provisioning/tests/Run-ProfileChecks.ps1
       - name: Shared result contract on Windows PowerShell 5.1
@@ -77,6 +81,8 @@ jobs:
         run: |
           python ./Scripts/DeviceCare/tests/test_package.py
           if ($LASTEXITCODE -ne 0) { throw 'DeviceCare packaging failed' }
+          python ./Scripts/DeviceCare/tests/test_explanation_request.py
+          if ($LASTEXITCODE -ne 0) { throw 'DeviceCare explanation request checks failed' }
           python ./Scripts/Imaging-Provisioning/tests/test_package.py
           if ($LASTEXITCODE -ne 0) { throw 'Imaging packaging failed' }
           python ./Launchpad/test_plan.py

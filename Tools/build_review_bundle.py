@@ -28,6 +28,11 @@ PRODUCTS={
  'Launchpad':('README.md','DESIGN.md','TODO.md','catalog.plan.json','plan.py','test_plan.py','result_contract.py','test_result_contract.py'),
 }
 FILES=tuple(sorted(EXACT+tuple(f'{prefix}/{name}' for prefix,names in PRODUCTS.items() for name in names)))
+FILES=tuple(sorted(FILES+tuple('Scripts/DeviceCare/'+name for name in (
+ 'src/DeviceCare.Explanations.psm1','src/Explanation.ps1','src/ExplanationPresentation.ps1',
+ 'docs/EXPLANATIONS.md','tests/Run-ExplanationChecks.ps1',
+ 'ai/prepare_request.py','ai/explanation.schema.json','ai/instructions.txt',
+ 'tests/test_explanation_request.py'))))
 def digest(data):return hashlib.sha256(data).hexdigest()
 def build(root,commit):
  if not re.fullmatch('[0-9a-f]{40}',commit):raise ValueError('Exact source commit required')
